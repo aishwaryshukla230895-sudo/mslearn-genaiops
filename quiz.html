@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft AI-300 Certification Exam Simulator | GenAIOps Hub</title>
+  <!-- Google Fonts for Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================
+       DESIGN SYSTEM & CSS VARIABLES (Dark Mode Premium)
+       ========================================== */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #070b14 0%, #0c1322 50%, #111a2e 100%);
+      --card-bg: rgba(18, 27, 46, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(0, 242, 254, 0.4);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-cyan: #00f2fe;
+      --accent-indigo: #4facfe;
+      --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      --success-green: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.15);
+      --error-red: #ef4444;
+      --error-bg: rgba(239, 68, 68, 0.15);
+      --warning-amber: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.15);
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Outfit', sans-serif;
+      --font-code: 'Fira Code', monospace;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Background Glow Elements */
+    .bg-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: 0;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .glow-1 { top: -150px; left: -150px; background: #00f2fe; }
+    .glow-2 { bottom: -150px; right: -150px; background: #4facfe; }
+
+    /* Layout Container */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header & Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+      color: #090d16;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+    }
+
+    .logo-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo-subtitle {
+      font-size: 12px;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Mode Selector & Control Panel */
+    .controls-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .mode-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-secondary);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px; /* Touch friendly */
+    }
+
+    .mode-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      border-color: var(--text-secondary);
+    }
+
+    .mode-btn.active {
+      background: var(--accent-gradient);
+      color: #090d16;
+      border-color: transparent;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    }
+
+    /* Filter & Search Bar */
+    .filter-section {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .select-wrapper, .search-wrapper {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+
+    select, input[type="text"] {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: var(--font-main);
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+      min-height: 48px; /* Android touch friendly */
+      outline: none;
+    }
+
+    select:focus, input[type="text"]:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.15);
+    }
+
+    select option {
+      background: #0f172a;
+      color: #f8fafc;
+    }
+
+    /* Dashboard Stats & Timer */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 4px;
+    }
+
+    .stat-value.highlight {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Timer specific styling */
+    .timer-card {
+      border-color: rgba(0, 242, 254, 0.3);
+      background: rgba(0, 242, 254, 0.05);
+    }
+    .timer-card.warning {
+      border-color: var(--error-red);
+      background: rgba(239, 68, 68, 0.1);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    /* Main Question Area */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      margin-bottom: 24px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-domain {
+      background: rgba(0, 242, 254, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+    }
+
+    .badge-type {
+      background: rgba(79, 172, 254, 0.15);
+      color: #93c5fd;
+      border: 1px solid rgba(79, 172, 254, 0.3);
+    }
+
+    .question-number {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    /* Scenario & Code Box */
+    .scenario-box {
+      background: rgba(9, 13, 22, 0.8);
+      border-left: 4px solid var(--accent-cyan);
+      padding: 18px 20px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 22px;
+      font-size: 15px;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .question-text {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    /* Options List */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 2px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: var(--text-primary);
+      font-size: 15px;
+      font-family: var(--font-main);
+      text-align: left;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      position: relative;
+      min-height: 54px; /* Android thumb friendly */
+    }
+
+    .option-btn:hover:not(.disabled) {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(0, 242, 254, 0.4);
+      transform: translateX(4px);
+    }
+
+    .option-indicator {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      border: 2px solid var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: var(--transition);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* Option States */
+    .option-btn.selected {
+      background: rgba(0, 242, 254, 0.1);
+      border-color: var(--accent-cyan);
+    }
+    .option-btn.selected .option-indicator {
+      background: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      color: #090d16;
+    }
+
+    .option-btn.correct {
+      background: var(--success-bg);
+      border-color: var(--success-green);
+      color: #fff;
+    }
+    .option-btn.correct .option-indicator {
+      background: var(--success-green);
+      border-color: var(--success-green);
+      color: #fff;
+    }
+
+    .option-btn.incorrect {
+      background: var(--error-bg);
+      border-color: var(--error-red);
+      color: #fff;
+    }
+    .option-btn.incorrect .option-indicator {
+      background: var(--error-red);
+      border-color: var(--error-red);
+      color: #fff;
+    }
+
+    .option-btn.disabled {
+      cursor: default;
+    }
+
+    /* Explanation Section */
+    .explanation-box {
+      margin-top: 26px;
+      padding: 22px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--card-border);
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .explanation-header {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .explanation-header.correct-text { color: var(--success-green); }
+    .explanation-header.incorrect-text { color: var(--error-red); }
+
+    .explanation-content {
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* Navigation & Action Footer */
+    .nav-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      min-width: 130px;
+    }
+
+    .btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--text-secondary);
+      transform: translateY(-2px);
+    }
+
+    .btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #090d16;
+      border: none;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(0, 242, 254, 0.3);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      box-shadow: 0 6px 25px rgba(0, 242, 254, 0.5);
+    }
+
+    .btn-warning {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: var(--warning-amber);
+      color: var(--warning-amber);
+    }
+    .btn-warning.bookmarked {
+      background: var(--warning-amber);
+      color: #090d16;
+      font-weight: 700;
+    }
+
+    /* Results Screen / Modal */
+    .results-screen {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      margin-bottom: 40px;
+    }
+
+    .score-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent-cyan) 0%, rgba(255,255,255,0.1) 0%);
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+    }
+
+    .score-inner {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: #0d1424;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-percentage {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+    .score-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+
+    .result-title {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .result-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .badge-pass { background: var(--success-bg); color: var(--success-green); border: 1px solid var(--success-green); }
+    .badge-fail { background: var(--error-bg); color: var(--error-red); border: 1px solid var(--error-red); }
+
+    .domain-bars {
+      margin: 30px 0;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .domain-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .domain-bar-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent-gradient);
+      border-radius: 10px;
+      transition: width 1s ease;
+    }
+
+    /* Mobile Responsive Customizations */
+    @media (max-width: 768px) {
+      .container { padding: 12px; }
+      header { padding: 14px 16px; flex-direction: column; align-items: flex-start; }
+      .controls-bar { width: 100%; justify-content: space-between; }
+      .mode-btn { flex: 1; justify-content: center; font-size: 13px; padding: 10px 12px; }
+      .question-card { padding: 20px; border-radius: 16px; }
+      .question-text { font-size: 18px; }
+      .option-btn { padding: 14px 16px; font-size: 14px; }
+      .nav-footer { flex-direction: column; gap: 12px; }
+      .btn { width: 100%; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Ambient Background Glow -->
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <div class="container">
+    <!-- Header & Mode Selection -->
+    <header>
+      <div class="logo-area">
+        <div class="logo-icon">AI</div>
+        <div>
+          <div class="logo-title">Microsoft AI-300 Exam Simulator</div>
+          <div class="logo-subtitle">GenAIOps & Azure AI Foundry Hub</div>
+        </div>
+      </div>
+      <div class="controls-bar">
+        <button class="mode-btn active" id="btn-mode-practice" onclick="switchMode('practice')">
+          <span>📚 Practice Mode</span>
+        </button>
+        <button class="mode-btn" id="btn-mode-exam" onclick="switchMode('exam')">
+          <span>⏱️ Certification Exam Mode</span>
+        </button>
+        <button class="mode-btn" id="btn-mode-bookmarks" onclick="switchMode('bookmarks')">
+          <span>⭐ Bookmarked (<span id="bookmark-count">0</span>)</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Filter & Keyword Search -->
+    <div class="filter-section" id="filter-section">
+      <div class="select-wrapper">
+        <select id="domain-select" onchange="filterQuestions()">
+          <option value="all">🌐 All Domains (105 Questions)</option>
+          <option value="Domain 1">Domain 1: Azure AI Foundry & Cloud Infrastructure (15 Qs)</option>
+          <option value="Domain 2">Domain 2: GenAI Agent Architecture & SDK Implementation (15 Qs)</option>
+          <option value="Domain 3">Domain 3: Prompt Engineering & Token Economics (15 Qs)</option>
+          <option value="Domain 4">Domain 4: Automated Evaluation & Quality Evaluators (18 Qs)</option>
+          <option value="Domain 5">Domain 5: Safety & Risk Guardrails (12 Qs)</option>
+          <option value="Domain 6">Domain 6: Monitoring, Distributed Tracing & Observability (15 Qs)</option>
+          <option value="Domain 7">Domain 7: CI/CD Automation, KQL Queries & Troubleshooting (15 Qs)</option>
+        </select>
+      </div>
+      <div class="search-wrapper">
+        <input type="text" id="search-input" placeholder="🔍 Search keywords (e.g., KQL, Groundedness, Bicep, OTel)..." oninput="filterQuestions()">
+      </div>
+    </div>
+
+    <!-- Dashboard Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <span class="stat-label">Progress</span>
+        <span class="stat-value"><span id="stat-current">1</span> / <span id="stat-total">105</span></span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Score / Accuracy</span>
+        <span class="stat-value highlight" id="stat-score">0%</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Answered</span>
+        <span class="stat-value" id="stat-answered">0</span>
+      </div>
+      <div class="stat-card timer-card" id="timer-card" style="display: none;">
+        <span class="stat-label">Time Remaining</span>
+        <span class="stat-value highlight" id="stat-timer">120:00</span>
+      </div>
+    </div>
+
+    <!-- Results Screen (Hidden initially) -->
+    <div class="results-screen" id="results-screen">
+      <div class="score-circle" id="score-circle">
+        <div class="score-inner">
+          <span class="score-percentage" id="final-score-text">0%</span>
+          <span class="score-label">Final Score</span>
+        </div>
+      </div>
+      <h2 class="result-title" id="final-status-title">Exam Completed!</h2>
+      <div class="result-badge" id="final-badge">PASS >= 70%</div>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 24px;">
+        The Microsoft AI-300 certification exam requires a passing score of 700/1000 (70%). Below is your domain-by-domain operational performance breakdown:
+      </p>
+      
+      <div class="domain-bars" id="domain-breakdown-container">
+        <!-- Domain bars injected by JS -->
+      </div>
+
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+        <button class="btn btn-primary" onclick="retakeExam()">🔄 Retake Exam</button>
+        <button class="btn" onclick="reviewMissedQuestions()">❌ Review Missed Questions</button>
+      </div>
+    </div>
+
+    <!-- Main Question Card -->
+    <main class="question-card" id="question-card">
+      <div class="question-header">
+        <div class="badge-group">
+          <span class="badge badge-domain" id="q-domain-badge">Domain 1</span>
+          <span class="badge badge-type" id="q-type-badge">Single Choice</span>
+        </div>
+        <span class="question-number">Question <span id="q-id-display">#1</span></span>
+      </div>
+
+      <div class="scenario-box" id="q-scenario">
+        <!-- Scenario text injected here -->
+      </div>
+
+      <h2 class="question-text" id="q-text">
+        <!-- Question title injected here -->
+      </h2>
+
+      <div class="options-grid" id="q-options">
+        <!-- Options injected here -->
+      </div>
+
+      <div class="explanation-box" id="q-explanation">
+        <div class="explanation-header" id="exp-header">
+          <span>💡 Explanation & Operational Best Practice</span>
+        </div>
+        <div class="explanation-content" id="exp-content"></div>
+      </div>
+    </main>
+
+    <!-- Navigation & Footer Actions -->
+    <footer class="nav-footer" id="nav-footer">
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <button class="btn" id="btn-prev" onclick="navigate(-1)">⬅️ Previous</button>
+        <button class="btn" id="btn-next" onclick="navigate(1)">Next ➡️</button>
+      </div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <button class="btn btn-warning" id="btn-bookmark" onclick="toggleBookmark()">⭐ Bookmark</button>
+        <button class="btn btn-primary" id="btn-action" onclick="handlePrimaryAction()">Check Answer</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Include Question Data Libraries -->
+  <script src="quiz_data_p1.js"></script>
+  <script src="quiz_data_p2.js"></script>
+
+  <!-- Interactive Quiz Logic -->
+  <script>
+    // State Management
+    let ALL_QUESTIONS = [];
+    let activeQuestions = [];
+    let currentIndex = 0;
+    let currentMode = 'practice'; // 'practice', 'exam', 'bookmarks'
+    let userAnswers = {}; // { qId: [selectedIndices] }
+    let questionStatus = {}; // { qId: 'correct' | 'incorrect' | 'unanswered' }
+    let bookmarkedIds = new Set(JSON.parse(localStorage.getItem('ai300_bookmarks') || '[]'));
+    let timerInterval = null;
+    let timeRemaining = 7200; // 120 minutes in seconds
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      // Merge libraries
+      const p1 = window.QUIZ_DATA_P1 || [];
+      const p2 = window.QUIZ_DATA_P2 || [];
+      ALL_QUESTIONS = [...p1, ...p2];
+
+      if (ALL_QUESTIONS.length === 0) {
+        document.getElementById('q-scenario').innerHTML = "⚠️ Error loading question libraries. Please ensure quiz_data_p1.js and quiz_data_p2.js are present in the same directory.";
+        return;
+      }
+
+      updateBookmarkCount();
+      filterQuestions();
+    });
+
+    // Mode Switching
+    function switchMode(mode) {
+      currentMode = mode;
+      document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`btn-mode-${mode}`).classList.add('active');
+
+      const filterSection = document.getElementById('filter-section');
+      const timerCard = document.getElementById('timer-card');
+      const resultsScreen = document.getElementById('results-screen');
+      const questionCard = document.getElementById('question-card');
+      const navFooter = document.getElementById('nav-footer');
+
+      resultsScreen.style.display = 'none';
+      questionCard.style.display = 'block';
+      navFooter.style.display = 'flex';
+
+      clearInterval(timerInterval);
+      timerCard.style.display = 'none';
+      timerCard.classList.remove('warning');
+
+      if (mode === 'exam') {
+        filterSection.style.display = 'none';
+        timerCard.style.display = 'flex';
+        startExamTimer();
+        // In exam mode, randomize 100 questions or use all 105
+        activeQuestions = [...ALL_QUESTIONS].sort(() => Math.random() - 0.5);
+        userAnswers = {};
+        questionStatus = {};
+      } else if (mode === 'bookmarks') {
+        filterSection.style.display = 'none';
+        activeQuestions = ALL_QUESTIONS.filter(q => bookmarkedIds.has(q.id));
+        if (activeQuestions.length === 0) {
+          alert("No questions bookmarked yet! Click the ⭐ Bookmark button on any question during Practice Mode to save it here.");
+          switchMode('practice');
+          return;
+        }
+      } else {
+        filterSection.style.display = 'flex';
+        filterQuestions();
+        return;
+      }
+
+      currentIndex = 0;
+      updateStats();
+      renderQuestion();
+    }
+
+    // Filter & Search Logic
+    function filterQuestions() {
+      if (currentMode !== 'practice') return;
+      
+      const domainVal = document.getElementById('domain-select').value;
+      const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
+
+      activeQuestions = ALL_QUESTIONS.filter(q => {
+        const matchDomain = domainVal === 'all' || q.domain.startsWith(domainVal);
+        const matchSearch = !searchVal || 
+          q.scenario.toLowerCase().includes(searchVal) || 
+          q.question.toLowerCase().includes(searchVal) ||
+          q.explanation.toLowerCase().includes(searchVal) ||
+          q.options.some(opt => opt.toLowerCase().includes(searchVal));
+        return matchDomain && matchSearch;
+      });
+
+      currentIndex = 0;
+      updateStats();
+      renderQuestion();
+    }
+
+    // Render Current Question
+    function renderQuestion() {
+      if (activeQuestions.length === 0) {
+        document.getElementById('q-scenario').innerHTML = "No questions match your filter criteria.";
+        document.getElementById('q-text').innerHTML = "";
+        document.getElementById('q-options').innerHTML = "";
+        document.getElementById('q-explanation').style.display = 'none';
+        return;
+      }
+
+      const q = activeQuestions[currentIndex];
+      const selected = userAnswers[q.id] || [];
+      const isAnswered = questionStatus[q.id] !== undefined && questionStatus[q.id] !== 'unanswered';
+
+      // Badges & Headers
+      document.getElementById('q-domain-badge').innerText = q.domain.split(':')[0];
+      document.getElementById('q-type-badge').innerText = q.type === 'multiple' ? '☑️ Select All That Apply' : '⚪ Single Choice';
+      document.getElementById('q-id-display').innerText = `#${q.id}`;
+
+      // Scenario & Text
+      const scenarioEl = document.getElementById('q-scenario');
+      if (q.scenario) {
+        scenarioEl.style.display = 'block';
+        scenarioEl.innerHTML = q.scenario.replace(/\n/g, '<br>');
+      } else {
+        scenarioEl.style.display = 'none';
+      }
+      document.getElementById('q-text').innerHTML = q.question;
+
+      // Bookmark button state
+      const bmBtn = document.getElementById('btn-bookmark');
+      if (bookmarkedIds.has(q.id)) {
+        bmBtn.classList.add('bookmarked');
+        bmBtn.innerHTML = '★ Bookmarked';
+      } else {
+        bmBtn.classList.remove('bookmarked');
+        bmBtn.innerHTML = '☆ Bookmark';
+      }
+
+      // Render Options
+      const optionsContainer = document.getElementById('q-options');
+      optionsContainer.innerHTML = '';
+
+      q.options.forEach((optText, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        const isSelected = selected.includes(index);
+        if (isSelected) btn.classList.add('selected');
+
+        // If practice mode and already answered, highlight correct/incorrect
+        if (currentMode === 'practice' && isAnswered) {
+          btn.classList.add('disabled');
+          if (q.correctAnswer.includes(index)) {
+            btn.classList.add('correct');
+          } else if (isSelected && !q.correctAnswer.includes(index)) {
+            btn.classList.add('incorrect');
+          }
+        }
+
+        const indicator = document.createElement('div');
+        indicator.className = 'option-indicator';
+        indicator.innerText = q.type === 'multiple' ? (isSelected ? '✓' : '') : (isSelected ? '●' : '');
+
+        const textSpan = document.createElement('span');
+        textSpan.innerHTML = optText.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        
+        btn.appendChild(indicator);
+        btn.appendChild(textSpan);
+
+        if (!(currentMode === 'practice' && isAnswered)) {
+          btn.onclick = () => selectOption(index);
+        }
+
+        optionsContainer.appendChild(btn);
+      });
+
+      // Explanation Box
+      const expBox = document.getElementById('q-explanation');
+      if (currentMode === 'practice' && isAnswered) {
+        expBox.style.display = 'block';
+        const isCorrect = questionStatus[q.id] === 'correct';
+        const header = document.getElementById('exp-header');
+        header.className = `explanation-header ${isCorrect ? 'correct-text' : 'incorrect-text'}`;
+        header.innerHTML = isCorrect ? '✅ Correct! Operational Verification:' : '❌ Incorrect. Operational Correction:';
+        document.getElementById('exp-content').innerHTML = q.explanation;
+      } else {
+        expBox.style.display = 'none';
+      }
+
+      // Action Button Label
+      const actionBtn = document.getElementById('btn-action');
+      if (currentMode === 'exam') {
+        if (currentIndex === activeQuestions.length - 1) {
+          actionBtn.innerText = '🏁 Submit Certification Exam';
+          actionBtn.onclick = submitExam;
+        } else {
+          actionBtn.innerText = 'Save & Next ➡️';
+          actionBtn.onclick = () => navigate(1);
+        }
+      } else {
+        actionBtn.innerText = isAnswered ? 'Next Question ➡️' : 'Check Answer';
+        actionBtn.onclick = isAnswered ? () => navigate(1) : checkAnswer;
+      }
+
+      // Nav buttons state
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      document.getElementById('btn-next').disabled = currentIndex === activeQuestions.length - 1;
+
+      updateStats();
+    }
+
+    // Option Selection Logic
+    function selectOption(index) {
+      const q = activeQuestions[currentIndex];
+      let selected = userAnswers[q.id] || [];
+
+      if (q.type === 'single') {
+        selected = [index];
+      } else {
+        if (selected.includes(index)) {
+          selected = selected.filter(i => i !== index);
+        } else {
+          selected.push(index);
+        }
+      }
+
+      userAnswers[q.id] = selected;
+      renderQuestion();
+    }
+
+    // Check Answer (Practice Mode)
+    function checkAnswer() {
+      const q = activeQuestions[currentIndex];
+      const selected = userAnswers[q.id] || [];
+
+      if (selected.length === 0) {
+        alert("Please select an option before checking!");
+        return;
+      }
+
+      // Compare arrays
+      const isCorrect = selected.length === q.correctAnswer.length &&
+        selected.every(val => q.correctAnswer.includes(val));
+
+      questionStatus[q.id] = isCorrect ? 'correct' : 'incorrect';
+      renderQuestion();
+    }
+
+    // Navigation
+    function navigate(direction) {
+      const newIndex = currentIndex + direction;
+      if (newIndex >= 0 && newIndex < activeQuestions.length) {
+        currentIndex = newIndex;
+        renderQuestion();
+      }
+    }
+
+    // Bookmark Toggle
+    function toggleBookmark() {
+      const q = activeQuestions[currentIndex];
+      if (bookmarkedIds.has(q.id)) {
+        bookmarkedIds.delete(q.id);
+      } else {
+        bookmarkedIds.add(q.id);
+      }
+      localStorage.setItem('ai300_bookmarks', JSON.stringify(Array.from(bookmarkedIds)));
+      updateBookmarkCount();
+      renderQuestion();
+    }
+
+    function updateBookmarkCount() {
+      document.getElementById('bookmark-count').innerText = bookmarkedIds.size;
+    }
+
+    // Stats & Progress Updater
+    function updateStats() {
+      document.getElementById('stat-current').innerText = activeQuestions.length > 0 ? currentIndex + 1 : 0;
+      document.getElementById('stat-total').innerText = activeQuestions.length;
+
+      // Calculate accuracy
+      const answeredKeys = Object.keys(questionStatus).filter(k => questionStatus[k] !== 'unanswered');
+      const correctCount = answeredKeys.filter(k => questionStatus[k] === 'correct').length;
+      document.getElementById('stat-answered').innerText = answeredKeys.length;
+
+      if (answeredKeys.length > 0) {
+        const percentage = Math.round((correctCount / answeredKeys.length) * 100);
+        document.getElementById('stat-score').innerText = `${percentage}%`;
+      } else {
+        document.getElementById('stat-score').innerText = '0%';
+      }
+    }
+
+    // Exam Timer
+    function startExamTimer() {
+      timeRemaining = 7200; // 120 mins
+      updateTimerDisplay();
+      timerInterval = setInterval(() => {
+        timeRemaining--;
+        updateTimerDisplay();
+        if (timeRemaining <= 600) { // Under 10 mins warning
+          document.getElementById('timer-card').classList.add('warning');
+        }
+        if (timeRemaining <= 0) {
+          clearInterval(timerInterval);
+          alert("⏱️ Time is up! Submitting your exam automatically.");
+          submitExam();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timeRemaining / 60);
+      const secs = timeRemaining % 60;
+      document.getElementById('stat-timer').innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    // Submit Exam & Show Results
+    function submitExam() {
+      clearInterval(timerInterval);
+
+      // Grade all active questions
+      let totalCorrect = 0;
+      let domainStats = {}; // { DomainName: { total: 0, correct: 0 } }
+
+      activeQuestions.forEach(q => {
+        const domainKey = q.domain.split(':')[0];
+        if (!domainStats[domainKey]) domainStats[domainKey] = { total: 0, correct: 0, label: q.domain };
+        domainStats[domainKey].total++;
+
+        const selected = userAnswers[q.id] || [];
+        const isCorrect = selected.length === q.correctAnswer.length &&
+          selected.every(val => q.correctAnswer.includes(val));
+
+        if (isCorrect) {
+          totalCorrect++;
+          domainStats[domainKey].correct++;
+          questionStatus[q.id] = 'correct';
+        } else {
+          questionStatus[q.id] = 'incorrect';
+        }
+      });
+
+      const percentage = Math.round((totalCorrect / activeQuestions.length) * 100);
+      const isPass = percentage >= 70;
+
+      // Hide questions, show results
+      document.getElementById('question-card').style.display = 'none';
+      document.getElementById('nav-footer').style.display = 'none';
+      document.getElementById('timer-card').style.display = 'none';
+      const resultsScreen = document.getElementById('results-screen');
+      resultsScreen.style.display = 'block';
+
+      // Render Score
+      document.getElementById('final-score-text').innerText = `${percentage}%`;
+      document.getElementById('final-status-title').innerText = isPass ? "🎉 Certification Exam Passed!" : "⚠️ Exam Failed - Needs Review";
+      const badge = document.getElementById('final-badge');
+      badge.className = `result-badge ${isPass ? 'badge-pass' : 'badge-fail'}`;
+      badge.innerText = isPass ? `PASS (${totalCorrect}/${activeQuestions.length})` : `FAIL (${totalCorrect}/${activeQuestions.length} - 70% Required)`;
+
+      // Set conic gradient percentage
+      document.getElementById('score-circle').style.background = `conic-gradient(${isPass ? '#10b981' : '#ef4444'} ${percentage}%, rgba(255,255,255,0.1) 0%)`;
+
+      // Render Domain Breakdown Bars
+      const container = document.getElementById('domain-breakdown-container');
+      container.innerHTML = '';
+
+      Object.values(domainStats).forEach(stat => {
+        const domPct = Math.round((stat.correct / stat.total) * 100);
+        const barItem = document.createElement('div');
+        barItem.className = 'domain-bar-item';
+        barItem.innerHTML = `
+          <div class="domain-bar-header">
+            <span>${stat.label}</span>
+            <span>${stat.correct} / ${stat.total} (${domPct}%)</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: ${domPct}%; background: ${domPct >= 70 ? '#10b981' : (domPct >= 50 ? '#f59e0b' : '#ef4444')};"></div>
+          </div>
+        `;
+        container.appendChild(barItem);
+      });
+    }
+
+    function retakeExam() {
+      switchMode('exam');
+    }
+
+    function reviewMissedQuestions() {
+      activeQuestions = activeQuestions.filter(q => questionStatus[q.id] === 'incorrect');
+      if (activeQuestions.length === 0) {
+        alert("Awesome job! You didn't miss any questions!");
+        return;
+      }
+      currentMode = 'practice';
+      document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-mode-practice').classList.add('active');
+      document.getElementById('results-screen').style.display = 'none';
+      document.getElementById('question-card').style.display = 'block';
+      document.getElementById('nav-footer').style.display = 'flex';
+      currentIndex = 0;
+      updateStats();
+      renderQuestion();
+    }
+  </script>
+</body>
+</html>

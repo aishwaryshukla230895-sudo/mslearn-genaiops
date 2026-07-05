@@ -10,6 +10,15 @@ The following hands-on exercises provide practical experience with GenAI Operati
 
 > **Note**: To complete the exercises, you'll need an Azure subscription with sufficient permissions and quota to provision Azure AI services and deploy Microsoft Foundry workspaces. If you don't have an Azure subscription, you can sign up for an [Azure account](https://azure.microsoft.com/free) with free credits for new users.
 
+## 🎯 Microsoft AI-300 Certification Exam Simulator
+
+Prepare for the **Microsoft AI-300 (Build and Operationalize AI Solutions with Microsoft Azure)** certification with our interactive exam simulator! Featuring **105 comprehensive scenario-based questions** across all 7 domain areas, complete with instant explanations, KQL code snippets, and mobile-friendly Android touch support.
+
+👉 **[Launch Interactive Exam Simulator (Mobile & Desktop)](./quiz.html)**  
+*(Direct Mobile Link: `https://aishwaryshukla230895-sudo.github.io/mslearn-genaiops/quiz.html`)*
+
+---
+
 ## Quickstart exercises
 
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/docs'" %}

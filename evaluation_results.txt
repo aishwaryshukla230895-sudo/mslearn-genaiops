@@ -4,12 +4,14 @@
 
   Eval ID      : eval_f3db4c390ed84d27928ebd17c2ea18b2
   Run ID       : evalrun_ed3abb6f1b9e423883df68b6b5e381a4
-  Total items  : 89
-  Errored items: 0
-  Scored items : 89
+  Total records: 89
 
 Average Scores (1-5 scale, threshold: 3)
-  No scores returned — open Azure AI Foundry portal > Evaluations for details.
+  Intent Resolution: N/A (no scores extracted)
+  Relevance        : N/A (no scores extracted)
+  Groundedness     : N/A (no scores extracted)
 
 Pass Rates (score >= 3)
-  No scores returned.
+  Intent Resolution: N/A
+  Relevance        : N/A
+  Groundedness     : N/A
