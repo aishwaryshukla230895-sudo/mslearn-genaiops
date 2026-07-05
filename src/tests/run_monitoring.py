@@ -58,13 +58,16 @@ chat_client = AzureOpenAI(
 PROMPTS_DIR = Path(__file__).parent.parent / "agents" / "trail_guide_agent" / "prompts"
 TEST_PROMPTS_DIR = Path(__file__).parent / "test-prompts"
 
-# Prompt versions to compare
-VERSIONS = ["v1", "v2", "v3"]
+# Prompt versions to compare (including optional v4 challenge)
+VERSIONS = ["v1", "v2", "v3", "v4_optimized_concise"]
 
 
 def load_prompt(version: str) -> str:
     """Load a prompt version from the prompts directory."""
-    return (PROMPTS_DIR / f"{version}_instructions.txt").read_text().strip()
+    path = PROMPTS_DIR / f"{version}_instructions.txt"
+    if not path.exists():
+        path = PROMPTS_DIR / f"{version}.txt"
+    return path.read_text().strip()
 
 
 def load_test_prompts() -> dict:
