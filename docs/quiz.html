@@ -943,10 +943,10 @@
           (trackVal === 'AI-300' ? q.domain.startsWith('Domain') : q.domain.startsWith(trackVal));
         const matchDomain = domainVal === 'all' || q.domain === domainVal;
         const matchSearch = !searchVal || 
-          q.scenario.toLowerCase().includes(searchVal) || 
-          q.question.toLowerCase().includes(searchVal) ||
-          q.explanation.toLowerCase().includes(searchVal) ||
-          q.options.some(opt => opt.toLowerCase().includes(searchVal));
+          (q.scenario || "").toLowerCase().includes(searchVal) || 
+          (q.question || "").toLowerCase().includes(searchVal) ||
+          (q.explanation || "").toLowerCase().includes(searchVal) ||
+          (q.options || []).some(opt => (opt || "").toLowerCase().includes(searchVal));
         return matchTrack && matchDomain && matchSearch;
       });
 
@@ -976,13 +976,17 @@
 
       // Scenario & Text
       const scenarioEl = document.getElementById('q-scenario');
-      if (q.scenario) {
+      if (q.scenario && q.question) {
         scenarioEl.style.display = 'block';
         scenarioEl.innerHTML = q.scenario.replace(/\n/g, '<br>');
+        document.getElementById('q-text').innerHTML = q.question;
+      } else if (q.scenario && !q.question) {
+        scenarioEl.style.display = 'none';
+        document.getElementById('q-text').innerHTML = q.scenario.replace(/\n/g, '<br>');
       } else {
         scenarioEl.style.display = 'none';
+        document.getElementById('q-text').innerHTML = q.question || "";
       }
-      document.getElementById('q-text').innerHTML = q.question;
 
       // Bookmark button state
       const bmBtn = document.getElementById('btn-bookmark');
