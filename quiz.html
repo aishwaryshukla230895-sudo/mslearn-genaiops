@@ -675,21 +675,28 @@
         <button class="mode-btn" id="btn-mode-bookmarks" onclick="switchMode('bookmarks')">
           <span>⭐ Bookmarked (<span id="bookmark-count">0</span>)</span>
         </button>
+        <button class="mode-btn" id="btn-reset-shuffle" onclick="resetAndShuffle()" style="border-color: rgba(0, 242, 254, 0.4); color: var(--accent-cyan);">
+          <span>🔄 Reset & Shuffle</span>
+        </button>
       </div>
     </header>
 
     <!-- Filter & Keyword Search -->
     <div class="filter-section" id="filter-section">
       <div class="select-wrapper">
+        <select id="track-select" onchange="onTrackChange()">
+          <option value="all">🎯 All Tracks & Repos (605 Questions)</option>
+          <option value="AI-300">Track 1: Microsoft AI-300 Certification Exam (105 Qs)</option>
+          <option value="Track 2">Track 2: Azure ML Core & Web Apps - azmlrepo (100 Qs)</option>
+          <option value="Track 3">Track 3: MLOps CI/CD & Governance - mslearn-mlops (100 Qs)</option>
+          <option value="Track 4">Track 4: ML Pipelines & Components - pipeline-building (100 Qs)</option>
+          <option value="Track 5">Track 5: Responsible AI & Error Analysis - rai-dashboard (100 Qs)</option>
+          <option value="Track 6">Track 6: GenAI Architecture & Prompt Evals - genai_plan (100 Qs)</option>
+        </select>
+      </div>
+      <div class="select-wrapper">
         <select id="domain-select" onchange="filterQuestions()">
-          <option value="all">🌐 All Domains (105 Questions)</option>
-          <option value="Domain 1">Domain 1: Azure AI Foundry & Cloud Infrastructure (15 Qs)</option>
-          <option value="Domain 2">Domain 2: GenAI Agent Architecture & SDK Implementation (15 Qs)</option>
-          <option value="Domain 3">Domain 3: Prompt Engineering & Token Economics (15 Qs)</option>
-          <option value="Domain 4">Domain 4: Automated Evaluation & Quality Evaluators (18 Qs)</option>
-          <option value="Domain 5">Domain 5: Safety & Risk Guardrails (12 Qs)</option>
-          <option value="Domain 6">Domain 6: Monitoring, Distributed Tracing & Observability (15 Qs)</option>
-          <option value="Domain 7">Domain 7: CI/CD Automation, KQL Queries & Troubleshooting (15 Qs)</option>
+          <option value="all">🌐 All Sub-topics / Domains</option>
         </select>
       </div>
       <div class="search-wrapper">
@@ -738,6 +745,7 @@
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
         <button class="btn btn-primary" onclick="retakeExam()">🔄 Retake Exam</button>
         <button class="btn" onclick="reviewMissedQuestions()">❌ Review Missed Questions</button>
+        <button class="btn" onclick="resetAndShuffle(); switchMode('practice');">🔄 Reset Attempt & Shuffle</button>
       </div>
     </div>
 
@@ -787,6 +795,11 @@
   <!-- Include Question Data Libraries -->
   <script src="quiz_data_p1.js"></script>
   <script src="quiz_data_p2.js"></script>
+  <script src="quiz_data_azml.js"></script>
+  <script src="quiz_data_mlops.js"></script>
+  <script src="quiz_data_pipeline.js"></script>
+  <script src="quiz_data_rai.js"></script>
+  <script src="quiz_data_genai.js"></script>
 
   <!-- Interactive Quiz Logic -->
   <script>
@@ -806,16 +819,64 @@
       // Merge libraries
       const p1 = window.QUIZ_DATA_P1 || [];
       const p2 = window.QUIZ_DATA_P2 || [];
-      ALL_QUESTIONS = [...p1, ...p2];
+      const azml = window.QUIZ_DATA_AZML || [];
+      const mlops = window.QUIZ_DATA_MLOPS || [];
+      const pipeline = window.QUIZ_DATA_PIPELINE || [];
+      const rai = window.QUIZ_DATA_RAI || [];
+      const genai = window.QUIZ_DATA_GENAI || [];
+      ALL_QUESTIONS = [...p1, ...p2, ...azml, ...mlops, ...pipeline, ...rai, ...genai];
 
       if (ALL_QUESTIONS.length === 0) {
-        document.getElementById('q-scenario').innerHTML = "⚠️ Error loading question libraries. Please ensure quiz_data_p1.js and quiz_data_p2.js are present in the same directory.";
+        document.getElementById('q-scenario').innerHTML = "⚠️ Error loading question libraries. Please ensure quiz_data_*.js files are present in the same directory.";
         return;
       }
 
       updateBookmarkCount();
-      filterQuestions();
+      onTrackChange();
     });
+
+    // Reset & Shuffle
+    function resetAndShuffle() {
+      if (!confirm("Are you sure you want to reset your attempted questions and shuffle the order?")) {
+        return;
+      }
+      
+      activeQuestions.forEach(q => {
+        delete userAnswers[q.id];
+        delete questionStatus[q.id];
+      });
+      
+      activeQuestions.sort(() => Math.random() - 0.5);
+      currentIndex = 0;
+      
+      document.getElementById('results-screen').style.display = 'none';
+      document.getElementById('question-card').style.display = 'block';
+      document.getElementById('nav-footer').style.display = 'flex';
+      
+      updateStats();
+      renderQuestion();
+    }
+
+    // Track Selection & Domain Population
+    function onTrackChange() {
+      const trackVal = document.getElementById('track-select').value;
+      const domainSelect = document.getElementById('domain-select');
+      domainSelect.innerHTML = '<option value="all">🌐 All Sub-topics / Domains</option>';
+      
+      const matchingQs = ALL_QUESTIONS.filter(q => {
+        return trackVal === 'all' || (trackVal === 'AI-300' ? q.domain.startsWith('Domain') : q.domain.startsWith(trackVal));
+      });
+      
+      const uniqueDomains = [...new Set(matchingQs.map(q => q.domain))];
+      uniqueDomains.forEach(dom => {
+        const opt = document.createElement('option');
+        opt.value = dom;
+        opt.innerText = dom;
+        domainSelect.appendChild(opt);
+      });
+      
+      filterQuestions();
+    }
 
     // Mode Switching
     function switchMode(mode) {
@@ -841,8 +902,13 @@
         filterSection.style.display = 'none';
         timerCard.style.display = 'flex';
         startExamTimer();
-        // In exam mode, randomize 100 questions or use all 105
-        activeQuestions = [...ALL_QUESTIONS].sort(() => Math.random() - 0.5);
+        // In exam mode, take up to 100 randomized questions from the active track/filter (or all)
+        const trackVal = document.getElementById('track-select') ? document.getElementById('track-select').value : 'all';
+        let pool = ALL_QUESTIONS;
+        if (trackVal !== 'all') {
+          pool = ALL_QUESTIONS.filter(q => trackVal === 'AI-300' ? q.domain.startsWith('Domain') : q.domain.startsWith(trackVal));
+        }
+        activeQuestions = [...pool].sort(() => Math.random() - 0.5).slice(0, 100);
         userAnswers = {};
         questionStatus = {};
       } else if (mode === 'bookmarks') {
@@ -868,17 +934,20 @@
     function filterQuestions() {
       if (currentMode !== 'practice') return;
       
+      const trackVal = document.getElementById('track-select').value;
       const domainVal = document.getElementById('domain-select').value;
       const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
 
       activeQuestions = ALL_QUESTIONS.filter(q => {
-        const matchDomain = domainVal === 'all' || q.domain.startsWith(domainVal);
+        const matchTrack = trackVal === 'all' || 
+          (trackVal === 'AI-300' ? q.domain.startsWith('Domain') : q.domain.startsWith(trackVal));
+        const matchDomain = domainVal === 'all' || q.domain === domainVal;
         const matchSearch = !searchVal || 
           q.scenario.toLowerCase().includes(searchVal) || 
           q.question.toLowerCase().includes(searchVal) ||
           q.explanation.toLowerCase().includes(searchVal) ||
           q.options.some(opt => opt.toLowerCase().includes(searchVal));
-        return matchDomain && matchSearch;
+        return matchTrack && matchDomain && matchSearch;
       });
 
       currentIndex = 0;
