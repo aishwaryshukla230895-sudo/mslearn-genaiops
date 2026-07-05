@@ -685,13 +685,21 @@
     <div class="filter-section" id="filter-section">
       <div class="select-wrapper">
         <select id="track-select" onchange="onTrackChange()">
-          <option value="all">🎯 All Tracks & Repos (605 Questions)</option>
+          <option value="all">🎯 All Tracks & Repos (1,805 Questions)</option>
           <option value="AI-300">Track 1: Microsoft AI-300 Certification Exam (105 Qs)</option>
           <option value="Track 2">Track 2: Azure ML Core & Web Apps - azmlrepo (100 Qs)</option>
           <option value="Track 3">Track 3: MLOps CI/CD & Governance - mslearn-mlops (100 Qs)</option>
           <option value="Track 4">Track 4: ML Pipelines & Components - pipeline-building (100 Qs)</option>
           <option value="Track 5">Track 5: Responsible AI & Error Analysis - rai-dashboard (100 Qs)</option>
           <option value="Track 6">Track 6: GenAI Architecture & Prompt Evals - genai_plan (100 Qs)</option>
+        </select>
+      </div>
+      <div class="select-wrapper">
+        <select id="difficulty-select" onchange="filterQuestions()">
+          <option value="all">📊 All Difficulties (1,805 Qs)</option>
+          <option value="Easy">🟢 Easy Level (600 Qs)</option>
+          <option value="Moderate">🟡 Moderate Level (605 Qs)</option>
+          <option value="Hard">🔴 Hard Level (600 Qs)</option>
         </select>
       </div>
       <div class="select-wrapper">
@@ -755,6 +763,7 @@
         <div class="badge-group">
           <span class="badge badge-domain" id="q-domain-badge">Domain 1</span>
           <span class="badge badge-type" id="q-type-badge">Single Choice</span>
+          <span class="badge" id="q-diff-badge" style="background: rgba(0, 242, 254, 0.15); border: 1px solid rgba(0, 242, 254, 0.4); color: var(--accent-cyan);">Moderate Level</span>
         </div>
         <span class="question-number">Question <span id="q-id-display">#1</span></span>
       </div>
@@ -792,7 +801,8 @@
     </footer>
   </div>
 
-  <!-- Include Question Data Libraries -->
+  <!-- Include Question Data Libraries (19 Files / 1,805 Questions) -->
+  <!-- Moderate Tier (605 Qs) -->
   <script src="quiz_data_p1.js"></script>
   <script src="quiz_data_p2.js"></script>
   <script src="quiz_data_azml.js"></script>
@@ -800,6 +810,20 @@
   <script src="quiz_data_pipeline.js"></script>
   <script src="quiz_data_rai.js"></script>
   <script src="quiz_data_genai.js"></script>
+  <!-- Easy Tier (600 Qs) -->
+  <script src="quiz_data_easy_p1.js"></script>
+  <script src="quiz_data_easy_azml.js"></script>
+  <script src="quiz_data_easy_mlops.js"></script>
+  <script src="quiz_data_easy_pipeline.js"></script>
+  <script src="quiz_data_easy_rai.js"></script>
+  <script src="quiz_data_easy_genai.js"></script>
+  <!-- Hard Tier (600 Qs) -->
+  <script src="quiz_data_hard_p1.js"></script>
+  <script src="quiz_data_hard_azml.js"></script>
+  <script src="quiz_data_hard_mlops.js"></script>
+  <script src="quiz_data_hard_pipeline.js"></script>
+  <script src="quiz_data_hard_rai.js"></script>
+  <script src="quiz_data_hard_genai.js"></script>
 
   <!-- Interactive Quiz Logic -->
   <script>
@@ -817,14 +841,33 @@
     // Initialize on load
     window.addEventListener('DOMContentLoaded', () => {
       // Merge libraries
-      const p1 = window.QUIZ_DATA_P1 || [];
-      const p2 = window.QUIZ_DATA_P2 || [];
-      const azml = window.QUIZ_DATA_AZML || [];
-      const mlops = window.QUIZ_DATA_MLOPS || [];
-      const pipeline = window.QUIZ_DATA_PIPELINE || [];
-      const rai = window.QUIZ_DATA_RAI || [];
-      const genai = window.QUIZ_DATA_GENAI || [];
-      ALL_QUESTIONS = [...p1, ...p2, ...azml, ...mlops, ...pipeline, ...rai, ...genai];
+      const p1 = (window.QUIZ_DATA_P1 || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
+      const p2 = (window.QUIZ_DATA_P2 || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
+      const azml = (window.QUIZ_DATA_AZML || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
+      const mlops = (window.QUIZ_DATA_MLOPS || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
+      const pipeline = (window.QUIZ_DATA_PIPELINE || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
+      const rai = (window.QUIZ_DATA_RAI || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
+      const genai = (window.QUIZ_DATA_GENAI || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
+      
+      const ep1 = window.QUIZ_DATA_EASY_P1 || [];
+      const eazml = window.QUIZ_DATA_EASY_AZML || [];
+      const emlops = window.QUIZ_DATA_EASY_MLOPS || [];
+      const epipeline = window.QUIZ_DATA_EASY_PIPELINE || [];
+      const erai = window.QUIZ_DATA_EASY_RAI || [];
+      const egenai = window.QUIZ_DATA_EASY_GENAI || [];
+
+      const hp1 = window.QUIZ_DATA_HARD_P1 || [];
+      const hazml = window.QUIZ_DATA_HARD_AZML || [];
+      const hmlops = window.QUIZ_DATA_HARD_MLOPS || [];
+      const hpipeline = window.QUIZ_DATA_HARD_PIPELINE || [];
+      const hrai = window.QUIZ_DATA_HARD_RAI || [];
+      const hgenai = window.QUIZ_DATA_HARD_GENAI || [];
+
+      ALL_QUESTIONS = [
+        ...p1, ...p2, ...azml, ...mlops, ...pipeline, ...rai, ...genai,
+        ...ep1, ...eazml, ...emlops, ...epipeline, ...erai, ...egenai,
+        ...hp1, ...hazml, ...hmlops, ...hpipeline, ...hrai, ...hgenai
+      ];
 
       if (ALL_QUESTIONS.length === 0) {
         document.getElementById('q-scenario').innerHTML = "⚠️ Error loading question libraries. Please ensure quiz_data_*.js files are present in the same directory.";
@@ -904,9 +947,14 @@
         startExamTimer();
         // In exam mode, take up to 100 randomized questions from the active track/filter (or all)
         const trackVal = document.getElementById('track-select') ? document.getElementById('track-select').value : 'all';
+        const diffVal = document.getElementById('difficulty-select') ? document.getElementById('difficulty-select').value : 'all';
         let pool = ALL_QUESTIONS;
-        if (trackVal !== 'all') {
-          pool = ALL_QUESTIONS.filter(q => trackVal === 'AI-300' ? q.domain.startsWith('Domain') : q.domain.startsWith(trackVal));
+        if (trackVal !== 'all' || diffVal !== 'all') {
+          pool = ALL_QUESTIONS.filter(q => {
+            const matchTrack = trackVal === 'all' || (trackVal === 'AI-300' ? q.domain.startsWith('Domain') : q.domain.startsWith(trackVal));
+            const matchDiff = diffVal === 'all' || (q.difficulty || 'Moderate') === diffVal;
+            return matchTrack && matchDiff;
+          });
         }
         activeQuestions = [...pool].sort(() => Math.random() - 0.5).slice(0, 100);
         userAnswers = {};
@@ -936,18 +984,20 @@
       
       const trackVal = document.getElementById('track-select').value;
       const domainVal = document.getElementById('domain-select').value;
+      const diffVal = document.getElementById('difficulty-select') ? document.getElementById('difficulty-select').value : 'all';
       const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
 
       activeQuestions = ALL_QUESTIONS.filter(q => {
         const matchTrack = trackVal === 'all' || 
           (trackVal === 'AI-300' ? q.domain.startsWith('Domain') : q.domain.startsWith(trackVal));
         const matchDomain = domainVal === 'all' || q.domain === domainVal;
+        const matchDiff = diffVal === 'all' || (q.difficulty || 'Moderate') === diffVal;
         const matchSearch = !searchVal || 
           (q.scenario || "").toLowerCase().includes(searchVal) || 
           (q.question || "").toLowerCase().includes(searchVal) ||
           (q.explanation || "").toLowerCase().includes(searchVal) ||
           (q.options || []).some(opt => (opt || "").toLowerCase().includes(searchVal));
-        return matchTrack && matchDomain && matchSearch;
+        return matchTrack && matchDomain && matchDiff && matchSearch;
       });
 
       currentIndex = 0;
@@ -973,6 +1023,13 @@
       document.getElementById('q-domain-badge').innerText = q.domain.split(':')[0];
       document.getElementById('q-type-badge').innerText = q.type === 'multiple' ? '☑️ Select All That Apply' : '⚪ Single Choice';
       document.getElementById('q-id-display').innerText = `#${q.id}`;
+      const diffBadge = document.getElementById('q-diff-badge');
+      if (diffBadge) {
+        const diff = q.difficulty || 'Moderate';
+        diffBadge.innerText = diff === 'Easy' ? '🟢 Easy Level' : (diff === 'Hard' ? '🔴 Hard Level' : '🟡 Moderate Level');
+        diffBadge.style.color = diff === 'Easy' ? '#10b981' : (diff === 'Hard' ? '#ef4444' : '#f59e0b');
+        diffBadge.style.borderColor = diff === 'Easy' ? 'rgba(16, 185, 129, 0.4)' : (diff === 'Hard' ? 'rgba(239, 68, 68, 0.4)' : 'rgba(245, 158, 11, 0.4)');
+      }
 
       // Scenario & Text
       const scenarioEl = document.getElementById('q-scenario');
