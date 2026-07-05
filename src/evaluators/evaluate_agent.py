@@ -219,6 +219,16 @@ def run_evaluation(eval_object, data_id):
     """
     section("Step 3: Running cloud evaluation")
 
+    try:
+        existing_runs = client.evals.runs.list(eval_id=eval_object.id)
+        for r in existing_runs:
+            if getattr(r, "status", None) in ["in_progress", "queued", "completed"]:
+                print(f"\n✓ Found existing evaluation run: {r.id} (Status: {r.status})")
+                print("  Reusing existing run instead of starting a duplicate...")
+                return r
+    except Exception as e:
+        print(f"  Note: Could not check existing runs ({e}), creating new run...")
+
     eval_run = client.evals.runs.create(
         eval_id=eval_object.id,
         name="trail-guide-baseline-eval",
@@ -253,10 +263,15 @@ def poll_for_results(eval_object, eval_run):
 
     start_time = time.time()
     while True:
-        run = client.evals.runs.retrieve(
-            run_id=eval_run.id,
-            eval_id=eval_object.id,
-        )
+        try:
+            run = client.evals.runs.retrieve(
+                run_id=eval_run.id,
+                eval_id=eval_object.id,
+            )
+        except Exception as net_err:
+            print(f"  [{int(time.time() - start_time)}s] Network glitch ({net_err}), retrying in 10s...", flush=True)
+            time.sleep(10)
+            continue
 
         elapsed = int(time.time() - start_time)
 
@@ -332,10 +347,12 @@ def retrieve_and_display_results(eval_object, run):
     }
 
     for item in scored_items:
-        if hasattr(item, "evaluator_outputs"):
-            for output in item.evaluator_outputs:
-                if output.name in scores and hasattr(output, "score"):
-                    scores[output.name].append(output.score)
+        outputs = getattr(item, "evaluator_outputs", None) or (item.get("evaluator_outputs", []) if isinstance(item, dict) else [])
+        for output in outputs:
+            name = getattr(output, "name", None) if not isinstance(output, dict) else output.get("name")
+            score = getattr(output, "score", None) if not isinstance(output, dict) else output.get("score")
+            if name in scores and score is not None:
+                scores[name].append(float(score))
 
     # --- Build summary text (printed to console and written to file) ---
     # Everything written to `lines` ends up both on screen and in the file,
