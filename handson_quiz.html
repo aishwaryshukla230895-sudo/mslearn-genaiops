@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Microsoft AI-300 Certification Exam Simulator | GenAIOps Hub</title>
+  <title>AI-300 Hands-On Enterprise Implementation & Coding Simulator</title>
   <!-- Google Fonts for Modern Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
     /* ==========================================
-       DESIGN SYSTEM & CSS VARIABLES (Dark Mode Premium)
+       DESIGN SYSTEM & CSS VARIABLES (Obsidian & Emerald-Gold Premium)
        ========================================== */
     :root {
-      --bg-gradient: linear-gradient(135deg, #070b14 0%, #0c1322 50%, #111a2e 100%);
-      --card-bg: rgba(18, 27, 46, 0.75);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-hover-border: rgba(0, 242, 254, 0.4);
+      --bg-gradient: linear-gradient(135deg, #05080e 0%, #09101a 50%, #0d1726 100%);
+      --card-bg: rgba(13, 21, 35, 0.85);
+      --card-border: rgba(16, 185, 129, 0.2);
+      --card-hover-border: rgba(16, 185, 129, 0.5);
       --text-primary: #f8fafc;
       --text-secondary: #94a3b8;
       --text-muted: #64748b;
-      --accent-cyan: #00f2fe;
-      --accent-indigo: #4facfe;
-      --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      --accent-cyan: #10b981;
+      --accent-indigo: #059669;
+      --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
       --success-green: #10b981;
       --success-bg: rgba(16, 185, 129, 0.15);
       --error-red: #ef4444;
@@ -32,7 +32,7 @@
       --warning-bg: rgba(245, 158, 11, 0.15);
       --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-heading: 'Outfit', sans-serif;
-      --font-code: 'Fira Code', monospace;
+      --font-code: 'Fira Code', Consolas, monospace;
       --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -332,7 +332,7 @@
 
     /* Scenario & Code Box */
     .scenario-box {
-      background: rgba(9, 13, 22, 0.8);
+      background: rgba(9, 13, 22, 0.85);
       border-left: 4px solid var(--accent-cyan);
       padding: 18px 20px;
       border-radius: 0 12px 12px 0;
@@ -340,6 +340,16 @@
       font-size: 15px;
       color: #cbd5e1;
       line-height: 1.7;
+    }
+    
+    code, pre {
+      font-family: var(--font-code);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: #34d399;
+      font-size: 0.9em;
+      border: 1px solid rgba(16, 185, 129, 0.2);
     }
 
     .question-text {
@@ -657,26 +667,26 @@
 
   <div class="container">
     <!-- Simulator Switcher Banner -->
-    <div style="background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 12px; padding: 12px 18px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 12px 18px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <span style="font-size: 20px;">🚀</span>
+        <span style="font-size: 20px;">🛠️</span>
         <div>
-          <strong style="color: var(--accent-cyan); font-size: 15px;">New! Hands-On Enterprise Implementation Simulator Available</strong>
-          <div style="font-size: 12px; color: var(--text-secondary);">1,800 implementation-heavy coding questions on Python SDK v2, Bicep IaC, KQL, and CI/CD</div>
+          <strong style="color: #10b981; font-size: 15px;">Hands-On Enterprise Implementation & Coding Simulator</strong>
+          <div style="font-size: 12px; color: var(--text-secondary);">Focusing on Python SDK v2, Bicep IaC, KQL Tracing, and CI/CD Automation</div>
         </div>
       </div>
-      <a href="handson_quiz.html" style="background: var(--accent-gradient); color: #000; font-weight: 700; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; transition: all 0.2s; box-shadow: 0 4px 12px rgba(0,242,254,0.3);" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
-        🛠️ Launch Hands-On Simulator ➡️
+      <a href="quiz.html" style="background: rgba(255, 255, 255, 0.08); color: var(--text-primary); text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+        ⬅️ Switch to General Exam Simulator (1,805 Qs)
       </a>
     </div>
 
     <!-- Header & Mode Selection -->
     <header>
       <div class="logo-area">
-        <div class="logo-icon">AI</div>
+        <div class="logo-icon" style="background: var(--accent-gradient);">🛠️</div>
         <div>
-          <div class="logo-title">Microsoft AI-300 Exam Simulator</div>
-          <div class="logo-subtitle">GenAIOps & Azure AI Foundry Hub</div>
+          <div class="logo-title">AI-300 Hands-On Implementation Simulator</div>
+          <div class="logo-subtitle">Enterprise MLOps & GenAIOps • Python SDK v2 • Bicep • KQL</div>
         </div>
       </div>
       <div class="controls-bar">
@@ -699,21 +709,21 @@
     <div class="filter-section" id="filter-section">
       <div class="select-wrapper">
         <select id="track-select" onchange="onTrackChange()">
-          <option value="all">🎯 All Tracks & Repos (1,805 Questions)</option>
-          <option value="AI-300">Track 1: Microsoft AI-300 Certification Exam (105 Qs)</option>
-          <option value="Track 2">Track 2: Azure ML Core & Web Apps - azmlrepo (100 Qs)</option>
-          <option value="Track 3">Track 3: MLOps CI/CD & Governance - mslearn-mlops (100 Qs)</option>
-          <option value="Track 4">Track 4: ML Pipelines & Components - pipeline-building (100 Qs)</option>
-          <option value="Track 5">Track 5: Responsible AI & Error Analysis - rai-dashboard (100 Qs)</option>
-          <option value="Track 6">Track 6: GenAI Architecture & Prompt Evals - genai_plan (100 Qs)</option>
+          <option value="all">🎯 All Hands-On Tracks (1,800 Implementation Qs)</option>
+          <option value="Track 1">Track 1: Bicep IaC & AZD Infrastructure Provisioning (300 Qs)</option>
+          <option value="Track 2">Track 2: Python SDK v2 & Azure AI Foundry Client (300 Qs)</option>
+          <option value="Track 3">Track 3: Automated Evaluation & LLM-as-a-Judge (300 Qs)</option>
+          <option value="Track 4">Track 4: Continuous Observability & KQL Tracing (300 Qs)</option>
+          <option value="Track 5">Track 5: MLOps CI/CD Automation & Gating (300 Qs)</option>
+          <option value="Track 6">Track 6: Enterprise Edge Cases & Red-Teaming (300 Qs)</option>
         </select>
       </div>
       <div class="select-wrapper">
         <select id="difficulty-select" onchange="filterQuestions()">
-          <option value="all">📊 All Difficulties (1,805 Qs)</option>
-          <option value="Easy">🟢 Easy Level (600 Qs)</option>
-          <option value="Moderate">🟡 Moderate Level (605 Qs)</option>
-          <option value="Hard">🔴 Hard Level (600 Qs)</option>
+          <option value="all">📊 All Difficulties (1,800 Qs)</option>
+          <option value="Easy">🟢 Easy Tier: Foundation & Syntax (600 Qs)</option>
+          <option value="Moderate">🟡 Moderate Tier: Operations & Pipelines (600 Qs)</option>
+          <option value="Hard">🔴 Hard Tier: Advanced Enterprise & Red-Teaming (600 Qs)</option>
         </select>
       </div>
       <div class="select-wrapper">
@@ -815,29 +825,28 @@
     </footer>
   </div>
 
-  <!-- Include Question Data Libraries (19 Files / 1,805 Questions) -->
-  <!-- Moderate Tier (605 Qs) -->
-  <script src="quiz_data_p1.js"></script>
-  <script src="quiz_data_p2.js"></script>
-  <script src="quiz_data_azml.js"></script>
-  <script src="quiz_data_mlops.js"></script>
-  <script src="quiz_data_pipeline.js"></script>
-  <script src="quiz_data_rai.js"></script>
-  <script src="quiz_data_genai.js"></script>
+  <!-- Include Question Data Libraries (18 Files / 1,800 Implementation Questions) -->
   <!-- Easy Tier (600 Qs) -->
-  <script src="quiz_data_easy_p1.js"></script>
-  <script src="quiz_data_easy_azml.js"></script>
-  <script src="quiz_data_easy_mlops.js"></script>
-  <script src="quiz_data_easy_pipeline.js"></script>
-  <script src="quiz_data_easy_rai.js"></script>
-  <script src="quiz_data_easy_genai.js"></script>
+  <script src="handson_data_easy_t1.js"></script>
+  <script src="handson_data_easy_t2.js"></script>
+  <script src="handson_data_easy_t3.js"></script>
+  <script src="handson_data_easy_t4.js"></script>
+  <script src="handson_data_easy_t5.js"></script>
+  <script src="handson_data_easy_t6.js"></script>
+  <!-- Moderate Tier (600 Qs) -->
+  <script src="handson_data_mod_t1.js"></script>
+  <script src="handson_data_mod_t2.js"></script>
+  <script src="handson_data_mod_t3.js"></script>
+  <script src="handson_data_mod_t4.js"></script>
+  <script src="handson_data_mod_t5.js"></script>
+  <script src="handson_data_mod_t6.js"></script>
   <!-- Hard Tier (600 Qs) -->
-  <script src="quiz_data_hard_p1.js"></script>
-  <script src="quiz_data_hard_azml.js"></script>
-  <script src="quiz_data_hard_mlops.js"></script>
-  <script src="quiz_data_hard_pipeline.js"></script>
-  <script src="quiz_data_hard_rai.js"></script>
-  <script src="quiz_data_hard_genai.js"></script>
+  <script src="handson_data_hard_t1.js"></script>
+  <script src="handson_data_hard_t2.js"></script>
+  <script src="handson_data_hard_t3.js"></script>
+  <script src="handson_data_hard_t4.js"></script>
+  <script src="handson_data_hard_t5.js"></script>
+  <script src="handson_data_hard_t6.js"></script>
 
   <!-- Interactive Quiz Logic -->
   <script>
@@ -848,39 +857,38 @@
     let currentMode = 'practice'; // 'practice', 'exam', 'bookmarks'
     let userAnswers = {}; // { qId: [selectedIndices] }
     let questionStatus = {}; // { qId: 'correct' | 'incorrect' | 'unanswered' }
-    let bookmarkedIds = new Set(JSON.parse(localStorage.getItem('ai300_bookmarks') || '[]'));
+    let bookmarkedIds = new Set(JSON.parse(localStorage.getItem('ai300_handson_bookmarks') || '[]'));
     let timerInterval = null;
     let timeRemaining = 7200; // 120 minutes in seconds
 
     // Initialize on load
     window.addEventListener('DOMContentLoaded', () => {
       // Merge libraries
-      const p1 = (window.QUIZ_DATA_P1 || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
-      const p2 = (window.QUIZ_DATA_P2 || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
-      const azml = (window.QUIZ_DATA_AZML || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
-      const mlops = (window.QUIZ_DATA_MLOPS || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
-      const pipeline = (window.QUIZ_DATA_PIPELINE || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
-      const rai = (window.QUIZ_DATA_RAI || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
-      const genai = (window.QUIZ_DATA_GENAI || []).map(q => ({ ...q, difficulty: q.difficulty || "Moderate" }));
-      
-      const ep1 = window.QUIZ_DATA_EASY_P1 || [];
-      const eazml = window.QUIZ_DATA_EASY_AZML || [];
-      const emlops = window.QUIZ_DATA_EASY_MLOPS || [];
-      const epipeline = window.QUIZ_DATA_EASY_PIPELINE || [];
-      const erai = window.QUIZ_DATA_EASY_RAI || [];
-      const egenai = window.QUIZ_DATA_EASY_GENAI || [];
+      const et1 = window.HANDSON_DATA_EASY_T1 || [];
+      const et2 = window.HANDSON_DATA_EASY_T2 || [];
+      const et3 = window.HANDSON_DATA_EASY_T3 || [];
+      const et4 = window.HANDSON_DATA_EASY_T4 || [];
+      const et5 = window.HANDSON_DATA_EASY_T5 || [];
+      const et6 = window.HANDSON_DATA_EASY_T6 || [];
 
-      const hp1 = window.QUIZ_DATA_HARD_P1 || [];
-      const hazml = window.QUIZ_DATA_HARD_AZML || [];
-      const hmlops = window.QUIZ_DATA_HARD_MLOPS || [];
-      const hpipeline = window.QUIZ_DATA_HARD_PIPELINE || [];
-      const hrai = window.QUIZ_DATA_HARD_RAI || [];
-      const hgenai = window.QUIZ_DATA_HARD_GENAI || [];
+      const mt1 = window.HANDSON_DATA_MOD_T1 || [];
+      const mt2 = window.HANDSON_DATA_MOD_T2 || [];
+      const mt3 = window.HANDSON_DATA_MOD_T3 || [];
+      const mt4 = window.HANDSON_DATA_MOD_T4 || [];
+      const mt5 = window.HANDSON_DATA_MOD_T5 || [];
+      const mt6 = window.HANDSON_DATA_MOD_T6 || [];
+
+      const ht1 = window.HANDSON_DATA_HARD_T1 || [];
+      const ht2 = window.HANDSON_DATA_HARD_T2 || [];
+      const ht3 = window.HANDSON_DATA_HARD_T3 || [];
+      const ht4 = window.HANDSON_DATA_HARD_T4 || [];
+      const ht5 = window.HANDSON_DATA_HARD_T5 || [];
+      const ht6 = window.HANDSON_DATA_HARD_T6 || [];
 
       ALL_QUESTIONS = [
-        ...p1, ...p2, ...azml, ...mlops, ...pipeline, ...rai, ...genai,
-        ...ep1, ...eazml, ...emlops, ...epipeline, ...erai, ...egenai,
-        ...hp1, ...hazml, ...hmlops, ...hpipeline, ...hrai, ...hgenai
+        ...et1, ...et2, ...et3, ...et4, ...et5, ...et6,
+        ...mt1, ...mt2, ...mt3, ...mt4, ...mt5, ...mt6,
+        ...ht1, ...ht2, ...ht3, ...ht4, ...ht5, ...ht6
       ];
 
       if (ALL_QUESTIONS.length === 0) {
@@ -1195,7 +1203,7 @@
       } else {
         bookmarkedIds.add(q.id);
       }
-      localStorage.setItem('ai300_bookmarks', JSON.stringify(Array.from(bookmarkedIds)));
+      localStorage.setItem('ai300_handson_bookmarks', JSON.stringify(Array.from(bookmarkedIds)));
       updateBookmarkCount();
       renderQuestion();
     }
