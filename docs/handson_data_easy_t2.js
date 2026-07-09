@@ -1,1903 +1,1777 @@
-// AI-300 Hands-On Enterprise Implementation Simulator (EASY Tier - Track 2: Python SDK v2 & Azure AI Foundry Client)
 window.HANDSON_DATA_EASY_T2 = [
   {
     "id": 2101,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#1), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #1).",
+    "question": "[EASY Coding Task #1] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `initializing `AIProjectClient.from_connection_string``?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`. is the officially required syntax for `initializing `AIProjectClient.from_connection_string``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2102,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#1) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #2).",
+    "question": "[EASY Coding Task #2] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `initializing `AIProjectClient.from_connection_string``?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`. is the officially required syntax for `initializing `AIProjectClient.from_connection_string``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2103,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#1) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #3).",
+    "question": "[EASY Coding Task #3] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `initializing `AIProjectClient.from_connection_string``?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`. is the officially required syntax for `initializing `AIProjectClient.from_connection_string``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2104,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#1), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #4).",
+    "question": "[EASY Coding Task #4] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `initializing `AIProjectClient.from_connection_string``? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `initializing `AIProjectClient.from_connection_string``, enterprise coding standards mandate: (1) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2105,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#1) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #5).",
+    "question": "[EASY Coding Task #5] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `initializing `AIProjectClient.from_connection_string``?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`. is the officially required syntax for `initializing `AIProjectClient.from_connection_string``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2106,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#1), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #6).",
+    "question": "[EASY Coding Task #6] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `initializing `AIProjectClient.from_connection_string``?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`. is the officially required syntax for `initializing `AIProjectClient.from_connection_string``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2107,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#1) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #7).",
+    "question": "[EASY Coding Task #7] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `initializing `AIProjectClient.from_connection_string``?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`. is the officially required syntax for `initializing `AIProjectClient.from_connection_string``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2108,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#1) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #8).",
+    "question": "[EASY Coding Task #8] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `initializing `AIProjectClient.from_connection_string``? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `initializing `AIProjectClient.from_connection_string``, enterprise coding standards mandate: (1) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2109,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#1), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #9).",
+    "question": "[EASY Coding Task #9] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `initializing `AIProjectClient.from_connection_string``?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`. is the officially required syntax for `initializing `AIProjectClient.from_connection_string``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2110,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#1). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing `AIProjectClient.from_connection_string`` (Implementation Task #10).",
+    "question": "[EASY Coding Task #10] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `initializing `AIProjectClient.from_connection_string``?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Writing `project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str='endpoint=https://...;subscription_id=...')`. is the officially required syntax for `initializing `AIProjectClient.from_connection_string``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2111,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#2), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #11).",
+    "question": "[EASY Coding Task #11] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `retrieving the chat completion client`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client. is the officially required syntax for `retrieving the chat completion client`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2112,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#2) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #12).",
+    "question": "[EASY Coding Task #12] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `retrieving the chat completion client`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `retrieving the chat completion client`, enterprise coding standards mandate: (1) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2113,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#2) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #13).",
+    "question": "[EASY Coding Task #13] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `retrieving the chat completion client`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client. is the officially required syntax for `retrieving the chat completion client`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2114,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#2), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #14).",
+    "question": "[EASY Coding Task #14] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `retrieving the chat completion client`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client. is the officially required syntax for `retrieving the chat completion client`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2115,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#2) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #15).",
+    "question": "[EASY Coding Task #15] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `retrieving the chat completion client`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client. is the officially required syntax for `retrieving the chat completion client`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2116,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#2), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #16).",
+    "question": "[EASY Coding Task #16] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `retrieving the chat completion client`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `retrieving the chat completion client`, enterprise coding standards mandate: (1) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2117,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#2) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #17).",
+    "question": "[EASY Coding Task #17] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `retrieving the chat completion client`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client. is the officially required syntax for `retrieving the chat completion client`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2118,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#2) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #18).",
+    "question": "[EASY Coding Task #18] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `retrieving the chat completion client`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client. is the officially required syntax for `retrieving the chat completion client`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2119,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#2), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #19).",
+    "question": "[EASY Coding Task #19] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `retrieving the chat completion client`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client. is the officially required syntax for `retrieving the chat completion client`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2120,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#2). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the chat completion client` (Implementation Task #20).",
+    "question": "[EASY Coding Task #20] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `retrieving the chat completion client`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `retrieving the chat completion client`, enterprise coding standards mandate: (1) Executing `chat_client = project_client.inference.get_chat_completions_client()` to obtain an authenticated client., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2121,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#3), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #21).",
+    "question": "[EASY Coding Task #21] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `calling `chat.completions.create` for a basic prompt`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`. is the officially required syntax for `calling `chat.completions.create` for a basic prompt`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2122,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#3) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #22).",
+    "question": "[EASY Coding Task #22] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `calling `chat.completions.create` for a basic prompt`?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`. is the officially required syntax for `calling `chat.completions.create` for a basic prompt`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2123,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#3) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #23).",
+    "question": "[EASY Coding Task #23] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `calling `chat.completions.create` for a basic prompt`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`. is the officially required syntax for `calling `chat.completions.create` for a basic prompt`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2124,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#3), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #24).",
+    "question": "[EASY Coding Task #24] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `calling `chat.completions.create` for a basic prompt`? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `calling `chat.completions.create` for a basic prompt`, enterprise coding standards mandate: (1) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2125,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#3) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #25).",
+    "question": "[EASY Coding Task #25] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `calling `chat.completions.create` for a basic prompt`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`. is the officially required syntax for `calling `chat.completions.create` for a basic prompt`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2126,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#3), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #26).",
+    "question": "[EASY Coding Task #26] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `calling `chat.completions.create` for a basic prompt`?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`. is the officially required syntax for `calling `chat.completions.create` for a basic prompt`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2127,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#3) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #27).",
+    "question": "[EASY Coding Task #27] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `calling `chat.completions.create` for a basic prompt`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`. is the officially required syntax for `calling `chat.completions.create` for a basic prompt`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2128,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#3) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #28).",
+    "question": "[EASY Coding Task #28] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `calling `chat.completions.create` for a basic prompt`? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `calling `chat.completions.create` for a basic prompt`, enterprise coding standards mandate: (1) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2129,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#3), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #29).",
+    "question": "[EASY Coding Task #29] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `calling `chat.completions.create` for a basic prompt`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`. is the officially required syntax for `calling `chat.completions.create` for a basic prompt`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2130,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#3). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calling `chat.completions.create` for a basic prompt` (Implementation Task #30).",
+    "question": "[EASY Coding Task #30] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `calling `chat.completions.create` for a basic prompt`?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Writing `response = chat_client.chat.completions.create(model='gpt-4o', messages=[{'role': 'user', 'content': 'Hello'}])`. is the officially required syntax for `calling `chat.completions.create` for a basic prompt`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2131,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#4), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #31).",
+    "question": "[EASY Coding Task #31] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `extracting the text from chat completion response`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object. is the officially required syntax for `extracting the text from chat completion response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2132,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#4) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #32).",
+    "question": "[EASY Coding Task #32] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `extracting the text from chat completion response`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `extracting the text from chat completion response`, enterprise coding standards mandate: (1) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2133,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#4) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #33).",
+    "question": "[EASY Coding Task #33] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `extracting the text from chat completion response`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object. is the officially required syntax for `extracting the text from chat completion response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2134,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#4), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #34).",
+    "question": "[EASY Coding Task #34] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `extracting the text from chat completion response`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object. is the officially required syntax for `extracting the text from chat completion response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2135,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#4) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #35).",
+    "question": "[EASY Coding Task #35] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `extracting the text from chat completion response`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object. is the officially required syntax for `extracting the text from chat completion response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2136,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#4), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #36).",
+    "question": "[EASY Coding Task #36] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `extracting the text from chat completion response`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `extracting the text from chat completion response`, enterprise coding standards mandate: (1) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2137,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#4) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #37).",
+    "question": "[EASY Coding Task #37] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `extracting the text from chat completion response`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object. is the officially required syntax for `extracting the text from chat completion response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2138,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#4) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #38).",
+    "question": "[EASY Coding Task #38] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `extracting the text from chat completion response`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object. is the officially required syntax for `extracting the text from chat completion response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2139,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#4), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #39).",
+    "question": "[EASY Coding Task #39] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `extracting the text from chat completion response`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object. is the officially required syntax for `extracting the text from chat completion response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2140,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#4). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting the text from chat completion response` (Implementation Task #40).",
+    "question": "[EASY Coding Task #40] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `extracting the text from chat completion response`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `extracting the text from chat completion response`, enterprise coding standards mandate: (1) Reading `answer_text = response.choices[0].message.content` from the returned `ChatCompletion` object., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2141,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#5), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #41).",
+    "question": "[EASY Coding Task #41] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `retrieving the embeddings client from `AIProjectClient``?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints. is the officially required syntax for `retrieving the embeddings client from `AIProjectClient``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2142,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#5) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #42).",
+    "question": "[EASY Coding Task #42] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `retrieving the embeddings client from `AIProjectClient``?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints. is the officially required syntax for `retrieving the embeddings client from `AIProjectClient``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2143,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#5) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #43).",
+    "question": "[EASY Coding Task #43] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `retrieving the embeddings client from `AIProjectClient``?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints. is the officially required syntax for `retrieving the embeddings client from `AIProjectClient``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2144,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#5), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #44).",
+    "question": "[EASY Coding Task #44] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `retrieving the embeddings client from `AIProjectClient``? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `retrieving the embeddings client from `AIProjectClient``, enterprise coding standards mandate: (1) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2145,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#5) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #45).",
+    "question": "[EASY Coding Task #45] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `retrieving the embeddings client from `AIProjectClient``?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints. is the officially required syntax for `retrieving the embeddings client from `AIProjectClient``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2146,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#5), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #46).",
+    "question": "[EASY Coding Task #46] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `retrieving the embeddings client from `AIProjectClient``?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints. is the officially required syntax for `retrieving the embeddings client from `AIProjectClient``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2147,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#5) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #47).",
+    "question": "[EASY Coding Task #47] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `retrieving the embeddings client from `AIProjectClient``?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints. is the officially required syntax for `retrieving the embeddings client from `AIProjectClient``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2148,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#5) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #48).",
+    "question": "[EASY Coding Task #48] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `retrieving the embeddings client from `AIProjectClient``? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `retrieving the embeddings client from `AIProjectClient``, enterprise coding standards mandate: (1) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2149,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#5), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #49).",
+    "question": "[EASY Coding Task #49] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `retrieving the embeddings client from `AIProjectClient``?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints. is the officially required syntax for `retrieving the embeddings client from `AIProjectClient``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2150,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#5). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `retrieving the embeddings client from `AIProjectClient`` (Implementation Task #50).",
+    "question": "[EASY Coding Task #50] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `retrieving the embeddings client from `AIProjectClient``?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Executing `embed_client = project_client.inference.get_embeddings_client()` to access vectorization endpoints. is the officially required syntax for `retrieving the embeddings client from `AIProjectClient``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2151,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#6), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #51).",
+    "question": "[EASY Coding Task #51] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `generating embeddings for a single text string`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`. is the officially required syntax for `generating embeddings for a single text string`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2152,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#6) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #52).",
+    "question": "[EASY Coding Task #52] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `generating embeddings for a single text string`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `generating embeddings for a single text string`, enterprise coding standards mandate: (1) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2153,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#6) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #53).",
+    "question": "[EASY Coding Task #53] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `generating embeddings for a single text string`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`. is the officially required syntax for `generating embeddings for a single text string`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2154,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#6), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #54).",
+    "question": "[EASY Coding Task #54] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `generating embeddings for a single text string`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`. is the officially required syntax for `generating embeddings for a single text string`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2155,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#6) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #55).",
+    "question": "[EASY Coding Task #55] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `generating embeddings for a single text string`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`. is the officially required syntax for `generating embeddings for a single text string`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2156,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#6), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #56).",
+    "question": "[EASY Coding Task #56] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `generating embeddings for a single text string`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `generating embeddings for a single text string`, enterprise coding standards mandate: (1) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2157,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#6) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #57).",
+    "question": "[EASY Coding Task #57] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `generating embeddings for a single text string`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`. is the officially required syntax for `generating embeddings for a single text string`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2158,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#6) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #58).",
+    "question": "[EASY Coding Task #58] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `generating embeddings for a single text string`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`. is the officially required syntax for `generating embeddings for a single text string`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2159,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#6), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #59).",
+    "question": "[EASY Coding Task #59] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `generating embeddings for a single text string`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`. is the officially required syntax for `generating embeddings for a single text string`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2160,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#6). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `generating embeddings for a single text string` (Implementation Task #60).",
+    "question": "[EASY Coding Task #60] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `generating embeddings for a single text string`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `generating embeddings for a single text string`, enterprise coding standards mandate: (1) Writing `vectors = embed_client.embeddings.create(model='text-embedding-3-large', input='Adventure Works catalog')`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2161,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#7), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #61).",
+    "question": "[EASY Coding Task #61] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `reading the embedding float array from response`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object. is the officially required syntax for `reading the embedding float array from response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2162,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#7) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #62).",
+    "question": "[EASY Coding Task #62] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `reading the embedding float array from response`?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object. is the officially required syntax for `reading the embedding float array from response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2163,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#7) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #63).",
+    "question": "[EASY Coding Task #63] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `reading the embedding float array from response`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object. is the officially required syntax for `reading the embedding float array from response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2164,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#7), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #64).",
+    "question": "[EASY Coding Task #64] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `reading the embedding float array from response`? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `reading the embedding float array from response`, enterprise coding standards mandate: (1) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2165,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#7) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #65).",
+    "question": "[EASY Coding Task #65] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `reading the embedding float array from response`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object. is the officially required syntax for `reading the embedding float array from response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2166,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#7), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #66).",
+    "question": "[EASY Coding Task #66] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `reading the embedding float array from response`?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object. is the officially required syntax for `reading the embedding float array from response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2167,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#7) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #67).",
+    "question": "[EASY Coding Task #67] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `reading the embedding float array from response`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object. is the officially required syntax for `reading the embedding float array from response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2168,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#7) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #68).",
+    "question": "[EASY Coding Task #68] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `reading the embedding float array from response`? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `reading the embedding float array from response`, enterprise coding standards mandate: (1) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2169,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#7), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #69).",
+    "question": "[EASY Coding Task #69] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `reading the embedding float array from response`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object. is the officially required syntax for `reading the embedding float array from response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2170,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#7). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reading the embedding float array from response` (Implementation Task #70).",
+    "question": "[EASY Coding Task #70] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `reading the embedding float array from response`?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Extracting `float_vector = vectors.data[0].embedding` from the returned `CreateEmbeddingResponse` object. is the officially required syntax for `reading the embedding float array from response`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2171,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#8), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #71).",
+    "question": "[EASY Coding Task #71] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `formatting a basic function calling tool definition`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`. is the officially required syntax for `formatting a basic function calling tool definition`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2172,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#8) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #72).",
+    "question": "[EASY Coding Task #72] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `formatting a basic function calling tool definition`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `formatting a basic function calling tool definition`, enterprise coding standards mandate: (1) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2173,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#8) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #73).",
+    "question": "[EASY Coding Task #73] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `formatting a basic function calling tool definition`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`. is the officially required syntax for `formatting a basic function calling tool definition`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2174,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#8), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #74).",
+    "question": "[EASY Coding Task #74] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `formatting a basic function calling tool definition`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`. is the officially required syntax for `formatting a basic function calling tool definition`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2175,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#8) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #75).",
+    "question": "[EASY Coding Task #75] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `formatting a basic function calling tool definition`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`. is the officially required syntax for `formatting a basic function calling tool definition`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2176,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#8), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #76).",
+    "question": "[EASY Coding Task #76] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `formatting a basic function calling tool definition`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `formatting a basic function calling tool definition`, enterprise coding standards mandate: (1) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2177,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#8) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #77).",
+    "question": "[EASY Coding Task #77] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `formatting a basic function calling tool definition`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`. is the officially required syntax for `formatting a basic function calling tool definition`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2178,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#8) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #78).",
+    "question": "[EASY Coding Task #78] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `formatting a basic function calling tool definition`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`. is the officially required syntax for `formatting a basic function calling tool definition`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2179,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#8), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #79).",
+    "question": "[EASY Coding Task #79] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `formatting a basic function calling tool definition`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`. is the officially required syntax for `formatting a basic function calling tool definition`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2180,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#8). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formatting a basic function calling tool definition` (Implementation Task #80).",
+    "question": "[EASY Coding Task #80] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `formatting a basic function calling tool definition`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `formatting a basic function calling tool definition`, enterprise coding standards mandate: (1) Writing `tools = [{'type': 'function', 'function': {'name': 'lookup_inventory', 'description': '...', 'parameters': {...}}}]`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2181,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#9), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #81).",
+    "question": "[EASY Coding Task #81] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `uploading a file to the project storage via SDK`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`. is the officially required syntax for `uploading a file to the project storage via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2182,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#9) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #82).",
+    "question": "[EASY Coding Task #82] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `uploading a file to the project storage via SDK`?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`. is the officially required syntax for `uploading a file to the project storage via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2183,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#9) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #83).",
+    "question": "[EASY Coding Task #83] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `uploading a file to the project storage via SDK`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`. is the officially required syntax for `uploading a file to the project storage via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2184,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#9), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #84).",
+    "question": "[EASY Coding Task #84] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `uploading a file to the project storage via SDK`? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `uploading a file to the project storage via SDK`, enterprise coding standards mandate: (1) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2185,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#9) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #85).",
+    "question": "[EASY Coding Task #85] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `uploading a file to the project storage via SDK`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`. is the officially required syntax for `uploading a file to the project storage via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2186,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#9), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #86).",
+    "question": "[EASY Coding Task #86] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `uploading a file to the project storage via SDK`?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`. is the officially required syntax for `uploading a file to the project storage via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2187,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#9) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #87).",
+    "question": "[EASY Coding Task #87] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `uploading a file to the project storage via SDK`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`. is the officially required syntax for `uploading a file to the project storage via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2188,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#9) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #88).",
+    "question": "[EASY Coding Task #88] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `uploading a file to the project storage via SDK`? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `uploading a file to the project storage via SDK`, enterprise coding standards mandate: (1) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2189,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#9), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #89).",
+    "question": "[EASY Coding Task #89] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `uploading a file to the project storage via SDK`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`. is the officially required syntax for `uploading a file to the project storage via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2190,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#9). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `uploading a file to the project storage via SDK` (Implementation Task #90).",
+    "question": "[EASY Coding Task #90] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `uploading a file to the project storage via SDK`?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Executing `file_info = project_client.agents.upload_file_and_poll(file_path='data.pdf', purpose='assistants')`. is the officially required syntax for `uploading a file to the project storage via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2191,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#10), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #91).",
+    "question": "[EASY Coding Task #91] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `enabling `DefaultAzureCredential` in Python SDK`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization. is the officially required syntax for `enabling `DefaultAzureCredential` in Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2192,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#10) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #92).",
+    "question": "[EASY Coding Task #92] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `enabling `DefaultAzureCredential` in Python SDK`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `enabling `DefaultAzureCredential` in Python SDK`, enterprise coding standards mandate: (1) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2193,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#10) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #93).",
+    "question": "[EASY Coding Task #93] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `enabling `DefaultAzureCredential` in Python SDK`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization. is the officially required syntax for `enabling `DefaultAzureCredential` in Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2194,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#10), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #94).",
+    "question": "[EASY Coding Task #94] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `enabling `DefaultAzureCredential` in Python SDK`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization. is the officially required syntax for `enabling `DefaultAzureCredential` in Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2195,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#10) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #95).",
+    "question": "[EASY Coding Task #95] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `enabling `DefaultAzureCredential` in Python SDK`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization. is the officially required syntax for `enabling `DefaultAzureCredential` in Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2196,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#10), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #96).",
+    "question": "[EASY Coding Task #96] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `enabling `DefaultAzureCredential` in Python SDK`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `enabling `DefaultAzureCredential` in Python SDK`, enterprise coding standards mandate: (1) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2197,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#10) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #97).",
+    "question": "[EASY Coding Task #97] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `enabling `DefaultAzureCredential` in Python SDK`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization. is the officially required syntax for `enabling `DefaultAzureCredential` in Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2198,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#10) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #98).",
+    "question": "[EASY Coding Task #98] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `enabling `DefaultAzureCredential` in Python SDK`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization. is the officially required syntax for `enabling `DefaultAzureCredential` in Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2199,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#10), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #99).",
+    "question": "[EASY Coding Task #99] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `enabling `DefaultAzureCredential` in Python SDK`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization. is the officially required syntax for `enabling `DefaultAzureCredential` in Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2200,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#10). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enabling `DefaultAzureCredential` in Python SDK` (Implementation Task #100).",
+    "question": "[EASY Coding Task #100] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `enabling `DefaultAzureCredential` in Python SDK`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `enabling `DefaultAzureCredential` in Python SDK`, enterprise coding standards mandate: (1) Writing `from azure.identity import DefaultAzureCredential; cred = DefaultAzureCredential()` before client initialization., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   }
 ];

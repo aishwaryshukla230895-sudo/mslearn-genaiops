@@ -1,1903 +1,1777 @@
-// AI-300 Hands-On Enterprise Implementation Simulator (HARD Tier - Track 5: MLOps CI/CD Automation & Gating)
 window.HANDSON_DATA_HARD_T5 = [
   {
     "id": 3601,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#1), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #1).",
+    "question": "[HARD Coding Task #1] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `self-hosted private VNet runner OIDC federation syntax with custom proxy`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints. is the officially required syntax for `self-hosted private VNet runner OIDC federation syntax with custom proxy`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3602,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#1). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #2).",
+    "question": "[HARD Coding Task #2] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` when implementing `self-hosted private VNet runner OIDC federation syntax with custom proxy`?",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answer: A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`, Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints. is the officially required syntax for `self-hosted private VNet runner OIDC federation syntax with custom proxy`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3603,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#1), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #3).",
+    "question": "[HARD Coding Task #3] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `self-hosted private VNet runner OIDC federation syntax with custom proxy`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints. is the officially required syntax for `self-hosted private VNet runner OIDC federation syntax with custom proxy`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3604,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During CI/CD execution (#1), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #4).",
+    "question": "[HARD Coding Task #4] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `self-hosted private VNet runner OIDC federation syntax with custom proxy`? (Select three)",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `self-hosted private VNet runner OIDC federation syntax with custom proxy`, enterprise coding standards mandate: (1) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3605,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#1) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #5).",
+    "question": "[HARD Coding Task #5] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `self-hosted private VNet runner OIDC federation syntax with custom proxy`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints. is the officially required syntax for `self-hosted private VNet runner OIDC federation syntax with custom proxy`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3606,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#1), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #6).",
+    "question": "[HARD Coding Task #6] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` when implementing `self-hosted private VNet runner OIDC federation syntax with custom proxy`?",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answer: A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`, Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints. is the officially required syntax for `self-hosted private VNet runner OIDC federation syntax with custom proxy`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3607,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#1). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #7).",
+    "question": "[HARD Coding Task #7] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `self-hosted private VNet runner OIDC federation syntax with custom proxy`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints. is the officially required syntax for `self-hosted private VNet runner OIDC federation syntax with custom proxy`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3608,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#1).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #8).",
+    "question": "[HARD Coding Task #8] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `self-hosted private VNet runner OIDC federation syntax with custom proxy`? (Select three)",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `self-hosted private VNet runner OIDC federation syntax with custom proxy`, enterprise coding standards mandate: (1) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3609,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#1), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #9).",
+    "question": "[HARD Coding Task #9] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `self-hosted private VNet runner OIDC federation syntax with custom proxy`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints. is the officially required syntax for `self-hosted private VNet runner OIDC federation syntax with custom proxy`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3610,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#1), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `self-hosted private VNet runner OIDC federation syntax with custom proxy` (Implementation Task #10).",
+    "question": "[HARD Coding Task #10] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` when implementing `self-hosted private VNet runner OIDC federation syntax with custom proxy`?",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answer: A) Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`, Writing a GitHub Actions step running on `runs-on: [self-hosted, vnet-internal]` utilizing `azure/login@v1` over an internal HTTP Squid proxy (`HTTP_PROXY=http://10.0.4.10:3128`), verifying that `id-token: write` exchanges tokens without public internet endpoints. is the officially required syntax for `self-hosted private VNet runner OIDC federation syntax with custom proxy`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3611,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#2), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #11).",
+    "question": "[HARD Coding Task #11] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `automated blue-green canary controller with active KQL health probe loop`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately. is the officially required syntax for `automated blue-green canary controller with active KQL health probe loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3612,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#2). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #12).",
+    "question": "[HARD Coding Task #12] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `automated blue-green canary controller with active KQL health probe loop`? (Select three)",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `automated blue-green canary controller with active KQL health probe loop`, enterprise coding standards mandate: (1) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3613,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#2), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #13).",
+    "question": "[HARD Coding Task #13] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `automated blue-green canary controller with active KQL health probe loop`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately. is the officially required syntax for `automated blue-green canary controller with active KQL health probe loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3614,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During CI/CD execution (#2), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #14).",
+    "question": "[HARD Coding Task #14] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep Linter & What-If Validation (`az deployment group what-if`)` when implementing `automated blue-green canary controller with active KQL health probe loop`?",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answer: A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep Linter & What-If Validation (`az deployment group what-if`)`, Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately. is the officially required syntax for `automated blue-green canary controller with active KQL health probe loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3615,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#2) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #15).",
+    "question": "[HARD Coding Task #15] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `automated blue-green canary controller with active KQL health probe loop`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately. is the officially required syntax for `automated blue-green canary controller with active KQL health probe loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3616,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#2), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #16).",
+    "question": "[HARD Coding Task #16] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `automated blue-green canary controller with active KQL health probe loop`? (Select three)",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `automated blue-green canary controller with active KQL health probe loop`, enterprise coding standards mandate: (1) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3617,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#2). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #17).",
+    "question": "[HARD Coding Task #17] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `automated blue-green canary controller with active KQL health probe loop`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately. is the officially required syntax for `automated blue-green canary controller with active KQL health probe loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3618,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#2).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #18).",
+    "question": "[HARD Coding Task #18] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Environments & PR Approval Rules (`environment: prod-review`)` when implementing `automated blue-green canary controller with active KQL health probe loop`?",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answer: A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Environments & PR Approval Rules (`environment: prod-review`)`, Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately. is the officially required syntax for `automated blue-green canary controller with active KQL health probe loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3619,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#2), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #19).",
+    "question": "[HARD Coding Task #19] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `automated blue-green canary controller with active KQL health probe loop`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately. is the officially required syntax for `automated blue-green canary controller with active KQL health probe loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3620,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#2), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated blue-green canary controller with active KQL health probe loop` (Implementation Task #20).",
+    "question": "[HARD Coding Task #20] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `automated blue-green canary controller with active KQL health probe loop`? (Select three)",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `automated blue-green canary controller with active KQL health probe loop`, enterprise coding standards mandate: (1) Writing a bash controller inside CI (`scripts/canary_controller.sh`) that deploys `green` with 5% traffic, loops for 15 minutes checking Log Analytics via `az monitor log-analytics query --query-text 'AppDependencies | where Target ... | summarize p99=percentile(DurationMs, 99), Err=countif(ResultCode != \"200\")'` every 60s; if `Err > 0` or `p99 > 500ms`, executes `az ml online-endpoint update --traffic '{\"blue\": 100, \"green\": 0}'` immediately., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3621,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#3), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #21).",
+    "question": "[HARD Coding Task #21] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `strict OIDC subject claim matching for multi-stage segregation`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups. is the officially required syntax for `strict OIDC subject claim matching for multi-stage segregation`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3622,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#3). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #22).",
+    "question": "[HARD Coding Task #22] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` when implementing `strict OIDC subject claim matching for multi-stage segregation`?",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answer: A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`, Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups. is the officially required syntax for `strict OIDC subject claim matching for multi-stage segregation`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3623,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#3), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #23).",
+    "question": "[HARD Coding Task #23] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `strict OIDC subject claim matching for multi-stage segregation`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups. is the officially required syntax for `strict OIDC subject claim matching for multi-stage segregation`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3624,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During CI/CD execution (#3), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #24).",
+    "question": "[HARD Coding Task #24] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `strict OIDC subject claim matching for multi-stage segregation`? (Select three)",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `strict OIDC subject claim matching for multi-stage segregation`, enterprise coding standards mandate: (1) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3625,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#3) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #25).",
+    "question": "[HARD Coding Task #25] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `strict OIDC subject claim matching for multi-stage segregation`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups. is the officially required syntax for `strict OIDC subject claim matching for multi-stage segregation`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3626,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#3), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #26).",
+    "question": "[HARD Coding Task #26] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` when implementing `strict OIDC subject claim matching for multi-stage segregation`?",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answer: A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`, Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups. is the officially required syntax for `strict OIDC subject claim matching for multi-stage segregation`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3627,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#3). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #27).",
+    "question": "[HARD Coding Task #27] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `strict OIDC subject claim matching for multi-stage segregation`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups. is the officially required syntax for `strict OIDC subject claim matching for multi-stage segregation`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3628,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#3).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #28).",
+    "question": "[HARD Coding Task #28] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `strict OIDC subject claim matching for multi-stage segregation`? (Select three)",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `strict OIDC subject claim matching for multi-stage segregation`, enterprise coding standards mandate: (1) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3629,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#3), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #29).",
+    "question": "[HARD Coding Task #29] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `strict OIDC subject claim matching for multi-stage segregation`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups. is the officially required syntax for `strict OIDC subject claim matching for multi-stage segregation`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3630,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#3), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `strict OIDC subject claim matching for multi-stage segregation` (Implementation Task #30).",
+    "question": "[HARD Coding Task #30] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` when implementing `strict OIDC subject claim matching for multi-stage segregation`?",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answer: A) Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`, Writing Entra ID Federated Identity Credentials where `Dev` environment requires subject `repo:org/repo:environment:development`, `Staging` requires `repo:org/repo:environment:staging`, and `Prod` requires `repo:org/repo:environment:production`, preventing any CI/CD token compromise from modifying higher tier resource groups. is the officially required syntax for `strict OIDC subject claim matching for multi-stage segregation`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3631,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#4), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #31).",
+    "question": "[HARD Coding Task #31] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `reproducible deterministic container builds with pinned base manifests`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR. is the officially required syntax for `reproducible deterministic container builds with pinned base manifests`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3632,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#4). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #32).",
+    "question": "[HARD Coding Task #32] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `reproducible deterministic container builds with pinned base manifests`? (Select three)",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `reproducible deterministic container builds with pinned base manifests`, enterprise coding standards mandate: (1) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3633,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#4), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #33).",
+    "question": "[HARD Coding Task #33] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `reproducible deterministic container builds with pinned base manifests`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR. is the officially required syntax for `reproducible deterministic container builds with pinned base manifests`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3634,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During CI/CD execution (#4), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #34).",
+    "question": "[HARD Coding Task #34] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep Linter & What-If Validation (`az deployment group what-if`)` when implementing `reproducible deterministic container builds with pinned base manifests`?",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answer: A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep Linter & What-If Validation (`az deployment group what-if`)`, Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR. is the officially required syntax for `reproducible deterministic container builds with pinned base manifests`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3635,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#4) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #35).",
+    "question": "[HARD Coding Task #35] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `reproducible deterministic container builds with pinned base manifests`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR. is the officially required syntax for `reproducible deterministic container builds with pinned base manifests`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3636,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#4), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #36).",
+    "question": "[HARD Coding Task #36] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `reproducible deterministic container builds with pinned base manifests`? (Select three)",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `reproducible deterministic container builds with pinned base manifests`, enterprise coding standards mandate: (1) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3637,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#4). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #37).",
+    "question": "[HARD Coding Task #37] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `reproducible deterministic container builds with pinned base manifests`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR. is the officially required syntax for `reproducible deterministic container builds with pinned base manifests`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3638,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#4).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #38).",
+    "question": "[HARD Coding Task #38] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Environments & PR Approval Rules (`environment: prod-review`)` when implementing `reproducible deterministic container builds with pinned base manifests`?",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answer: A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Environments & PR Approval Rules (`environment: prod-review`)`, Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR. is the officially required syntax for `reproducible deterministic container builds with pinned base manifests`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3639,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#4), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #39).",
+    "question": "[HARD Coding Task #39] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `reproducible deterministic container builds with pinned base manifests`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR. is the officially required syntax for `reproducible deterministic container builds with pinned base manifests`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3640,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#4), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `reproducible deterministic container builds with pinned base manifests` (Implementation Task #40).",
+    "question": "[HARD Coding Task #40] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `reproducible deterministic container builds with pinned base manifests`? (Select three)",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `reproducible deterministic container builds with pinned base manifests`, enterprise coding standards mandate: (1) Writing a custom Docker build workflow step enforcing `--build-arg BASE_IMAGE=mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04@sha256:4a123f...` and generating a Software Bill of Materials (`syft ... -o spdx-json > sbom.json`) before pushing to ACR., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3641,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#5), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #41).",
+    "question": "[HARD Coding Task #41] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `multi-region active-active deployment matrix with independent rollout checks`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks. is the officially required syntax for `multi-region active-active deployment matrix with independent rollout checks`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3642,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#5). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #42).",
+    "question": "[HARD Coding Task #42] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` when implementing `multi-region active-active deployment matrix with independent rollout checks`?",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answer: A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`, Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks. is the officially required syntax for `multi-region active-active deployment matrix with independent rollout checks`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3643,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#5), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #43).",
+    "question": "[HARD Coding Task #43] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `multi-region active-active deployment matrix with independent rollout checks`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks. is the officially required syntax for `multi-region active-active deployment matrix with independent rollout checks`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3644,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During CI/CD execution (#5), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #44).",
+    "question": "[HARD Coding Task #44] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `multi-region active-active deployment matrix with independent rollout checks`? (Select three)",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `multi-region active-active deployment matrix with independent rollout checks`, enterprise coding standards mandate: (1) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3645,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#5) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #45).",
+    "question": "[HARD Coding Task #45] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `multi-region active-active deployment matrix with independent rollout checks`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks. is the officially required syntax for `multi-region active-active deployment matrix with independent rollout checks`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3646,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#5), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #46).",
+    "question": "[HARD Coding Task #46] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` when implementing `multi-region active-active deployment matrix with independent rollout checks`?",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answer: A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`, Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks. is the officially required syntax for `multi-region active-active deployment matrix with independent rollout checks`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3647,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#5). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #47).",
+    "question": "[HARD Coding Task #47] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `multi-region active-active deployment matrix with independent rollout checks`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks. is the officially required syntax for `multi-region active-active deployment matrix with independent rollout checks`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3648,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#5).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #48).",
+    "question": "[HARD Coding Task #48] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `multi-region active-active deployment matrix with independent rollout checks`? (Select three)",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `multi-region active-active deployment matrix with independent rollout checks`, enterprise coding standards mandate: (1) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3649,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#5), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #49).",
+    "question": "[HARD Coding Task #49] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `multi-region active-active deployment matrix with independent rollout checks`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks. is the officially required syntax for `multi-region active-active deployment matrix with independent rollout checks`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3650,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#5), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-region active-active deployment matrix with independent rollout checks` (Implementation Task #50).",
+    "question": "[HARD Coding Task #50] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` when implementing `multi-region active-active deployment matrix with independent rollout checks`?",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answer: A) Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`, Writing `strategy:\n  matrix:\n    region: [eastus2, swedencentral]\n  fail-fast: false` where each parallel job provisions regional Bicep resources (`infra/main.bicep`), runs regional model evaluation (`pytest --region ${{ matrix.region }}`), and updates Traffic Manager weighting only after both regions pass 100% of checks. is the officially required syntax for `multi-region active-active deployment matrix with independent rollout checks`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3651,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#6), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #51).",
+    "question": "[HARD Coding Task #51] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `custom reusable TypeScript action for automated enterprise AI compliance`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted. is the officially required syntax for `custom reusable TypeScript action for automated enterprise AI compliance`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3652,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#6). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #52).",
+    "question": "[HARD Coding Task #52] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `custom reusable TypeScript action for automated enterprise AI compliance`? (Select three)",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `custom reusable TypeScript action for automated enterprise AI compliance`, enterprise coding standards mandate: (1) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3653,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#6), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #53).",
+    "question": "[HARD Coding Task #53] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `custom reusable TypeScript action for automated enterprise AI compliance`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted. is the officially required syntax for `custom reusable TypeScript action for automated enterprise AI compliance`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3654,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During CI/CD execution (#6), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #54).",
+    "question": "[HARD Coding Task #54] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep Linter & What-If Validation (`az deployment group what-if`)` when implementing `custom reusable TypeScript action for automated enterprise AI compliance`?",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answer: A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep Linter & What-If Validation (`az deployment group what-if`)`, Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted. is the officially required syntax for `custom reusable TypeScript action for automated enterprise AI compliance`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3655,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#6) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #55).",
+    "question": "[HARD Coding Task #55] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `custom reusable TypeScript action for automated enterprise AI compliance`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted. is the officially required syntax for `custom reusable TypeScript action for automated enterprise AI compliance`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3656,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#6), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #56).",
+    "question": "[HARD Coding Task #56] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `custom reusable TypeScript action for automated enterprise AI compliance`? (Select three)",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `custom reusable TypeScript action for automated enterprise AI compliance`, enterprise coding standards mandate: (1) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3657,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#6). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #57).",
+    "question": "[HARD Coding Task #57] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `custom reusable TypeScript action for automated enterprise AI compliance`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted. is the officially required syntax for `custom reusable TypeScript action for automated enterprise AI compliance`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3658,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#6).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #58).",
+    "question": "[HARD Coding Task #58] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Environments & PR Approval Rules (`environment: prod-review`)` when implementing `custom reusable TypeScript action for automated enterprise AI compliance`?",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answer: A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Environments & PR Approval Rules (`environment: prod-review`)`, Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted. is the officially required syntax for `custom reusable TypeScript action for automated enterprise AI compliance`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3659,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#6), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #59).",
+    "question": "[HARD Coding Task #59] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `custom reusable TypeScript action for automated enterprise AI compliance`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted. is the officially required syntax for `custom reusable TypeScript action for automated enterprise AI compliance`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3660,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#6), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom reusable TypeScript action for automated enterprise AI compliance` (Implementation Task #60).",
+    "question": "[HARD Coding Task #60] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `custom reusable TypeScript action for automated enterprise AI compliance`? (Select three)",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `custom reusable TypeScript action for automated enterprise AI compliance`, enterprise coding standards mandate: (1) Building and invoking `./.github/actions/ai-compliance-check` which parses all `prompts/*.jinja2` files using an AST checker to assert that prompt shields (`### SYSTEM BOUNDARY ###`), token limits, and `ContentSafetyClient` calls exist before any pipeline build is permitted., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3661,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#7), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #61).",
+    "question": "[HARD Coding Task #61] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status. is the officially required syntax for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3662,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#7). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #62).",
+    "question": "[HARD Coding Task #62] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` when implementing `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`?",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answer: A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`, Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status. is the officially required syntax for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3663,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#7), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #63).",
+    "question": "[HARD Coding Task #63] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status. is the officially required syntax for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3664,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During CI/CD execution (#7), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #64).",
+    "question": "[HARD Coding Task #64] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`? (Select three)",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`, enterprise coding standards mandate: (1) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3665,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#7) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #65).",
+    "question": "[HARD Coding Task #65] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status. is the officially required syntax for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3666,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#7), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #66).",
+    "question": "[HARD Coding Task #66] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` when implementing `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`?",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answer: A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`, Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status. is the officially required syntax for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3667,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#7). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #67).",
+    "question": "[HARD Coding Task #67] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status. is the officially required syntax for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3668,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#7).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #68).",
+    "question": "[HARD Coding Task #68] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`? (Select three)",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`, enterprise coding standards mandate: (1) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3669,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#7), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #69).",
+    "question": "[HARD Coding Task #69] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status. is the officially required syntax for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3670,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#7), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout` (Implementation Task #70).",
+    "question": "[HARD Coding Task #70] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` when implementing `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`?",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answer: A) Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`, Writing an asynchronous CI deployment script that executes `az ml pipeline create --no-wait --file src/pipelines/retrain.yml -o json > run.json`, extracts `RUN_ID=$(jq -r '.name' run.json)`, writes `RUN_ID` to repository environment variables, and launches a lightweight scheduled cron workflow (`retrain-poll.yml`) to check status. is the officially required syntax for `asynchronous long-running job polling wrapper to bypass 6-hour runner timeout`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3671,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#8), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #71).",
+    "question": "[HARD Coding Task #71] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `automated model retraining webhook triggered by Event Grid data drift`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically. is the officially required syntax for `automated model retraining webhook triggered by Event Grid data drift`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3672,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#8). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #72).",
+    "question": "[HARD Coding Task #72] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `automated model retraining webhook triggered by Event Grid data drift`? (Select three)",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `automated model retraining webhook triggered by Event Grid data drift`, enterprise coding standards mandate: (1) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3673,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#8), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #73).",
+    "question": "[HARD Coding Task #73] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `automated model retraining webhook triggered by Event Grid data drift`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically. is the officially required syntax for `automated model retraining webhook triggered by Event Grid data drift`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3674,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During CI/CD execution (#8), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #74).",
+    "question": "[HARD Coding Task #74] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep Linter & What-If Validation (`az deployment group what-if`)` when implementing `automated model retraining webhook triggered by Event Grid data drift`?",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answer: A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep Linter & What-If Validation (`az deployment group what-if`)`, Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically. is the officially required syntax for `automated model retraining webhook triggered by Event Grid data drift`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3675,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#8) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #75).",
+    "question": "[HARD Coding Task #75] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `automated model retraining webhook triggered by Event Grid data drift`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically. is the officially required syntax for `automated model retraining webhook triggered by Event Grid data drift`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3676,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#8), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #76).",
+    "question": "[HARD Coding Task #76] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `automated model retraining webhook triggered by Event Grid data drift`? (Select three)",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `automated model retraining webhook triggered by Event Grid data drift`, enterprise coding standards mandate: (1) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3677,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#8). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #77).",
+    "question": "[HARD Coding Task #77] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `automated model retraining webhook triggered by Event Grid data drift`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically. is the officially required syntax for `automated model retraining webhook triggered by Event Grid data drift`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3678,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#8).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #78).",
+    "question": "[HARD Coding Task #78] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Environments & PR Approval Rules (`environment: prod-review`)` when implementing `automated model retraining webhook triggered by Event Grid data drift`?",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answer: A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Environments & PR Approval Rules (`environment: prod-review`)`, Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically. is the officially required syntax for `automated model retraining webhook triggered by Event Grid data drift`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3679,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#8), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #79).",
+    "question": "[HARD Coding Task #79] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `automated model retraining webhook triggered by Event Grid data drift`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically. is the officially required syntax for `automated model retraining webhook triggered by Event Grid data drift`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3680,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#8), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated model retraining webhook triggered by Event Grid data drift` (Implementation Task #80).",
+    "question": "[HARD Coding Task #80] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `automated model retraining webhook triggered by Event Grid data drift`? (Select three)",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `automated model retraining webhook triggered by Event Grid data drift`, enterprise coding standards mandate: (1) Writing an Azure Function (`/api/webhook-trigger`) authenticated via GitHub Personal Access Token (PAT) (`repo_dispatch`) subscribing to `Microsoft.MachineLearningServices.ModelDataDriftDetected` Event Grid events on the AI workspace to trigger `gh workflow run retrain.yml -f drift_percentage=24.5` automatically., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3681,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#9), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #81).",
+    "question": "[HARD Coding Task #81] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`. is the officially required syntax for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3682,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#9). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #82).",
+    "question": "[HARD Coding Task #82] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` when implementing `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`?",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`, Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`. is the officially required syntax for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3683,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#9), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #83).",
+    "question": "[HARD Coding Task #83] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`. is the officially required syntax for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3684,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During CI/CD execution (#9), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #84).",
+    "question": "[HARD Coding Task #84] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`? (Select three)",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)` for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`, enterprise coding standards mandate: (1) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3685,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#9) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #85).",
+    "question": "[HARD Coding Task #85] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`. is the officially required syntax for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3686,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#9), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #86).",
+    "question": "[HARD Coding Task #86] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` when implementing `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`?",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`, Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`. is the officially required syntax for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3687,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#9). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #87).",
+    "question": "[HARD Coding Task #87] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`. is the officially required syntax for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3688,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#9).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #88).",
+    "question": "[HARD Coding Task #88] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`? (Select three)",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)` for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`, enterprise coding standards mandate: (1) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3689,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#9), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #89).",
+    "question": "[HARD Coding Task #89] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`. is the officially required syntax for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3690,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#9), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet` (Implementation Task #90).",
+    "question": "[HARD Coding Task #90] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` when implementing `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`?",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`, Configuring `Microsoft.Resources/deploymentScripts` inside `infra/main.bicep` with `properties: { azCliVersion: '2.61.0', storageAccountSettings: { storageAccountName: sa.name, storageAccountKey: sa.listKeys().keys[0].value }, containerSettings: { subnetIds: [vnet.properties.subnets[1].id] }, scriptContent: 'python src/setup/seed_index.py' }`. is the officially required syntax for `zero-trust Bicep deployment pipeline using `deploymentScripts` inside locked-down VNet`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3691,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In `.github/workflows/evaluate-agent.yml` (#10), you are configuring automated CI/CD quality gating for Pull Requests.",
-    "question": "Which GitHub Actions authentication mechanism provides secure, secret-free login to Azure AI Foundry without storing permanent passwords or client secrets in GitHub Secrets?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #91).",
+    "question": "[HARD Coding Task #91] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)` when implementing `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`?",
     "options": [
-      "OpenID Connect (OIDC) Federation using `azure/login@v2` with `client-id`, `tenant-id`, and `subscription-id` (accompanied by `permissions: id-token: write`).",
-      "Storing a permanent Azure Service Principal Client Secret in `secret.AZURE_PASSWORD`.",
-      "Committing your personal `.env` file into the GitHub repository branch.",
-      "Running `az login --interactive` inside the automated CI/CD runner."
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern MLOps CI/CD best practices mandate OpenID Connect (OIDC) workload identity federation (`id-token: write`), eliminating long-lived credentials in GitHub Secrets."
+    "explanation": "Correct Answer: A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Actions Workflow Trigger (`on: push: branches: [main]`, `paths-ignore`)`, Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy. is the officially required syntax for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3692,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are designing the CI/CD pull request gate in `.github/workflows/evaluate-agent.yml` (#10). If `evaluate_agent.py` generates an average Groundedness score below 3.0 in `evaluation_results.txt`, the build must fail.",
-    "question": "Which shell command step in GitHub Actions correctly parses `evaluation_results.txt` and fails the workflow if thresholds are breached?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #92).",
+    "question": "[HARD Coding Task #92] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`? (Select three)",
     "options": [
-      "python -c \"scores = open('evaluation_results.txt').read(); assert float(scores.split('Groundedness: ')[1].split()[0]) >= 3.0, 'Quality Gate Failed!'\"",
-      "exit 0 # Ignore scores and merge PR",
-      "git commit --amend --no-verify",
-      "echo 'Score low' >> $GITHUB_STEP_SUMMARY; return True"
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In MLOps pipelines, automated quality gating requires parsing the evaluation output file (`evaluation_results.txt`) and raising a non-zero exit code (via assertion or `exit 1`) if metrics fall below threshold."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OIDC Workload Identity Federation (`id-token: write`, `azure/login@v1`)` for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`, enterprise coding standards mandate: (1) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3693,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "In your GitHub repository (#10), you want to enforce that no engineer can merge code into `main` without passing the automated cloud evaluation CI/CD pipeline.",
-    "question": "Which repository setting in GitHub or Azure DevOps enforces this workflow requirement?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #93).",
+    "question": "[HARD Coding Task #93] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)` when implementing `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`?",
     "options": [
-      "Branch Protection Rules (or Rulesets) on `main` requiring status check `evaluate-agent` to pass before merging is allowed.",
-      "Setting file permissions on `trail_guide_agent.py` to read-only in Windows Explorer.",
-      "Adding a comment in `PULL_REQUEST_TEMPLATE.md` asking reviewers to check scores manually.",
-      "Disabling Git Push in `.gitignore`."
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Branch protection rules in source control enforce CI/CD governance by blocking pull request merges until designated automated workflow jobs (like LLM evaluations) return success."
+    "explanation": "Correct Answer: A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure CLI & ML Extension Installation (`az extension add -n ml -y`)`, Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy. is the officially required syntax for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3694,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During CI/CD execution (#10), the GitHub Actions runner fails with `ModuleNotFoundError: No module named 'azure.ai.projects'`.",
-    "question": "Which workflow step must be executed prior to running `src/evaluators/evaluate_agent.py` in the pipeline?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep Linter & What-If Validation (`az deployment group what-if`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #94).",
+    "question": "[HARD Coding Task #94] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep Linter & What-If Validation (`az deployment group what-if`)` when implementing `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`?",
     "options": [
-      "python -m pip install --upgrade pip && pip install -r requirements.txt",
-      "sudo apt-get install azure-cli",
-      "git pull origin main --force",
-      "azd init --template mslearn-genaiops"
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: CI/CD runners are clean, ephemeral virtual machines. Dependencies declared in `requirements.txt` must be explicitly installed via `pip install` in an earlier workflow step."
+    "explanation": "Correct Answer: A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep Linter & What-If Validation (`az deployment group what-if`)`, Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy. is the officially required syntax for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3695,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to optimize CI/CD pipeline speed (#10) by preventing `evaluate_agent.py` from running when changes only affect documentation files (`*.md`).",
-    "question": "Which YAML trigger filtering syntax in `.github/workflows/evaluate-agent.yml` achieves this optimization?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #95).",
+    "question": "[HARD Coding Task #95] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)` when implementing `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`?",
     "options": [
-      "on: pull_request: paths-ignore: [ '**.md', 'docs/**' ] (or paths: [ 'src/**', 'data/**', 'infra/**' ])",
-      "on: pull_request: ignore_docs: true",
-      "jobs: eval: if: github.file_type != 'markdown'",
-      "trigger: exclude: '*.md'"
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `paths-ignore: ['**.md']` or specific `paths:` filters in GitHub Actions prevents expensive cloud LLM evaluation runs from triggering on typo fixes or readme edits."
+    "explanation": "Correct Answer: A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Python Unit Testing & Code Quality (`pytest src/tests/ --junitxml`)`, Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy. is the officially required syntax for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3696,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/evaluators/evaluate_agent.py` (#10), you want to output evaluation results as a markdown table directly into the GitHub Actions Pull Request summary UI.",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #96).",
+    "question": "[HARD Coding Task #96] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`? (Select three)",
     "options": [
-      "with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('| Metric | Score |\\n|---|---|\\n| Groundedness | 4.5 |')",
-      "sys.stdout.write('PR_SUMMARY: Groundedness = 4.5')",
-      "os.system('git comment pr --text \"Score 4.5\"')",
-      "open('.github/summary.md', 'w').write('Score: 4.5')"
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Writing markdown text to the file path specified by `os.environ['GITHUB_STEP_SUMMARY']` automatically renders a rich visual dashboard on the GitHub Actions workflow run page."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Evaluation Quality Gating Script (`python -c 'assert groundedness >= 3.8'`)` for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`, enterprise coding standards mandate: (1) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3697,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "An MLOps team manages three separate Azure environments: Dev, Staging, and Prod (#10). In GitHub Actions, how should environment-specific endpoints (`AZURE_AI_PROJECT_ENDPOINT`) be injected into the runner?",
-    "question": "Which special environment variable file path is used in GitHub Actions to append custom markdown summaries?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Model Promotion Registry Command (`az ml model show / create`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #97).",
+    "question": "[HARD Coding Task #97] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Promotion Registry Command (`az ml model show / create`)` when implementing `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`?",
     "options": [
-      "Use GitHub Environments (`environment: staging`) and reference environment-scoped variables via `${{ vars.AZURE_AI_PROJECT_ENDPOINT }}`.",
-      "Hardcode all three production endpoints directly inside `trail_guide_agent.py` with an `if/else` statement.",
-      "Create three duplicate GitHub repositories, one for each environment.",
-      "Store production endpoints in `abbreviations.json`."
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: GitHub Environments allow scoping variables (`vars.*`) and secrets (`secrets.*`) to specific deployment targets (Dev, Staging, Prod), enabling clean promotion pipelines without code changes."
+    "explanation": "Correct Answer: A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Promotion Registry Command (`az ml model show / create`)`, Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy. is the officially required syntax for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3698,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "You want to automate the provisioning of cloud infrastructure as part of a nightly CI/CD regression test (#10).",
-    "question": "Which CLI sequence correctly initializes, provisions, and tests the environment non-interactively?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `GitHub Environments & PR Approval Rules (`environment: prod-review`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #98).",
+    "question": "[HARD Coding Task #98] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `GitHub Environments & PR Approval Rules (`environment: prod-review`)` when implementing `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`?",
     "options": [
-      "azd auth login --client-id ... && azd provision --no-prompt && python src/evaluators/evaluate_agent.py",
-      "az group create && bicep compile main.bicep && python trail_guide_agent.py",
-      "terraform apply -auto-approve && npm run dev",
-      "docker build . -t trail-guide && docker run trail-guide"
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In an automated AZD CI/CD pipeline, authenticating via service principal and running `azd provision --no-prompt` ensures non-interactive infrastructure deployment before test execution."
+    "explanation": "Correct Answer: A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `GitHub Environments & PR Approval Rules (`environment: prod-review`)`, Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy. is the officially required syntax for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3699,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
     "type": "single",
-    "scenario": "During a pull request build (#10), `evaluate_agent.py` takes 25 minutes to evaluate 500 items sequentially, causing CI/CD queue bottlenecks.",
-    "question": "How does Azure AI Foundry cloud evaluation (`client.evals.runs.create()`) natively solve this sequential processing bottleneck?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #99).",
+    "question": "[HARD Coding Task #99] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)` when implementing `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`?",
     "options": [
-      "Cloud evaluation runs execute in parallel across distributed serverless AI workers in Azure AI Foundry, scoring hundreds of dataset rows concurrently without blocking local CPU.",
-      "You must manually split the JSONL file into 50 separate files and run 50 parallel GitHub Action jobs.",
-      "Azure AI Foundry reduces latency by skipping Groundedness evaluation on even-numbered rows.",
-      "You must upgrade your GitHub Actions runner from 2-core to 64-core CPU."
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Offloading evaluations to `client.evals.runs.create()` leverages Azure AI Foundry's distributed cloud compute, automatically parallelizing LLM-as-a-Judge scoring across large datasets."
+    "explanation": "Correct Answer: A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Canary Traffic Splitting Rollout (`az ml online-endpoint update --traffic`)`, Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy. is the officially required syntax for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3700,
-    "track": "T5",
-    "domain": "Track 5: MLOps CI/CD Automation & Gating",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `PULL_REQUEST_TEMPLATE.md` (#10), you are establishing team governance rules for prompt engineering modifications.",
-    "question": "Which mandatory checklist item should be required before merging any changes to files in `src/agents/trail_guide_agent/prompts/`?",
+    "domain": "Track 5: MLOps CI/CD Automation & Quality Gating",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001` (Implementation Task #100).",
+    "question": "[HARD Coding Task #100] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`? (Select three)",
     "options": [
-      "\"[ ] I have executed `python src/evaluators/evaluate_agent.py` and verified in `evaluation_results.txt` that Groundedness >= 3.5 and Relevance >= 3.5.\"",
-      "\"[ ] I have deleted all previous prompt versions from Git history.\"",
-      "\"[ ] I have disabled OpenTelemetry tracing to save storage costs.\"",
-      "\"[ ] I have hardcoded my personal Azure API key in `.env`.\""
+      "A) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Proper GenAIOps governance mandates that any modification to prompt instructions must be empirically validated against benchmark evaluation datasets before peer review approval."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Pipeline Artifact Upload & Caching (`actions/upload-artifact@v4`, `cache@v4`)` for `immutable WORM deployment execution log compliance sink for ISO/IEC 42001`, enterprise coding standards mandate: (1) Writing a workflow teardown step (`if: always()`) that bundles job logs, commit hashes, approver names, and `evaluation_results.txt` into `deploy-audit-${{ github.run_id }}.json`, signs it via Cosign, and uploads to an immutable Azure Blob container (`/iso42001-audit-trail/`) with a 7-year retention policy., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   }
 ];

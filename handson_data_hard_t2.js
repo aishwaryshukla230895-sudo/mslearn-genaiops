@@ -1,1903 +1,1777 @@
-// AI-300 Hands-On Enterprise Implementation Simulator (HARD Tier - Track 2: Python SDK v2 & Azure AI Foundry Client)
 window.HANDSON_DATA_HARD_T2 = [
   {
     "id": 3301,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#1), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #1).",
+    "question": "[HARD Coding Task #1] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `multi-tool parallel execution with asynchronous AST checking`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits. is the officially required syntax for `multi-tool parallel execution with asynchronous AST checking`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3302,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#1) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #2).",
+    "question": "[HARD Coding Task #2] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `multi-tool parallel execution with asynchronous AST checking`?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits. is the officially required syntax for `multi-tool parallel execution with asynchronous AST checking`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3303,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#1) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #3).",
+    "question": "[HARD Coding Task #3] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `multi-tool parallel execution with asynchronous AST checking`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits. is the officially required syntax for `multi-tool parallel execution with asynchronous AST checking`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3304,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#1), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #4).",
+    "question": "[HARD Coding Task #4] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `multi-tool parallel execution with asynchronous AST checking`? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `multi-tool parallel execution with asynchronous AST checking`, enterprise coding standards mandate: (1) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3305,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#1) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #5).",
+    "question": "[HARD Coding Task #5] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `multi-tool parallel execution with asynchronous AST checking`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits. is the officially required syntax for `multi-tool parallel execution with asynchronous AST checking`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3306,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#1), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #6).",
+    "question": "[HARD Coding Task #6] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `multi-tool parallel execution with asynchronous AST checking`?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits. is the officially required syntax for `multi-tool parallel execution with asynchronous AST checking`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3307,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#1) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #7).",
+    "question": "[HARD Coding Task #7] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `multi-tool parallel execution with asynchronous AST checking`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits. is the officially required syntax for `multi-tool parallel execution with asynchronous AST checking`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3308,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#1) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #8).",
+    "question": "[HARD Coding Task #8] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `multi-tool parallel execution with asynchronous AST checking`? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `multi-tool parallel execution with asynchronous AST checking`, enterprise coding standards mandate: (1) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3309,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#1), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #9).",
+    "question": "[HARD Coding Task #9] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `multi-tool parallel execution with asynchronous AST checking`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits. is the officially required syntax for `multi-tool parallel execution with asynchronous AST checking`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3310,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#1). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `multi-tool parallel execution with asynchronous AST checking` (Implementation Task #10).",
+    "question": "[HARD Coding Task #10] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `multi-tool parallel execution with asynchronous AST checking`?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Writing an asynchronous Python loop (`async def run_agent_turn(client, messages)`) that parses `message.tool_calls`, uses `asyncio.gather(*[execute_tool_async(call) for call in tool_calls])`, formats tool outputs into `ChatCompletionToolMessageParam`, and calls `await client.chat.completions.create(...)` with timeout limits. is the officially required syntax for `multi-tool parallel execution with asynchronous AST checking`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3311,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#2), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #11).",
+    "question": "[HARD Coding Task #11] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `custom SDK HTTP pipeline middleware for automatic PTU failover`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`. is the officially required syntax for `custom SDK HTTP pipeline middleware for automatic PTU failover`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3312,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#2) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #12).",
+    "question": "[HARD Coding Task #12] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `custom SDK HTTP pipeline middleware for automatic PTU failover`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `custom SDK HTTP pipeline middleware for automatic PTU failover`, enterprise coding standards mandate: (1) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3313,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#2) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #13).",
+    "question": "[HARD Coding Task #13] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `custom SDK HTTP pipeline middleware for automatic PTU failover`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`. is the officially required syntax for `custom SDK HTTP pipeline middleware for automatic PTU failover`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3314,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#2), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #14).",
+    "question": "[HARD Coding Task #14] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `custom SDK HTTP pipeline middleware for automatic PTU failover`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`. is the officially required syntax for `custom SDK HTTP pipeline middleware for automatic PTU failover`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3315,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#2) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #15).",
+    "question": "[HARD Coding Task #15] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `custom SDK HTTP pipeline middleware for automatic PTU failover`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`. is the officially required syntax for `custom SDK HTTP pipeline middleware for automatic PTU failover`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3316,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#2), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #16).",
+    "question": "[HARD Coding Task #16] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `custom SDK HTTP pipeline middleware for automatic PTU failover`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `custom SDK HTTP pipeline middleware for automatic PTU failover`, enterprise coding standards mandate: (1) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3317,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#2) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #17).",
+    "question": "[HARD Coding Task #17] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `custom SDK HTTP pipeline middleware for automatic PTU failover`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`. is the officially required syntax for `custom SDK HTTP pipeline middleware for automatic PTU failover`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3318,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#2) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #18).",
+    "question": "[HARD Coding Task #18] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `custom SDK HTTP pipeline middleware for automatic PTU failover`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`. is the officially required syntax for `custom SDK HTTP pipeline middleware for automatic PTU failover`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3319,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#2), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #19).",
+    "question": "[HARD Coding Task #19] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `custom SDK HTTP pipeline middleware for automatic PTU failover`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`. is the officially required syntax for `custom SDK HTTP pipeline middleware for automatic PTU failover`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3320,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#2). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom SDK HTTP pipeline middleware for automatic PTU failover` (Implementation Task #20).",
+    "question": "[HARD Coding Task #20] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `custom SDK HTTP pipeline middleware for automatic PTU failover`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `custom SDK HTTP pipeline middleware for automatic PTU failover`, enterprise coding standards mandate: (1) Implementing an SDK `PipelinePolicy` subclass (`PTUFailoverPolicy`) attached to `AIProjectClient` that intercepts `HttpResponseError` with status `429` on the primary `gpt-4o-ptu` endpoint, modifies `request.url` to the secondary `gpt-4o-paygo` fallback URI, and re-submits the request within `50ms`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3321,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#3), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #21).",
+    "question": "[HARD Coding Task #21] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `zero-trust private link client initialization with explicit CA certs`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet. is the officially required syntax for `zero-trust private link client initialization with explicit CA certs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3322,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#3) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #22).",
+    "question": "[HARD Coding Task #22] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `zero-trust private link client initialization with explicit CA certs`?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet. is the officially required syntax for `zero-trust private link client initialization with explicit CA certs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3323,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#3) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #23).",
+    "question": "[HARD Coding Task #23] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `zero-trust private link client initialization with explicit CA certs`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet. is the officially required syntax for `zero-trust private link client initialization with explicit CA certs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3324,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#3), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #24).",
+    "question": "[HARD Coding Task #24] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `zero-trust private link client initialization with explicit CA certs`? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `zero-trust private link client initialization with explicit CA certs`, enterprise coding standards mandate: (1) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3325,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#3) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #25).",
+    "question": "[HARD Coding Task #25] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `zero-trust private link client initialization with explicit CA certs`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet. is the officially required syntax for `zero-trust private link client initialization with explicit CA certs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3326,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#3), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #26).",
+    "question": "[HARD Coding Task #26] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `zero-trust private link client initialization with explicit CA certs`?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet. is the officially required syntax for `zero-trust private link client initialization with explicit CA certs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3327,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#3) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #27).",
+    "question": "[HARD Coding Task #27] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `zero-trust private link client initialization with explicit CA certs`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet. is the officially required syntax for `zero-trust private link client initialization with explicit CA certs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3328,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#3) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #28).",
+    "question": "[HARD Coding Task #28] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `zero-trust private link client initialization with explicit CA certs`? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `zero-trust private link client initialization with explicit CA certs`, enterprise coding standards mandate: (1) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3329,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#3), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #29).",
+    "question": "[HARD Coding Task #29] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `zero-trust private link client initialization with explicit CA certs`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet. is the officially required syntax for `zero-trust private link client initialization with explicit CA certs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3330,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#3). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link client initialization with explicit CA certs` (Implementation Task #30).",
+    "question": "[HARD Coding Task #30] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `zero-trust private link client initialization with explicit CA certs`?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Initializing `AIProjectClient.from_connection_string(...)` passing `transport=RequestsTransport(cert=('client.pem', 'client.key'), verify='enterprise_root_ca.crt')` to enforce mutual TLS (mTLS) inside a private air-gapped subnet. is the officially required syntax for `zero-trust private link client initialization with explicit CA certs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3331,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#4), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #31).",
+    "question": "[HARD Coding Task #31] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `dynamic embedding dimension reduction via `dimensions=1024` parameter`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing. is the officially required syntax for `dynamic embedding dimension reduction via `dimensions=1024` parameter`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3332,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#4) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #32).",
+    "question": "[HARD Coding Task #32] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `dynamic embedding dimension reduction via `dimensions=1024` parameter`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `dynamic embedding dimension reduction via `dimensions=1024` parameter`, enterprise coding standards mandate: (1) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3333,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#4) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #33).",
+    "question": "[HARD Coding Task #33] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `dynamic embedding dimension reduction via `dimensions=1024` parameter`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing. is the officially required syntax for `dynamic embedding dimension reduction via `dimensions=1024` parameter`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3334,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#4), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #34).",
+    "question": "[HARD Coding Task #34] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `dynamic embedding dimension reduction via `dimensions=1024` parameter`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing. is the officially required syntax for `dynamic embedding dimension reduction via `dimensions=1024` parameter`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3335,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#4) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #35).",
+    "question": "[HARD Coding Task #35] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `dynamic embedding dimension reduction via `dimensions=1024` parameter`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing. is the officially required syntax for `dynamic embedding dimension reduction via `dimensions=1024` parameter`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3336,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#4), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #36).",
+    "question": "[HARD Coding Task #36] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `dynamic embedding dimension reduction via `dimensions=1024` parameter`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `dynamic embedding dimension reduction via `dimensions=1024` parameter`, enterprise coding standards mandate: (1) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3337,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#4) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #37).",
+    "question": "[HARD Coding Task #37] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `dynamic embedding dimension reduction via `dimensions=1024` parameter`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing. is the officially required syntax for `dynamic embedding dimension reduction via `dimensions=1024` parameter`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3338,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#4) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #38).",
+    "question": "[HARD Coding Task #38] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `dynamic embedding dimension reduction via `dimensions=1024` parameter`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing. is the officially required syntax for `dynamic embedding dimension reduction via `dimensions=1024` parameter`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3339,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#4), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #39).",
+    "question": "[HARD Coding Task #39] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `dynamic embedding dimension reduction via `dimensions=1024` parameter`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing. is the officially required syntax for `dynamic embedding dimension reduction via `dimensions=1024` parameter`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3340,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#4). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic embedding dimension reduction via `dimensions=1024` parameter` (Implementation Task #40).",
+    "question": "[HARD Coding Task #40] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `dynamic embedding dimension reduction via `dimensions=1024` parameter`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `dynamic embedding dimension reduction via `dimensions=1024` parameter`, enterprise coding standards mandate: (1) Writing an adaptive RAG ingestion script that checks target vector database memory constraints, sets `dimensions=1024` inside `embed_client.embeddings.create(model='text-embedding-3-large', dimensions=1024, input=...)`, and verifies L2 norm preservation before indexing., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3341,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#5), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #41).",
+    "question": "[HARD Coding Task #41] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `streaming tool calling (`stream_options={'include_usage': True}`)`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`). is the officially required syntax for `streaming tool calling (`stream_options={'include_usage': True}`)`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3342,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#5) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #42).",
+    "question": "[HARD Coding Task #42] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `streaming tool calling (`stream_options={'include_usage': True}`)`?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`). is the officially required syntax for `streaming tool calling (`stream_options={'include_usage': True}`)`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3343,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#5) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #43).",
+    "question": "[HARD Coding Task #43] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `streaming tool calling (`stream_options={'include_usage': True}`)`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`). is the officially required syntax for `streaming tool calling (`stream_options={'include_usage': True}`)`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3344,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#5), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #44).",
+    "question": "[HARD Coding Task #44] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `streaming tool calling (`stream_options={'include_usage': True}`)`? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `streaming tool calling (`stream_options={'include_usage': True}`)`, enterprise coding standards mandate: (1) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`)., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3345,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#5) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #45).",
+    "question": "[HARD Coding Task #45] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `streaming tool calling (`stream_options={'include_usage': True}`)`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`). is the officially required syntax for `streaming tool calling (`stream_options={'include_usage': True}`)`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3346,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#5), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #46).",
+    "question": "[HARD Coding Task #46] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `streaming tool calling (`stream_options={'include_usage': True}`)`?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`). is the officially required syntax for `streaming tool calling (`stream_options={'include_usage': True}`)`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3347,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#5) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #47).",
+    "question": "[HARD Coding Task #47] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `streaming tool calling (`stream_options={'include_usage': True}`)`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`). is the officially required syntax for `streaming tool calling (`stream_options={'include_usage': True}`)`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3348,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#5) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #48).",
+    "question": "[HARD Coding Task #48] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `streaming tool calling (`stream_options={'include_usage': True}`)`? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `streaming tool calling (`stream_options={'include_usage': True}`)`, enterprise coding standards mandate: (1) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`)., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3349,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#5), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #49).",
+    "question": "[HARD Coding Task #49] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `streaming tool calling (`stream_options={'include_usage': True}`)`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`). is the officially required syntax for `streaming tool calling (`stream_options={'include_usage': True}`)`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3350,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#5). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `streaming tool calling (`stream_options={'include_usage': True}`)` (Implementation Task #50).",
+    "question": "[HARD Coding Task #50] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `streaming tool calling (`stream_options={'include_usage': True}`)`?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`).. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Writing a complex streaming generator that parses delta tool call fragments (`chunk.choices[0].delta.tool_calls`) across chunks, accumulates JSON argument strings (`tool_call.function.arguments += delta_args`), executes the tool once `finish_reason == 'tool_calls'`, and captures final token usage from the terminal chunk (`chunk.usage`). is the officially required syntax for `streaming tool calling (`stream_options={'include_usage': True}`)`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3351,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#6), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #51).",
+    "question": "[HARD Coding Task #51] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `automated memory cleanup and vector store purge via SDK`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files. is the officially required syntax for `automated memory cleanup and vector store purge via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3352,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#6) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #52).",
+    "question": "[HARD Coding Task #52] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `automated memory cleanup and vector store purge via SDK`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `automated memory cleanup and vector store purge via SDK`, enterprise coding standards mandate: (1) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3353,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#6) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #53).",
+    "question": "[HARD Coding Task #53] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `automated memory cleanup and vector store purge via SDK`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files. is the officially required syntax for `automated memory cleanup and vector store purge via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3354,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#6), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #54).",
+    "question": "[HARD Coding Task #54] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `automated memory cleanup and vector store purge via SDK`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files. is the officially required syntax for `automated memory cleanup and vector store purge via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3355,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#6) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #55).",
+    "question": "[HARD Coding Task #55] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `automated memory cleanup and vector store purge via SDK`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files. is the officially required syntax for `automated memory cleanup and vector store purge via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3356,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#6), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #56).",
+    "question": "[HARD Coding Task #56] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `automated memory cleanup and vector store purge via SDK`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `automated memory cleanup and vector store purge via SDK`, enterprise coding standards mandate: (1) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3357,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#6) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #57).",
+    "question": "[HARD Coding Task #57] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `automated memory cleanup and vector store purge via SDK`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files. is the officially required syntax for `automated memory cleanup and vector store purge via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3358,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#6) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #58).",
+    "question": "[HARD Coding Task #58] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `automated memory cleanup and vector store purge via SDK`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files. is the officially required syntax for `automated memory cleanup and vector store purge via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3359,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#6), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #59).",
+    "question": "[HARD Coding Task #59] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `automated memory cleanup and vector store purge via SDK`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files. is the officially required syntax for `automated memory cleanup and vector store purge via SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3360,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#6). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated memory cleanup and vector store purge via SDK` (Implementation Task #60).",
+    "question": "[HARD Coding Task #60] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `automated memory cleanup and vector store purge via SDK`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `automated memory cleanup and vector store purge via SDK`, enterprise coding standards mandate: (1) Writing an automated cleanup job (`async def purge_stale_vector_stores()`) using `project_client.agents` that queries `list_vector_stores()`, filters by `created_at < time.time() - 604800`, and executes `delete_vector_store(vector_store_id)` while unlinking associated blob files., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3361,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#7), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #61).",
+    "question": "[HARD Coding Task #61] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `custom OpenTelemetry span propagation inside SDK inference loop`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`. is the officially required syntax for `custom OpenTelemetry span propagation inside SDK inference loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3362,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#7) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #62).",
+    "question": "[HARD Coding Task #62] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `custom OpenTelemetry span propagation inside SDK inference loop`?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`. is the officially required syntax for `custom OpenTelemetry span propagation inside SDK inference loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3363,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#7) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #63).",
+    "question": "[HARD Coding Task #63] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `custom OpenTelemetry span propagation inside SDK inference loop`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`. is the officially required syntax for `custom OpenTelemetry span propagation inside SDK inference loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3364,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#7), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #64).",
+    "question": "[HARD Coding Task #64] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `custom OpenTelemetry span propagation inside SDK inference loop`? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `custom OpenTelemetry span propagation inside SDK inference loop`, enterprise coding standards mandate: (1) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3365,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#7) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #65).",
+    "question": "[HARD Coding Task #65] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `custom OpenTelemetry span propagation inside SDK inference loop`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`. is the officially required syntax for `custom OpenTelemetry span propagation inside SDK inference loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3366,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#7), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #66).",
+    "question": "[HARD Coding Task #66] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `custom OpenTelemetry span propagation inside SDK inference loop`?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`. is the officially required syntax for `custom OpenTelemetry span propagation inside SDK inference loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3367,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#7) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #67).",
+    "question": "[HARD Coding Task #67] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `custom OpenTelemetry span propagation inside SDK inference loop`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`. is the officially required syntax for `custom OpenTelemetry span propagation inside SDK inference loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3368,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#7) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #68).",
+    "question": "[HARD Coding Task #68] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `custom OpenTelemetry span propagation inside SDK inference loop`? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `custom OpenTelemetry span propagation inside SDK inference loop`, enterprise coding standards mandate: (1) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3369,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#7), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #69).",
+    "question": "[HARD Coding Task #69] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `custom OpenTelemetry span propagation inside SDK inference loop`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`. is the officially required syntax for `custom OpenTelemetry span propagation inside SDK inference loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3370,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#7). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `custom OpenTelemetry span propagation inside SDK inference loop` (Implementation Task #70).",
+    "question": "[HARD Coding Task #70] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `custom OpenTelemetry span propagation inside SDK inference loop`?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Wrapping the `chat_client.chat.completions.create()` call inside `with tracer.start_as_current_span('InferenceTurn') as span:` and explicitly injecting `span.set_attribute('ai.model.id', 'gpt-4o')`, `span.set_attribute('ai.token.prompt', usage.prompt_tokens)`, and `span.set_attribute('ai.user.query', user_prompt)`. is the officially required syntax for `custom OpenTelemetry span propagation inside SDK inference loop`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3371,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#8), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #71).",
+    "question": "[HARD Coding Task #71] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `formal schema validation using Pydantic and SDK function tools`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation. is the officially required syntax for `formal schema validation using Pydantic and SDK function tools`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3372,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#8) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #72).",
+    "question": "[HARD Coding Task #72] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `formal schema validation using Pydantic and SDK function tools`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `formal schema validation using Pydantic and SDK function tools`, enterprise coding standards mandate: (1) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3373,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#8) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #73).",
+    "question": "[HARD Coding Task #73] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `formal schema validation using Pydantic and SDK function tools`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation. is the officially required syntax for `formal schema validation using Pydantic and SDK function tools`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3374,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#8), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #74).",
+    "question": "[HARD Coding Task #74] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `formal schema validation using Pydantic and SDK function tools`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation. is the officially required syntax for `formal schema validation using Pydantic and SDK function tools`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3375,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#8) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #75).",
+    "question": "[HARD Coding Task #75] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `formal schema validation using Pydantic and SDK function tools`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation. is the officially required syntax for `formal schema validation using Pydantic and SDK function tools`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3376,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#8), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #76).",
+    "question": "[HARD Coding Task #76] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `formal schema validation using Pydantic and SDK function tools`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `formal schema validation using Pydantic and SDK function tools`, enterprise coding standards mandate: (1) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3377,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#8) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #77).",
+    "question": "[HARD Coding Task #77] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `formal schema validation using Pydantic and SDK function tools`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation. is the officially required syntax for `formal schema validation using Pydantic and SDK function tools`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3378,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#8) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #78).",
+    "question": "[HARD Coding Task #78] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `formal schema validation using Pydantic and SDK function tools`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation. is the officially required syntax for `formal schema validation using Pydantic and SDK function tools`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3379,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#8), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #79).",
+    "question": "[HARD Coding Task #79] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `formal schema validation using Pydantic and SDK function tools`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation. is the officially required syntax for `formal schema validation using Pydantic and SDK function tools`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3380,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#8). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `formal schema validation using Pydantic and SDK function tools` (Implementation Task #80).",
+    "question": "[HARD Coding Task #80] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `formal schema validation using Pydantic and SDK function tools`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `formal schema validation using Pydantic and SDK function tools`, enterprise coding standards mandate: (1) Generating function calling tool schemas dynamically from Pydantic models (`my_model.model_json_schema()`), passing them to `tools=[...]`, and wrapping the returned `tool_call.function.arguments` inside `try: my_model.model_validate_json(args) except ValidationError as e: append_error_turn(e)` for self-correcting validation., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3381,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#9), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #81).",
+    "question": "[HARD Coding Task #81] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `cross-tenant authentication token federation via `ClientSecretCredential``?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely. is the officially required syntax for `cross-tenant authentication token federation via `ClientSecretCredential``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3382,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#9) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #82).",
+    "question": "[HARD Coding Task #82] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Chat Completions Client (`get_chat_completions_client`)` when implementing `cross-tenant authentication token federation via `ClientSecretCredential``?",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Chat Completions Client (`get_chat_completions_client`)`, Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely. is the officially required syntax for `cross-tenant authentication token federation via `ClientSecretCredential``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3383,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#9) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #83).",
+    "question": "[HARD Coding Task #83] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `cross-tenant authentication token federation via `ClientSecretCredential``?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely. is the officially required syntax for `cross-tenant authentication token federation via `ClientSecretCredential``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3384,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#9), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #84).",
+    "question": "[HARD Coding Task #84] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `cross-tenant authentication token federation via `ClientSecretCredential``? (Select three)",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` for `cross-tenant authentication token federation via `ClientSecretCredential``, enterprise coding standards mandate: (1) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3385,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#9) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #85).",
+    "question": "[HARD Coding Task #85] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `cross-tenant authentication token federation via `ClientSecretCredential``?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely. is the officially required syntax for `cross-tenant authentication token federation via `ClientSecretCredential``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3386,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#9), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #86).",
+    "question": "[HARD Coding Task #86] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Prompt Template Engine (`prompts/trail_guide.jinja2`)` when implementing `cross-tenant authentication token federation via `ClientSecretCredential``?",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Prompt Template Engine (`prompts/trail_guide.jinja2`)`, Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely. is the officially required syntax for `cross-tenant authentication token federation via `ClientSecretCredential``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3387,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#9) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #87).",
+    "question": "[HARD Coding Task #87] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `cross-tenant authentication token federation via `ClientSecretCredential``?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely. is the officially required syntax for `cross-tenant authentication token federation via `ClientSecretCredential``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3388,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#9) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #88).",
+    "question": "[HARD Coding Task #88] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `cross-tenant authentication token federation via `ClientSecretCredential``? (Select three)",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` for `cross-tenant authentication token federation via `ClientSecretCredential``, enterprise coding standards mandate: (1) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3389,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#9), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #89).",
+    "question": "[HARD Coding Task #89] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `cross-tenant authentication token federation via `ClientSecretCredential``?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely. is the officially required syntax for `cross-tenant authentication token federation via `ClientSecretCredential``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3390,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#9). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `cross-tenant authentication token federation via `ClientSecretCredential`` (Implementation Task #90).",
+    "question": "[HARD Coding Task #90] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Model Deployment Discovery (`list_models`, `get_deployment`)` when implementing `cross-tenant authentication token federation via `ClientSecretCredential``?",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answer: A) Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Model Deployment Discovery (`list_models`, `get_deployment`)`, Initializing `AIProjectClient` inside a multi-tenant enterprise portal using `ClientSecretCredential(tenant_id=customer_tenant_id, client_id=app_id, client_secret=secret)` mapped via Lighthouse to access the customer's remote AI Foundry Project securely. is the officially required syntax for `cross-tenant authentication token federation via `ClientSecretCredential``. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3391,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/trail_guide_agent.py` (#10), you are initializing connection to Microsoft Foundry using `azure-ai-projects` SDK.",
-    "question": "Which exact code snippet correctly initializes `AIProjectClient` using secret-free Entra ID authentication from `.env`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing ``azure.ai.projects.AIProjectClient` Initialization`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #91).",
+    "question": "[HARD Coding Task #91] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for ``azure.ai.projects.AIProjectClient` Initialization` when implementing `implementing token-aware sliding context truncation in SDK`?",
     "options": [
-      "project_client = AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])",
-      "project_client = AIProjectClient(endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_key=os.environ['OPENAI_API_KEY'])",
-      "project_client = AIProjectClient.create(workspace_name='ai-hub', credential=InteractiveBrowserCredential())",
-      "project_client = AzureOpenAI(azure_endpoint=os.environ['AZURE_AI_PROJECT_ENDPOINT'], api_version='2024-02-01')"
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In the `azure-ai-projects` SDK, the client is initialized using `AIProjectClient.from_connection_string(credential=DefaultAzureCredential(), conn_str=os.environ['AZURE_AI_PROJECT_ENDPOINT'])`."
+    "explanation": "Correct Answer: A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.. Explanation: In Microsoft AI-300 enterprise hands-on coding for ``azure.ai.projects.AIProjectClient` Initialization`, Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns. is the officially required syntax for `implementing token-aware sliding context truncation in SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3392,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are implementing streaming conversational chat in `trail_guide_agent.py` (#10) using the model deployment specified in `agent.yaml` (`gpt-5.1`).",
-    "question": "Which SDK method retrieves the OpenAI-compatible chat client from `AIProjectClient`?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #92).",
+    "question": "[HARD Coding Task #92] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `implementing token-aware sliding context truncation in SDK`? (Select three)",
     "options": [
-      "chat_client = project_client.inference.get_chat_completions_client()",
-      "chat_client = project_client.models.get_openai_client()",
-      "chat_client = project_client.chat.create_session()",
-      "chat_client = project_client.get_default_model_endpoint()"
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The `azure-ai-projects` SDK exposes an OpenAI-compatible inference interface via `project_client.inference.get_chat_completions_client()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenAI Chat Completions Client (`get_chat_completions_client`)` for `implementing token-aware sliding context truncation in SDK`, enterprise coding standards mandate: (1) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3393,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "The Trail Guide Agent (#10) must dynamically load system instructions from `src/agents/trail_guide_agent/prompts/v4_optimized_concise.txt` before sending inference requests.",
-    "question": "How should the system prompt be formatted inside the `messages` payload passed to `chat_client.complete()`?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `OpenAI Embeddings Client (`get_embeddings_client`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #93).",
+    "question": "[HARD Coding Task #93] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenAI Embeddings Client (`get_embeddings_client`)` when implementing `implementing token-aware sliding context truncation in SDK`?",
     "options": [
-      "messages = [ { 'role': 'system', 'content': system_instructions_text }, { 'role': 'user', 'content': user_query } ]",
-      "messages = [ { 'role': 'developer', 'prompt': system_instructions_text }, { 'role': 'human', 'query': user_query } ]",
-      "messages = { 'system_prompt': system_instructions_text, 'user_input': user_query }",
-      "messages = [ { 'type': 'instruction', 'text': system_instructions_text } ]"
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenAI-compatible chat completion APIs in Azure AI Foundry, the message payload is an array of dictionaries with `'role'` (`'system'`, `'user'`, `'assistant'`) and `'content'` keys."
+    "explanation": "Correct Answer: A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenAI Embeddings Client (`get_embeddings_client`)`, Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns. is the officially required syntax for `implementing token-aware sliding context truncation in SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3394,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/tests/interact_with_agent.py` (#10), you notice that authentication fails with `ClientAuthenticationError: ManagedIdentityCredential authentication unavailable` when running locally on your laptop.",
-    "question": "Why does `DefaultAzureCredential()` fail locally, and how do you resolve it without altering code?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #94).",
+    "question": "[HARD Coding Task #94] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)` when implementing `implementing token-aware sliding context truncation in SDK`?",
     "options": [
-      "Your developer machine is not logged into Azure CLI or AZD; execute `az login` or `azd auth login` in the terminal.",
-      "You must replace `DefaultAzureCredential()` with hardcoded Client Secret credentials in `.env`.",
-      "The Azure AI Foundry project endpoint is down; restart the cloud resource group.",
-      "You need to run `pip install azure-identity-local-fallback`."
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: `DefaultAzureCredential()` attempts multiple authentication chains sequentially. On a local workstation without environment secrets or managed identity, it looks for active developer CLI sessions (`az login` or `azd auth login`)."
+    "explanation": "Correct Answer: A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Agent Tool Calling Payload (`tools=[{'type': 'function'...}]`)`, Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns. is the officially required syntax for `implementing token-aware sliding context truncation in SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3395,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom function calling tool in `trail_guide_agent.py` (#10) that queries live weather data for hiking trails.",
-    "question": "Which parameter in `chat_client.complete()` registers the Python function definitions as tools for the model?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `File Upload & Agent Vector Store (`project_client.agents`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #95).",
+    "question": "[HARD Coding Task #95] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `File Upload & Agent Vector Store (`project_client.agents`)` when implementing `implementing token-aware sliding context truncation in SDK`?",
     "options": [
-      "tools=[ { 'type': 'function', 'function': { 'name': 'get_trail_weather', 'description': '...', 'parameters': { ... } } } ], tool_choice='auto'",
-      "functions=[ get_trail_weather ], auto_invoke=True",
-      "plugins=[ { 'name': 'weather_api', 'handler': get_trail_weather } ]",
-      "extensions=[ { 'type': 'azure_function', 'endpoint': '...' } ]"
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Tool calling in modern Azure AI inference requires passing a JSON schema list under `tools=[{'type': 'function', 'function': {...}}]` and setting `tool_choice='auto'`."
+    "explanation": "Correct Answer: A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `File Upload & Agent Vector Store (`project_client.agents`)`, Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns. is the officially required syntax for `implementing token-aware sliding context truncation in SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3396,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "In `src/tests/run_batch_tests.py` (#10), you are executing 50 automated test prompts against the Foundry endpoint. You encounter occasional `RateLimitError: 429 Too Many Requests`.",
-    "question": "Which SDK retry pattern or configuration should be implemented to handle 429 rate limits gracefully?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #96).",
+    "question": "[HARD Coding Task #96] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `implementing token-aware sliding context truncation in SDK`? (Select three)",
     "options": [
-      "Configure exponential backoff retries using `azure.core.pipeline.policies.RetryPolicy` or wrap completion calls in a `tenacity` retry decorator with random jitter.",
-      "Set `max_tokens: 10` in the completion call to reduce token processing load.",
-      "Insert `time.sleep(60)` before every single request regardless of status code.",
-      "Disable rate limiting in `azure.yaml` by setting `tpm_quota: 'unlimited'`."
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: When handling 429 RateLimitErrors during batch inference, implementing exponential backoff with jitter using `tenacity` or Azure SDK `RetryPolicy` prevents server overwhelming while ensuring job completion."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Prompt Template Engine (`prompts/trail_guide.jinja2`)` for `implementing token-aware sliding context truncation in SDK`, enterprise coding standards mandate: (1) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3397,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to verify which model deployment name is being used in `trail_guide_agent.py` (#10) without hardcoding it in the script.",
-    "question": "Which environment variable pattern used in `.env` and `agent.yaml` correctly dynamically injects the model name?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #97).",
+    "question": "[HARD Coding Task #97] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)` when implementing `implementing token-aware sliding context truncation in SDK`?",
     "options": [
-      "MODEL_NAME=os.environ.get('MODEL_NAME', 'gpt-5.1')",
-      "DEPLOYMENT_ID=sys.argv[1]",
-      "AZURE_OPENAI_MODEL='default-model'",
-      "FOUNDRY_LLM_SKU='standard-v1'"
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Using `os.environ.get('MODEL_NAME', 'gpt-5.1')` allows clean separation of configuration from code, falling back to `'gpt-5.1'` if `.env` is omitted."
+    "explanation": "Correct Answer: A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `HTTP Rate Limit Handling (`@retry`, `HttpResponseError`)`, Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns. is the officially required syntax for `implementing token-aware sliding context truncation in SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3398,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are upgrading `trail_guide_agent.py` (#10) to use structured JSON output mode to return gear checklists as validated JSON objects.",
-    "question": "Which parameter must be passed into `chat_client.complete()` to guarantee valid JSON formatting?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #98).",
+    "question": "[HARD Coding Task #98] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)` when implementing `implementing token-aware sliding context truncation in SDK`?",
     "options": [
-      "response_format={ 'type': 'json_object' } (accompanied by an instruction to return JSON in the system prompt)",
-      "output_schema='json'",
-      "validate_json=True",
-      "content_type='application/json'"
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `response_format={'type': 'json_object'}` forces the Azure OpenAI model to output syntactically valid JSON, provided the system prompt explicitly requests JSON output."
+    "explanation": "Correct Answer: A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Tracing Integration (`configure_azure_monitor`)`, Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns. is the officially required syntax for `implementing token-aware sliding context truncation in SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3399,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `src/agents/trail_guide_agent/agent.yaml` (#10), you need to specify the default temperature and top_p sampling parameters for deterministic trail safety advice.",
-    "question": "Which YAML configuration values ensure the lowest randomness and highest factual consistency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Streaming Response Handling (`stream=True`, `SSE`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #99).",
+    "question": "[HARD Coding Task #99] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Streaming Response Handling (`stream=True`, `SSE`)` when implementing `implementing token-aware sliding context truncation in SDK`?",
     "options": [
-      "temperature: 0.0 and top_p: 1.0",
-      "temperature: 1.5 and top_p: 0.1",
-      "temperature: 0.8 and frequency_penalty: 2.0",
-      "randomness: 'disabled' and sampling: 'greedy'"
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Setting `temperature: 0.0` eliminates sampling randomness, producing greedy, deterministic, and highly reproducible responses required for factual safety advice."
+    "explanation": "Correct Answer: A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Streaming Response Handling (`stream=True`, `SSE`)`, Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns. is the officially required syntax for `implementing token-aware sliding context truncation in SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3400,
-    "track": "T2",
     "domain": "Track 2: Python SDK v2 & Azure AI Foundry Client",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are testing multi-turn conversation memory in `interact_with_agent.py` (#10). After 10 turns, response latency degrades significantly.",
-    "question": "What is the primary operational cause of this latency degradation in multi-turn chat loops without sliding window memory?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Model Deployment Discovery (`list_models`, `get_deployment`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `implementing token-aware sliding context truncation in SDK` (Implementation Task #100).",
+    "question": "[HARD Coding Task #100] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Model Deployment Discovery (`list_models`, `get_deployment`)` for `implementing token-aware sliding context truncation in SDK`? (Select three)",
     "options": [
-      "Token inflation: Appending the entire conversation history to `messages` on every turn quadratically increases input token volume and attention compute time.",
-      "Azure AI Foundry throttle timers automatically slow down long sessions.",
-      "The Python virtual environment `.venv` runs out of local RAM buffer.",
-      "OpenTelemetry trace spans create blocking synchronous I/O loops."
+      "A) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In stateless chat completion APIs, the entire chat history must be sent on every request. Without pruning or summarization (sliding window), token volume grows linearly, causing quadratic increases in latency and cost."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Model Deployment Discovery (`list_models`, `get_deployment`)` for `implementing token-aware sliding context truncation in SDK`, enterprise coding standards mandate: (1) Writing a custom token manager class `SlidingTokenWindow` using `tiktoken.encoding_for_model('gpt-4o')` that automatically inspects `messages` array before `chat.completions.create()`, identifies if `total_tokens > 120000`, and prunes intermediate assistant turns (`role == 'assistant'`) while preserving `system` prompt and last 3 user turns., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   }
 ];

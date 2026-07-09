@@ -1,1903 +1,1777 @@
-// AI-300 Hands-On Enterprise Implementation Simulator (EASY Tier - Track 4: Continuous Observability & KQL Tracing)
 window.HANDSON_DATA_EASY_T4 = [
   {
     "id": 2301,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#1), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #1).",
+    "question": "[EASY Coding Task #1] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `writing a basic KQL query to select top 10 dependency logs`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields. is the officially required syntax for `writing a basic KQL query to select top 10 dependency logs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2302,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#1) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #2).",
+    "question": "[EASY Coding Task #2] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` when implementing `writing a basic KQL query to select top 10 dependency logs`?",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`, Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields. is the officially required syntax for `writing a basic KQL query to select top 10 dependency logs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2303,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#1), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #3).",
+    "question": "[EASY Coding Task #3] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `writing a basic KQL query to select top 10 dependency logs`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields. is the officially required syntax for `writing a basic KQL query to select top 10 dependency logs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2304,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#1) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #4).",
+    "question": "[EASY Coding Task #4] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `writing a basic KQL query to select top 10 dependency logs`? (Select three)",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `writing a basic KQL query to select top 10 dependency logs`, enterprise coding standards mandate: (1) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2305,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#1), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #5).",
+    "question": "[EASY Coding Task #5] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `writing a basic KQL query to select top 10 dependency logs`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields. is the officially required syntax for `writing a basic KQL query to select top 10 dependency logs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2306,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#1), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #6).",
+    "question": "[EASY Coding Task #6] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` when implementing `writing a basic KQL query to select top 10 dependency logs`?",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``, Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields. is the officially required syntax for `writing a basic KQL query to select top 10 dependency logs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2307,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#1).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #7).",
+    "question": "[EASY Coding Task #7] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `writing a basic KQL query to select top 10 dependency logs`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields. is the officially required syntax for `writing a basic KQL query to select top 10 dependency logs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2308,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#1), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #8).",
+    "question": "[EASY Coding Task #8] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Azure Monitor Application Insights Connection String Configuration` for `writing a basic KQL query to select top 10 dependency logs`? (Select three)",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Azure Monitor Application Insights Connection String Configuration` for `writing a basic KQL query to select top 10 dependency logs`, enterprise coding standards mandate: (1) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2309,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#1) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #9).",
+    "question": "[EASY Coding Task #9] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `writing a basic KQL query to select top 10 dependency logs`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields. is the officially required syntax for `writing a basic KQL query to select top 10 dependency logs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2310,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#1). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `writing a basic KQL query to select top 10 dependency logs` (Implementation Task #10).",
+    "question": "[EASY Coding Task #10] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` when implementing `writing a basic KQL query to select top 10 dependency logs`?",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`, Writing `AppDependencies | take 10` inside the Log Analytics query editor to inspect raw schema fields. is the officially required syntax for `writing a basic KQL query to select top 10 dependency logs`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2311,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#2), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #11).",
+    "question": "[EASY Coding Task #11] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `filtering dependency logs by target OpenAI service`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`. is the officially required syntax for `filtering dependency logs by target OpenAI service`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2312,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#2) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #12).",
+    "question": "[EASY Coding Task #12] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `filtering dependency logs by target OpenAI service`? (Select three)",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `filtering dependency logs by target OpenAI service`, enterprise coding standards mandate: (1) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2313,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#2), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #13).",
+    "question": "[EASY Coding Task #13] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `filtering dependency logs by target OpenAI service`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`. is the officially required syntax for `filtering dependency logs by target OpenAI service`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2314,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#2) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #14).",
+    "question": "[EASY Coding Task #14] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` when implementing `filtering dependency logs by target OpenAI service`?",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`, Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`. is the officially required syntax for `filtering dependency logs by target OpenAI service`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2315,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#2), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #15).",
+    "question": "[EASY Coding Task #15] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `filtering dependency logs by target OpenAI service`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`. is the officially required syntax for `filtering dependency logs by target OpenAI service`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2316,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#2), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #16).",
+    "question": "[EASY Coding Task #16] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `filtering dependency logs by target OpenAI service`? (Select three)",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `filtering dependency logs by target OpenAI service`, enterprise coding standards mandate: (1) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2317,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#2).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #17).",
+    "question": "[EASY Coding Task #17] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `filtering dependency logs by target OpenAI service`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`. is the officially required syntax for `filtering dependency logs by target OpenAI service`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2318,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#2), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #18).",
+    "question": "[EASY Coding Task #18] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Monitor Application Insights Connection String Configuration` when implementing `filtering dependency logs by target OpenAI service`?",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Monitor Application Insights Connection String Configuration`, Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`. is the officially required syntax for `filtering dependency logs by target OpenAI service`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2319,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#2) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #19).",
+    "question": "[EASY Coding Task #19] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `filtering dependency logs by target OpenAI service`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`. is the officially required syntax for `filtering dependency logs by target OpenAI service`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2320,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#2). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `filtering dependency logs by target OpenAI service` (Implementation Task #20).",
+    "question": "[EASY Coding Task #20] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `filtering dependency logs by target OpenAI service`? (Select three)",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `filtering dependency logs by target OpenAI service`, enterprise coding standards mandate: (1) Writing `AppDependencies | where Target contains 'openai.azure.com' and TimeGenerated > ago(24h)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2321,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#3), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #21).",
+    "question": "[EASY Coding Task #21] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `calculating average duration across model calls`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`. is the officially required syntax for `calculating average duration across model calls`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2322,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#3) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #22).",
+    "question": "[EASY Coding Task #22] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` when implementing `calculating average duration across model calls`?",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`, Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`. is the officially required syntax for `calculating average duration across model calls`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2323,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#3), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #23).",
+    "question": "[EASY Coding Task #23] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `calculating average duration across model calls`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`. is the officially required syntax for `calculating average duration across model calls`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2324,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#3) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #24).",
+    "question": "[EASY Coding Task #24] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `calculating average duration across model calls`? (Select three)",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `calculating average duration across model calls`, enterprise coding standards mandate: (1) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2325,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#3), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #25).",
+    "question": "[EASY Coding Task #25] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `calculating average duration across model calls`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`. is the officially required syntax for `calculating average duration across model calls`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2326,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#3), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #26).",
+    "question": "[EASY Coding Task #26] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` when implementing `calculating average duration across model calls`?",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``, Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`. is the officially required syntax for `calculating average duration across model calls`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2327,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#3).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #27).",
+    "question": "[EASY Coding Task #27] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `calculating average duration across model calls`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`. is the officially required syntax for `calculating average duration across model calls`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2328,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#3), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #28).",
+    "question": "[EASY Coding Task #28] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Azure Monitor Application Insights Connection String Configuration` for `calculating average duration across model calls`? (Select three)",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Azure Monitor Application Insights Connection String Configuration` for `calculating average duration across model calls`, enterprise coding standards mandate: (1) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2329,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#3) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #29).",
+    "question": "[EASY Coding Task #29] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `calculating average duration across model calls`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`. is the officially required syntax for `calculating average duration across model calls`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2330,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#3). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `calculating average duration across model calls` (Implementation Task #30).",
+    "question": "[EASY Coding Task #30] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` when implementing `calculating average duration across model calls`?",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`, Writing `AppDependencies | where Target contains 'openai' | summarize AvgLatency = avg(DurationMs) by bin(TimeGenerated, 1h)`. is the officially required syntax for `calculating average duration across model calls`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2331,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#4), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #31).",
+    "question": "[EASY Coding Task #31] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `extracting error messages from `AppTraces` table`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`. is the officially required syntax for `extracting error messages from `AppTraces` table`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2332,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#4) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #32).",
+    "question": "[EASY Coding Task #32] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `extracting error messages from `AppTraces` table`? (Select three)",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `extracting error messages from `AppTraces` table`, enterprise coding standards mandate: (1) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2333,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#4), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #33).",
+    "question": "[EASY Coding Task #33] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `extracting error messages from `AppTraces` table`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`. is the officially required syntax for `extracting error messages from `AppTraces` table`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2334,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#4) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #34).",
+    "question": "[EASY Coding Task #34] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` when implementing `extracting error messages from `AppTraces` table`?",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answer: A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`, Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`. is the officially required syntax for `extracting error messages from `AppTraces` table`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2335,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#4), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #35).",
+    "question": "[EASY Coding Task #35] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `extracting error messages from `AppTraces` table`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`. is the officially required syntax for `extracting error messages from `AppTraces` table`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2336,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#4), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #36).",
+    "question": "[EASY Coding Task #36] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `extracting error messages from `AppTraces` table`? (Select three)",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `extracting error messages from `AppTraces` table`, enterprise coding standards mandate: (1) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2337,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#4).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #37).",
+    "question": "[EASY Coding Task #37] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `extracting error messages from `AppTraces` table`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`. is the officially required syntax for `extracting error messages from `AppTraces` table`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2338,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#4), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #38).",
+    "question": "[EASY Coding Task #38] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Monitor Application Insights Connection String Configuration` when implementing `extracting error messages from `AppTraces` table`?",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answer: A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Monitor Application Insights Connection String Configuration`, Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`. is the officially required syntax for `extracting error messages from `AppTraces` table`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2339,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#4) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #39).",
+    "question": "[EASY Coding Task #39] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `extracting error messages from `AppTraces` table`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`. is the officially required syntax for `extracting error messages from `AppTraces` table`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2340,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#4). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `extracting error messages from `AppTraces` table` (Implementation Task #40).",
+    "question": "[EASY Coding Task #40] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `extracting error messages from `AppTraces` table`? (Select three)",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `extracting error messages from `AppTraces` table`, enterprise coding standards mandate: (1) Writing `AppTraces | where SeverityLevel >= 3 | project TimeGenerated, Message, OperationId`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2341,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#5), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #41).",
+    "question": "[EASY Coding Task #41] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `initializing OpenTelemetry tracer in Python script`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`. is the officially required syntax for `initializing OpenTelemetry tracer in Python script`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2342,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#5) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #42).",
+    "question": "[EASY Coding Task #42] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` when implementing `initializing OpenTelemetry tracer in Python script`?",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answer: A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`, Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`. is the officially required syntax for `initializing OpenTelemetry tracer in Python script`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2343,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#5), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #43).",
+    "question": "[EASY Coding Task #43] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `initializing OpenTelemetry tracer in Python script`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`. is the officially required syntax for `initializing OpenTelemetry tracer in Python script`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2344,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#5) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #44).",
+    "question": "[EASY Coding Task #44] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `initializing OpenTelemetry tracer in Python script`? (Select three)",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `initializing OpenTelemetry tracer in Python script`, enterprise coding standards mandate: (1) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2345,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#5), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #45).",
+    "question": "[EASY Coding Task #45] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `initializing OpenTelemetry tracer in Python script`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`. is the officially required syntax for `initializing OpenTelemetry tracer in Python script`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2346,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#5), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #46).",
+    "question": "[EASY Coding Task #46] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` when implementing `initializing OpenTelemetry tracer in Python script`?",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answer: A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``, Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`. is the officially required syntax for `initializing OpenTelemetry tracer in Python script`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2347,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#5).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #47).",
+    "question": "[EASY Coding Task #47] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `initializing OpenTelemetry tracer in Python script`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`. is the officially required syntax for `initializing OpenTelemetry tracer in Python script`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2348,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#5), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #48).",
+    "question": "[EASY Coding Task #48] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Azure Monitor Application Insights Connection String Configuration` for `initializing OpenTelemetry tracer in Python script`? (Select three)",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Azure Monitor Application Insights Connection String Configuration` for `initializing OpenTelemetry tracer in Python script`, enterprise coding standards mandate: (1) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2349,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#5) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #49).",
+    "question": "[EASY Coding Task #49] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `initializing OpenTelemetry tracer in Python script`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`. is the officially required syntax for `initializing OpenTelemetry tracer in Python script`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2350,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#5). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `initializing OpenTelemetry tracer in Python script` (Implementation Task #50).",
+    "question": "[EASY Coding Task #50] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` when implementing `initializing OpenTelemetry tracer in Python script`?",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answer: A) Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`, Writing `from opentelemetry import trace; tracer = trace.get_tracer(__name__)` inside `src/app.py`. is the officially required syntax for `initializing OpenTelemetry tracer in Python script`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2351,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#6), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #51).",
+    "question": "[EASY Coding Task #51] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `creating a custom child span inside a function`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`. is the officially required syntax for `creating a custom child span inside a function`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2352,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#6) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #52).",
+    "question": "[EASY Coding Task #52] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `creating a custom child span inside a function`? (Select three)",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `creating a custom child span inside a function`, enterprise coding standards mandate: (1) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2353,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#6), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #53).",
+    "question": "[EASY Coding Task #53] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `creating a custom child span inside a function`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`. is the officially required syntax for `creating a custom child span inside a function`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2354,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#6) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #54).",
+    "question": "[EASY Coding Task #54] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` when implementing `creating a custom child span inside a function`?",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answer: A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`, Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`. is the officially required syntax for `creating a custom child span inside a function`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2355,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#6), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #55).",
+    "question": "[EASY Coding Task #55] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `creating a custom child span inside a function`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`. is the officially required syntax for `creating a custom child span inside a function`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2356,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#6), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #56).",
+    "question": "[EASY Coding Task #56] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `creating a custom child span inside a function`? (Select three)",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `creating a custom child span inside a function`, enterprise coding standards mandate: (1) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2357,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#6).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #57).",
+    "question": "[EASY Coding Task #57] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `creating a custom child span inside a function`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`. is the officially required syntax for `creating a custom child span inside a function`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2358,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#6), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #58).",
+    "question": "[EASY Coding Task #58] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Monitor Application Insights Connection String Configuration` when implementing `creating a custom child span inside a function`?",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answer: A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Monitor Application Insights Connection String Configuration`, Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`. is the officially required syntax for `creating a custom child span inside a function`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2359,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#6) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #59).",
+    "question": "[EASY Coding Task #59] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `creating a custom child span inside a function`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`. is the officially required syntax for `creating a custom child span inside a function`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2360,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#6). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `creating a custom child span inside a function` (Implementation Task #60).",
+    "question": "[EASY Coding Task #60] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `creating a custom child span inside a function`? (Select three)",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `creating a custom child span inside a function`, enterprise coding standards mandate: (1) Writing `with tracer.start_as_current_span('RAG_Retrieval') as span: chunks = search_client.search(query)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2361,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#7), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #61).",
+    "question": "[EASY Coding Task #61] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `setting a string attribute on the active span`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block. is the officially required syntax for `setting a string attribute on the active span`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2362,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#7) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #62).",
+    "question": "[EASY Coding Task #62] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` when implementing `setting a string attribute on the active span`?",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answer: A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`, Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block. is the officially required syntax for `setting a string attribute on the active span`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2363,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#7), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #63).",
+    "question": "[EASY Coding Task #63] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `setting a string attribute on the active span`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block. is the officially required syntax for `setting a string attribute on the active span`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2364,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#7) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #64).",
+    "question": "[EASY Coding Task #64] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `setting a string attribute on the active span`? (Select three)",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `setting a string attribute on the active span`, enterprise coding standards mandate: (1) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2365,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#7), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #65).",
+    "question": "[EASY Coding Task #65] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `setting a string attribute on the active span`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block. is the officially required syntax for `setting a string attribute on the active span`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2366,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#7), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #66).",
+    "question": "[EASY Coding Task #66] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` when implementing `setting a string attribute on the active span`?",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answer: A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``, Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block. is the officially required syntax for `setting a string attribute on the active span`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2367,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#7).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #67).",
+    "question": "[EASY Coding Task #67] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `setting a string attribute on the active span`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block. is the officially required syntax for `setting a string attribute on the active span`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2368,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#7), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #68).",
+    "question": "[EASY Coding Task #68] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Azure Monitor Application Insights Connection String Configuration` for `setting a string attribute on the active span`? (Select three)",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Azure Monitor Application Insights Connection String Configuration` for `setting a string attribute on the active span`, enterprise coding standards mandate: (1) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2369,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#7) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #69).",
+    "question": "[EASY Coding Task #69] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `setting a string attribute on the active span`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block. is the officially required syntax for `setting a string attribute on the active span`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2370,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#7). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `setting a string attribute on the active span` (Implementation Task #70).",
+    "question": "[EASY Coding Task #70] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` when implementing `setting a string attribute on the active span`?",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answer: A) Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`, Writing `span.set_attribute('rag.index_name', 'adventure-works-vector-index')` inside the span context block. is the officially required syntax for `setting a string attribute on the active span`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2371,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#8), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #71).",
+    "question": "[EASY Coding Task #71] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `configuring `azure-monitor-opentelemetry` in main entry point`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`. is the officially required syntax for `configuring `azure-monitor-opentelemetry` in main entry point`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2372,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#8) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #72).",
+    "question": "[EASY Coding Task #72] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `configuring `azure-monitor-opentelemetry` in main entry point`? (Select three)",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `configuring `azure-monitor-opentelemetry` in main entry point`, enterprise coding standards mandate: (1) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2373,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#8), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #73).",
+    "question": "[EASY Coding Task #73] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `configuring `azure-monitor-opentelemetry` in main entry point`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`. is the officially required syntax for `configuring `azure-monitor-opentelemetry` in main entry point`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2374,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#8) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #74).",
+    "question": "[EASY Coding Task #74] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` when implementing `configuring `azure-monitor-opentelemetry` in main entry point`?",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answer: A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`, Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`. is the officially required syntax for `configuring `azure-monitor-opentelemetry` in main entry point`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2375,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#8), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #75).",
+    "question": "[EASY Coding Task #75] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `configuring `azure-monitor-opentelemetry` in main entry point`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`. is the officially required syntax for `configuring `azure-monitor-opentelemetry` in main entry point`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2376,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#8), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #76).",
+    "question": "[EASY Coding Task #76] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `configuring `azure-monitor-opentelemetry` in main entry point`? (Select three)",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `configuring `azure-monitor-opentelemetry` in main entry point`, enterprise coding standards mandate: (1) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2377,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#8).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #77).",
+    "question": "[EASY Coding Task #77] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `configuring `azure-monitor-opentelemetry` in main entry point`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`. is the officially required syntax for `configuring `azure-monitor-opentelemetry` in main entry point`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2378,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#8), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #78).",
+    "question": "[EASY Coding Task #78] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Monitor Application Insights Connection String Configuration` when implementing `configuring `azure-monitor-opentelemetry` in main entry point`?",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answer: A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Monitor Application Insights Connection String Configuration`, Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`. is the officially required syntax for `configuring `azure-monitor-opentelemetry` in main entry point`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2379,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#8) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #79).",
+    "question": "[EASY Coding Task #79] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `configuring `azure-monitor-opentelemetry` in main entry point`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`. is the officially required syntax for `configuring `azure-monitor-opentelemetry` in main entry point`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2380,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#8). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring `azure-monitor-opentelemetry` in main entry point` (Implementation Task #80).",
+    "question": "[EASY Coding Task #80] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `configuring `azure-monitor-opentelemetry` in main entry point`? (Select three)",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `configuring `azure-monitor-opentelemetry` in main entry point`, enterprise coding standards mandate: (1) Writing `from azure.monitor.opentelemetry import configure_azure_monitor; configure_azure_monitor(connection_string=os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'))`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2381,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#9), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #81).",
+    "question": "[EASY Coding Task #81] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `checking ingestion time difference in KQL`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`. is the officially required syntax for `checking ingestion time difference in KQL`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2382,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#9) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #82).",
+    "question": "[EASY Coding Task #82] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` when implementing `checking ingestion time difference in KQL`?",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`, Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`. is the officially required syntax for `checking ingestion time difference in KQL`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2383,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#9), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #83).",
+    "question": "[EASY Coding Task #83] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `checking ingestion time difference in KQL`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`. is the officially required syntax for `checking ingestion time difference in KQL`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2384,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#9) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #84).",
+    "question": "[EASY Coding Task #84] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `checking ingestion time difference in KQL`? (Select three)",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` for `checking ingestion time difference in KQL`, enterprise coding standards mandate: (1) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2385,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#9), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #85).",
+    "question": "[EASY Coding Task #85] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `checking ingestion time difference in KQL`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`. is the officially required syntax for `checking ingestion time difference in KQL`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2386,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#9), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #86).",
+    "question": "[EASY Coding Task #86] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` when implementing `checking ingestion time difference in KQL`?",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``, Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`. is the officially required syntax for `checking ingestion time difference in KQL`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2387,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#9).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #87).",
+    "question": "[EASY Coding Task #87] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `checking ingestion time difference in KQL`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`. is the officially required syntax for `checking ingestion time difference in KQL`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2388,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#9), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #88).",
+    "question": "[EASY Coding Task #88] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Azure Monitor Application Insights Connection String Configuration` for `checking ingestion time difference in KQL`? (Select three)",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Azure Monitor Application Insights Connection String Configuration` for `checking ingestion time difference in KQL`, enterprise coding standards mandate: (1) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2389,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#9) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #89).",
+    "question": "[EASY Coding Task #89] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `checking ingestion time difference in KQL`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`. is the officially required syntax for `checking ingestion time difference in KQL`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2390,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#9). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `checking ingestion time difference in KQL` (Implementation Task #90).",
+    "question": "[EASY Coding Task #90] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` when implementing `checking ingestion time difference in KQL`?",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answer: A) Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`, Writing `AppDependencies | project TimeGenerated, IngestionTime = ingestion_time(), LagMs = datetime_diff('millisecond', ingestion_time(), TimeGenerated)`. is the officially required syntax for `checking ingestion time difference in KQL`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2391,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/run_monitoring.py` (#10), you need to configure OpenTelemetry (OTel) to automatically export trace spans to Azure Application Insights.",
-    "question": "Which two code steps correctly initialize Azure Monitor distributed tracing for Azure AI Foundry?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #91).",
+    "question": "[EASY Coding Task #91] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)` when implementing `exporting trace summaries to CSV via Python SDK`?",
     "options": [
-      "conn_str = project_client.telemetry.get_application_insights_connection_string(); configure_azure_monitor(connection_string=conn_str)",
-      "import logging; logging.basicConfig(filename='app.log')",
-      "app_insights = AzureLogClient(api_key='secret'); app_insights.start()",
-      "os.environ['ENABLE_TRACING'] = 'true'; sys.stdout = open('trace.txt', 'w')"
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Native Azure AI Foundry tracing requires retrieving the connection string via `project_client.telemetry.get_application_insights_connection_string()` and passing it to `configure_azure_monitor()`."
+    "explanation": "Correct Answer: A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Log Analytics Table `AppDependencies` (`Target`, `DurationMs`)`, Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`. is the officially required syntax for `exporting trace summaries to CSV via Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2392,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You want to create a custom OpenTelemetry span in `trail_guide_agent.py` (#10) to measure the exact execution duration of a RAG vector database lookup.",
-    "question": "Which OTel Python SDK syntax correctly wraps the function execution in a custom child span?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #92).",
+    "question": "[EASY Coding Task #92] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `exporting trace summaries to CSV via Python SDK`? (Select three)",
     "options": [
-      "from opentelemetry import trace; tracer = trace.get_tracer(__name__); with tracer.start_as_current_span('rag_vector_lookup') as span: span.set_attribute('index_name', 'trails_idx')",
-      "with azure.monitor.start_timer('rag_lookup'): pass",
-      "span = ApplicationInsights.create_span('rag_lookup'); span.stop()",
-      "@log_latency(table='AppDependencies')"
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, custom tracing spans are created using `with tracer.start_as_current_span('span_name') as span:`, where custom metadata is logged via `span.set_attribute()`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Log Analytics Table `AppTraces` (`Message`, `SeverityLevel`)` for `exporting trace summaries to CSV via Python SDK`, enterprise coding standards mandate: (1) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2393,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "After executing `interact_with_agent.py` (#10), you immediately open the Azure AI Foundry portal under `Operate -> Tracing`. You do not see your latest trace spans.",
-    "question": "What is the operational explanation for this missing data, and how can you verify traces immediately?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #93).",
+    "question": "[EASY Coding Task #93] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)`` when implementing `exporting trace summaries to CSV via Python SDK`?",
     "options": [
-      "The Foundry web portal has a ~5 to 10 minute indexing lag. To verify immediately without waiting, query the `AppDependencies` table in Azure Log Analytics using Kusto Query Language (KQL).",
-      "OpenTelemetry tracing is disabled by default in Python SDK v2; you must rebuild `.venv`.",
-      "Application Insights drops 99% of spans due to sampling rules.",
-      "Traces are stored in Azure Key Vault and must be decrypted first."
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The web portal UI exhibits a 5-10 minute indexing delay. For real-time debugging during MLOps CI/CD pipelines, engineers query the Log Analytics `AppDependencies` table directly via KQL."
+    "explanation": "Correct Answer: A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `summarize p95=percentile(DurationMs, 95) by bin(TimeGenerated, 1h)``, Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`. is the officially required syntax for `exporting trace summaries to CSV via Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2394,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are writing a Kusto Query Language (KQL) script in Log Analytics (#10) to find all failed Azure OpenAI completion calls where latency exceeded 5,000 ms.",
-    "question": "Which KQL query correctly filters the `AppDependencies` table?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #94).",
+    "question": "[EASY Coding Task #94] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction` when implementing `exporting trace summaries to CSV via Python SDK`?",
     "options": [
-      "AppDependencies | where Target contains 'openai' and DurationMs > 5000 | project TimeGenerated, Name, DurationMs, ResultCode, Data",
-      "Select * from Traces where service='openai' and latency > 5000",
-      "AppEvents | filter type == 'LLM' and time > 5s",
-      "AzureMetrics | where MetricName == 'OpenAI_Latency' and Average > 5000"
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure Monitor Log Analytics, OpenTelemetry outbound calls (including Azure OpenAI inference) are recorded in the `AppDependencies` table, where duration is stored in `DurationMs`."
+    "explanation": "Correct Answer: A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `parse Message with * 'Tokens:' Tokens:int *` String Extraction`, Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`. is the officially required syntax for `exporting trace summaries to CSV via Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2395,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/tests/check_traces.py` (#10), you need to programmatically query Log Analytics workspace logs using Python `azure-monitor-query` SDK.",
-    "question": "Which client class and method execute KQL queries against a Log Analytics workspace?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #95).",
+    "question": "[EASY Coding Task #95] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation` when implementing `exporting trace summaries to CSV via Python SDK`?",
     "options": [
-      "client = LogsQueryClient(DefaultAzureCredential()); response = client.query_workspace(workspace_id=..., query=kql_query, timespan=timedelta(days=1))",
-      "client = AppInsightsClient(); response = client.get_traces(query=kql_query)",
-      "client = AIProjectClient(); response = client.telemetry.run_kql(kql_query)",
-      "client = LogAnalyticsWorkspace(); response = client.execute_sql(query)"
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The `azure-monitor-query` Python package provides `LogsQueryClient.query_workspace(workspace_id, query, timespan)` for programmatic KQL execution."
+    "explanation": "Correct Answer: A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `KQL `join kind=inner (AppDependencies) on OperationId` Correlation`, Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`. is the officially required syntax for `exporting trace summaries to CSV via Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2396,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "When inspecting trace spans for Trail Guide Agent (#10), you observe that prompt token attributes (`gen_ai.usage.input_tokens`) are 4,500 tokens per request.",
-    "question": "Which semantic convention prefix is used by OpenTelemetry in Azure AI Foundry to record LLM token counts and model names?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #96).",
+    "question": "[EASY Coding Task #96] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `exporting trace summaries to CSV via Python SDK`? (Select three)",
     "options": [
-      "`gen_ai.*` (e.g., `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.system`)",
-      "`openai.tokens.*`",
-      "`azure.cognitive.*`",
-      "`llm.metrics.*`"
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Azure AI Foundry adopts OpenTelemetry semantic conventions for Generative AI, prefixing span attributes with `gen_ai.*` (e.g., `gen_ai.usage.input_tokens`)."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `OpenTelemetry `@tracer.start_as_current_span('InferenceTurn')`` for `exporting trace summaries to CSV via Python SDK`, enterprise coding standards mandate: (1) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 2397,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "You are analyzing the latency vs cost trade-off between prompt iterations in `docs/LAB_04_MONITORING_AND_TRACING_REPORT.md` (#10).",
-    "question": "Why did switching from `v3_verbose.txt` to `v4_optimized_concise.txt` reduce average latency from ~11,000 ms to ~4,000 ms?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #97).",
+    "question": "[EASY Coding Task #97] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)` when implementing `exporting trace summaries to CSV via Python SDK`?",
     "options": [
-      "Concise prompts reduce both input token processing overhead and output completion length, directly decreasing autoregressive token generation time (TTLB).",
-      "Concise prompts automatically switch the model from GPT-5.1 to a smaller model.",
-      "Verbose prompts cause network packet fragmentation across Azure firewalls.",
-      "Application Insights throttles spans that contain more than 1,000 words."
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In LLM inference, generation time is dominated by output token decoding (autoregressive generation). Concise prompts (`v4`) instruct models to generate succinct answers, slashing TTLB latency."
+    "explanation": "Correct Answer: A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `OpenTelemetry Span Attributes (`span.set_attribute('ai.model', 'gpt-4o')`)`, Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`. is the officially required syntax for `exporting trace summaries to CSV via Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2398,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "In `src/agents/monitoring_agent/error-prompt.py` (#10), you deliberately send a malformed payload to test exception logging.",
-    "question": "How does OpenTelemetry record unhandled exceptions in Application Insights trace trees?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `Azure Monitor Application Insights Connection String Configuration`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #98).",
+    "question": "[EASY Coding Task #98] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Monitor Application Insights Connection String Configuration` when implementing `exporting trace summaries to CSV via Python SDK`?",
     "options": [
-      "The span status is set to `StatusCode.ERROR`, and an `exception` event is recorded on the span containing stack trace and error message.",
-      "The entire trace tree is deleted to prevent log corruption.",
-      "An email alert is immediately broadcast to all Azure subscription owners.",
-      "The span is moved to the `AppExceptions` table and removed from `AppDependencies`."
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In OpenTelemetry, when an exception occurs inside a traced block, `span.record_exception(e)` and `span.set_status(Status(StatusCode.ERROR))` ensure full traceback visibility in Application Insights."
+    "explanation": "Correct Answer: A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Monitor Application Insights Connection String Configuration`, Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`. is the officially required syntax for `exporting trace summaries to CSV via Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2399,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
     "type": "single",
-    "scenario": "An MLOps team wants to set up an Azure Monitor Alert Rule (#10) that triggers a PagerDuty notification whenever average agent latency exceeds 8,000 ms over a 5-minute window.",
-    "question": "Which Azure resource type is evaluated by the metric alert rule?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #99).",
+    "question": "[EASY Coding Task #99] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()`` when implementing `exporting trace summaries to CSV via Python SDK`?",
     "options": [
-      "The Application Insights resource associated with the Azure AI Foundry project workspace.",
-      "The Bicep template file `infra/main.bicep`.",
-      "The Python script `trail_guide_agent.py`.",
-      "The local `.env` configuration file."
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure Monitor metric alerts evaluate time-series telemetry stored in Azure Application Insights (or Log Analytics), triggering action groups when thresholds are breached."
+    "explanation": "Correct Answer: A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Azure Portal Log Analytics Indexing Lag & `ingestion_time()``, Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`. is the officially required syntax for `exporting trace summaries to CSV via Python SDK`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 2400,
-    "track": "T4",
     "domain": "Track 4: Continuous Observability & KQL Tracing",
-    "difficulty": "Easy",
-    "type": "single",
-    "scenario": "You are debugging a distributed trace tree in `Operate -> Tracing` (#10). The root span is named `trail_guide_v3`, which contains three child spans: `embed_query`, `ai_search_lookup`, and `chat_completion`.",
-    "question": "What is this parent-child hierarchical execution graph called in distributed tracing terminology?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `exporting trace summaries to CSV via Python SDK` (Implementation Task #100).",
+    "question": "[EASY Coding Task #100] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `exporting trace summaries to CSV via Python SDK`? (Select three)",
     "options": [
-      "A Trace Waterfall (or Trace Directed Acyclic Graph / DAG), where child spans represent sequential or parallel dependency operations within the parent root span.",
-      "A Neural Network Backpropagation Tree",
-      "A Git Commit History Log",
-      "A Bicep Dependency Mesh"
+      "A) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: A distributed trace waterfall displays the chronological parent-child relationships of execution spans, allowing engineers to isolate which exact RAG or inference step caused latency spikes."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Continuous Observability CI/CD Export Script (`export_monitoring_traces.py`)` for `exporting trace summaries to CSV via Python SDK`, enterprise coding standards mandate: (1) Writing `logs_client.query_workspace(workspace_id=ws_id, query=kql_query)` inside `export_monitoring_traces.py`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   }
 ];

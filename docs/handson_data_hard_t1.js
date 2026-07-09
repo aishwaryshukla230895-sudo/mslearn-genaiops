@@ -1,1903 +1,1777 @@
-// AI-300 Hands-On Enterprise Implementation Simulator (HARD Tier - Track 1: Bicep IaC & AZD Infrastructure Provisioning)
 window.HANDSON_DATA_HARD_T1 = [
   {
     "id": 3201,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #1), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #1).",
+    "question": "[HARD Coding Task #1] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `zero-trust private link hub-and-spoke Bicep architecture`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute. is the officially required syntax for `zero-trust private link hub-and-spoke Bicep architecture`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3202,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-1`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #2).",
+    "question": "[HARD Coding Task #2] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.CognitiveServices/accounts`` when implementing `zero-trust private link hub-and-spoke Bicep architecture`?",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answer: A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.CognitiveServices/accounts``, Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute. is the officially required syntax for `zero-trust private link hub-and-spoke Bicep architecture`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3203,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#1). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #3).",
+    "question": "[HARD Coding Task #3] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `zero-trust private link hub-and-spoke Bicep architecture`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute. is the officially required syntax for `zero-trust private link hub-and-spoke Bicep architecture`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3204,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #1). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #4).",
+    "question": "[HARD Coding Task #4] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Storage/storageAccounts`` for `zero-trust private link hub-and-spoke Bicep architecture`? (Select three)",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Storage/storageAccounts`` for `zero-trust private link hub-and-spoke Bicep architecture`, enterprise coding standards mandate: (1) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3205,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#1), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #5).",
+    "question": "[HARD Coding Task #5] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `zero-trust private link hub-and-spoke Bicep architecture`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute. is the officially required syntax for `zero-trust private link hub-and-spoke Bicep architecture`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3206,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "A security audit of Trail Guide environment #1 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #6).",
+    "question": "[HARD Coding Task #6] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Insights/components`` when implementing `zero-trust private link hub-and-spoke Bicep architecture`?",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answer: A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Insights/components``, Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute. is the officially required syntax for `zero-trust private link hub-and-spoke Bicep architecture`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3207,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #1, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #7).",
+    "question": "[HARD Coding Task #7] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `zero-trust private link hub-and-spoke Bicep architecture`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute. is the officially required syntax for `zero-trust private link hub-and-spoke Bicep architecture`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3208,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#1) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #8).",
+    "question": "[HARD Coding Task #8] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD `azure.yaml` Root Orchestration File` for `zero-trust private link hub-and-spoke Bicep architecture`? (Select three)",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD `azure.yaml` Root Orchestration File` for `zero-trust private link hub-and-spoke Bicep architecture`, enterprise coding standards mandate: (1) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3209,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#1) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #9).",
+    "question": "[HARD Coding Task #9] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `zero-trust private link hub-and-spoke Bicep architecture`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute. is the officially required syntax for `zero-trust private link hub-and-spoke Bicep architecture`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3210,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#1) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `zero-trust private link hub-and-spoke Bicep architecture` (Implementation Task #10).",
+    "question": "[HARD Coding Task #10] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD CLI Command Flags (`azd up`, `azd down`)` when implementing `zero-trust private link hub-and-spoke Bicep architecture`?",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answer: A) Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD CLI Command Flags (`azd up`, `azd down`)`, Writing a modular multi-file Bicep architecture (`hub.bicep`, `spoke.bicep`) where the AI Project resides in a locked-down spoke subnet (`AllowOnlyApprovedOutbound`), communicating via Private DNS zones to parent Azure AI Hub and Key Vault over ExpressRoute. is the officially required syntax for `zero-trust private link hub-and-spoke Bicep architecture`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3211,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #2), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #11).",
+    "question": "[HARD Coding Task #11] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `customer-managed key (CMK) Bicep encryption wiring`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub. is the officially required syntax for `customer-managed key (CMK) Bicep encryption wiring`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3212,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-2`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #12).",
+    "question": "[HARD Coding Task #12] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.CognitiveServices/accounts`` for `customer-managed key (CMK) Bicep encryption wiring`? (Select three)",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.CognitiveServices/accounts`` for `customer-managed key (CMK) Bicep encryption wiring`, enterprise coding standards mandate: (1) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3213,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#2). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #13).",
+    "question": "[HARD Coding Task #13] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `customer-managed key (CMK) Bicep encryption wiring`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub. is the officially required syntax for `customer-managed key (CMK) Bicep encryption wiring`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3214,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #2). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #14).",
+    "question": "[HARD Coding Task #14] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Storage/storageAccounts`` when implementing `customer-managed key (CMK) Bicep encryption wiring`?",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answer: A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Storage/storageAccounts``, Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub. is the officially required syntax for `customer-managed key (CMK) Bicep encryption wiring`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3215,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#2), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #15).",
+    "question": "[HARD Coding Task #15] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `customer-managed key (CMK) Bicep encryption wiring`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub. is the officially required syntax for `customer-managed key (CMK) Bicep encryption wiring`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3216,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "A security audit of Trail Guide environment #2 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #16).",
+    "question": "[HARD Coding Task #16] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Insights/components`` for `customer-managed key (CMK) Bicep encryption wiring`? (Select three)",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Insights/components`` for `customer-managed key (CMK) Bicep encryption wiring`, enterprise coding standards mandate: (1) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3217,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #2, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #17).",
+    "question": "[HARD Coding Task #17] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `customer-managed key (CMK) Bicep encryption wiring`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub. is the officially required syntax for `customer-managed key (CMK) Bicep encryption wiring`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3218,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#2) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #18).",
+    "question": "[HARD Coding Task #18] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD `azure.yaml` Root Orchestration File` when implementing `customer-managed key (CMK) Bicep encryption wiring`?",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answer: A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD `azure.yaml` Root Orchestration File`, Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub. is the officially required syntax for `customer-managed key (CMK) Bicep encryption wiring`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3219,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#2) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #19).",
+    "question": "[HARD Coding Task #19] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `customer-managed key (CMK) Bicep encryption wiring`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub. is the officially required syntax for `customer-managed key (CMK) Bicep encryption wiring`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3220,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#2) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `customer-managed key (CMK) Bicep encryption wiring` (Implementation Task #20).",
+    "question": "[HARD Coding Task #20] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD CLI Command Flags (`azd up`, `azd down`)` for `customer-managed key (CMK) Bicep encryption wiring`? (Select three)",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD CLI Command Flags (`azd up`, `azd down`)` for `customer-managed key (CMK) Bicep encryption wiring`, enterprise coding standards mandate: (1) Creating `Microsoft.KeyVault/vaults/keys` with `rotationPolicy` and wiring `encryption: { status: 'Enabled', keyVaultProperties: { keyIdentifier: cmkKey.properties.keyUri, identityClientId: uami.properties.clientId } }` on the AI Foundry Hub., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3221,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #3), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #21).",
+    "question": "[HARD Coding Task #21] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `automated cross-subscription Lighthouse Bicep role assignment`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions. is the officially required syntax for `automated cross-subscription Lighthouse Bicep role assignment`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3222,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-3`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #22).",
+    "question": "[HARD Coding Task #22] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.CognitiveServices/accounts`` when implementing `automated cross-subscription Lighthouse Bicep role assignment`?",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answer: A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.CognitiveServices/accounts``, Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions. is the officially required syntax for `automated cross-subscription Lighthouse Bicep role assignment`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3223,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#3). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #23).",
+    "question": "[HARD Coding Task #23] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `automated cross-subscription Lighthouse Bicep role assignment`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions. is the officially required syntax for `automated cross-subscription Lighthouse Bicep role assignment`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3224,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #3). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #24).",
+    "question": "[HARD Coding Task #24] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Storage/storageAccounts`` for `automated cross-subscription Lighthouse Bicep role assignment`? (Select three)",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Storage/storageAccounts`` for `automated cross-subscription Lighthouse Bicep role assignment`, enterprise coding standards mandate: (1) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3225,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#3), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #25).",
+    "question": "[HARD Coding Task #25] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `automated cross-subscription Lighthouse Bicep role assignment`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions. is the officially required syntax for `automated cross-subscription Lighthouse Bicep role assignment`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3226,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "A security audit of Trail Guide environment #3 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #26).",
+    "question": "[HARD Coding Task #26] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Insights/components`` when implementing `automated cross-subscription Lighthouse Bicep role assignment`?",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answer: A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Insights/components``, Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions. is the officially required syntax for `automated cross-subscription Lighthouse Bicep role assignment`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3227,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #3, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #27).",
+    "question": "[HARD Coding Task #27] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `automated cross-subscription Lighthouse Bicep role assignment`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions. is the officially required syntax for `automated cross-subscription Lighthouse Bicep role assignment`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3228,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#3) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #28).",
+    "question": "[HARD Coding Task #28] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD `azure.yaml` Root Orchestration File` for `automated cross-subscription Lighthouse Bicep role assignment`? (Select three)",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD `azure.yaml` Root Orchestration File` for `automated cross-subscription Lighthouse Bicep role assignment`, enterprise coding standards mandate: (1) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3229,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#3) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #29).",
+    "question": "[HARD Coding Task #29] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `automated cross-subscription Lighthouse Bicep role assignment`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions. is the officially required syntax for `automated cross-subscription Lighthouse Bicep role assignment`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3230,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#3) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated cross-subscription Lighthouse Bicep role assignment` (Implementation Task #30).",
+    "question": "[HARD Coding Task #30] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD CLI Command Flags (`azd up`, `azd down`)` when implementing `automated cross-subscription Lighthouse Bicep role assignment`?",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answer: A) Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD CLI Command Flags (`azd up`, `azd down`)`, Writing a cross-tenant `Microsoft.ManagedServices/registrationDefinitions` and `registrationAssignments` Bicep template to grant centralized MLOps teams monitoring access across 50 regional AI Foundry subscriptions. is the officially required syntax for `automated cross-subscription Lighthouse Bicep role assignment`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3231,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #4), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #31).",
+    "question": "[HARD Coding Task #31] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `dynamic custom DNS forwarder and Private Resolver Bicep`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints. is the officially required syntax for `dynamic custom DNS forwarder and Private Resolver Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3232,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-4`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #32).",
+    "question": "[HARD Coding Task #32] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.CognitiveServices/accounts`` for `dynamic custom DNS forwarder and Private Resolver Bicep`? (Select three)",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.CognitiveServices/accounts`` for `dynamic custom DNS forwarder and Private Resolver Bicep`, enterprise coding standards mandate: (1) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3233,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#4). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #33).",
+    "question": "[HARD Coding Task #33] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `dynamic custom DNS forwarder and Private Resolver Bicep`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints. is the officially required syntax for `dynamic custom DNS forwarder and Private Resolver Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3234,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #4). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #34).",
+    "question": "[HARD Coding Task #34] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Storage/storageAccounts`` when implementing `dynamic custom DNS forwarder and Private Resolver Bicep`?",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Storage/storageAccounts``, Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints. is the officially required syntax for `dynamic custom DNS forwarder and Private Resolver Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3235,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#4), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #35).",
+    "question": "[HARD Coding Task #35] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `dynamic custom DNS forwarder and Private Resolver Bicep`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints. is the officially required syntax for `dynamic custom DNS forwarder and Private Resolver Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3236,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "A security audit of Trail Guide environment #4 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #36).",
+    "question": "[HARD Coding Task #36] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Insights/components`` for `dynamic custom DNS forwarder and Private Resolver Bicep`? (Select three)",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Insights/components`` for `dynamic custom DNS forwarder and Private Resolver Bicep`, enterprise coding standards mandate: (1) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3237,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #4, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #37).",
+    "question": "[HARD Coding Task #37] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `dynamic custom DNS forwarder and Private Resolver Bicep`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints. is the officially required syntax for `dynamic custom DNS forwarder and Private Resolver Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3238,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#4) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #38).",
+    "question": "[HARD Coding Task #38] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD `azure.yaml` Root Orchestration File` when implementing `dynamic custom DNS forwarder and Private Resolver Bicep`?",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD `azure.yaml` Root Orchestration File`, Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints. is the officially required syntax for `dynamic custom DNS forwarder and Private Resolver Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3239,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#4) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #39).",
+    "question": "[HARD Coding Task #39] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `dynamic custom DNS forwarder and Private Resolver Bicep`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints. is the officially required syntax for `dynamic custom DNS forwarder and Private Resolver Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3240,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#4) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `dynamic custom DNS forwarder and Private Resolver Bicep` (Implementation Task #40).",
+    "question": "[HARD Coding Task #40] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD CLI Command Flags (`azd up`, `azd down`)` for `dynamic custom DNS forwarder and Private Resolver Bicep`? (Select three)",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD CLI Command Flags (`azd up`, `azd down`)` for `dynamic custom DNS forwarder and Private Resolver Bicep`, enterprise coding standards mandate: (1) Writing `Microsoft.Network/dnsResolvers` and `forwardingRules` inside Bicep to seamlessly route hybrid on-premises query requests (`*.openai.azure.com`) directly to internal Private Endpoints., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3241,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #5), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #41).",
+    "question": "[HARD Coding Task #41] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `automated secret rotation webhook trigger via Bicep Event Grid`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances. is the officially required syntax for `automated secret rotation webhook trigger via Bicep Event Grid`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3242,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-5`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #42).",
+    "question": "[HARD Coding Task #42] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.CognitiveServices/accounts`` when implementing `automated secret rotation webhook trigger via Bicep Event Grid`?",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answer: A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.CognitiveServices/accounts``, Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances. is the officially required syntax for `automated secret rotation webhook trigger via Bicep Event Grid`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3243,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#5). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #43).",
+    "question": "[HARD Coding Task #43] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `automated secret rotation webhook trigger via Bicep Event Grid`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances. is the officially required syntax for `automated secret rotation webhook trigger via Bicep Event Grid`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3244,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #5). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #44).",
+    "question": "[HARD Coding Task #44] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Storage/storageAccounts`` for `automated secret rotation webhook trigger via Bicep Event Grid`? (Select three)",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Storage/storageAccounts`` for `automated secret rotation webhook trigger via Bicep Event Grid`, enterprise coding standards mandate: (1) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3245,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#5), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #45).",
+    "question": "[HARD Coding Task #45] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `automated secret rotation webhook trigger via Bicep Event Grid`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances. is the officially required syntax for `automated secret rotation webhook trigger via Bicep Event Grid`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3246,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "A security audit of Trail Guide environment #5 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #46).",
+    "question": "[HARD Coding Task #46] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Insights/components`` when implementing `automated secret rotation webhook trigger via Bicep Event Grid`?",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answer: A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Insights/components``, Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances. is the officially required syntax for `automated secret rotation webhook trigger via Bicep Event Grid`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3247,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #5, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #47).",
+    "question": "[HARD Coding Task #47] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `automated secret rotation webhook trigger via Bicep Event Grid`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances. is the officially required syntax for `automated secret rotation webhook trigger via Bicep Event Grid`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3248,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#5) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #48).",
+    "question": "[HARD Coding Task #48] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD `azure.yaml` Root Orchestration File` for `automated secret rotation webhook trigger via Bicep Event Grid`? (Select three)",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD `azure.yaml` Root Orchestration File` for `automated secret rotation webhook trigger via Bicep Event Grid`, enterprise coding standards mandate: (1) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3249,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#5) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #49).",
+    "question": "[HARD Coding Task #49] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `automated secret rotation webhook trigger via Bicep Event Grid`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances. is the officially required syntax for `automated secret rotation webhook trigger via Bicep Event Grid`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3250,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#5) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `automated secret rotation webhook trigger via Bicep Event Grid` (Implementation Task #50).",
+    "question": "[HARD Coding Task #50] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD CLI Command Flags (`azd up`, `azd down`)` when implementing `automated secret rotation webhook trigger via Bicep Event Grid`?",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answer: A) Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD CLI Command Flags (`azd up`, `azd down`)`, Provisioning an `Microsoft.EventGrid/eventSubscriptions` Bicep resource subscribing to `Microsoft.KeyVault.SecretNewVersionCreated` events, wiring to an Azure Function (`/api/rotate-sdk-client`) to refresh cached AIProjectClient instances. is the officially required syntax for `automated secret rotation webhook trigger via Bicep Event Grid`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3251,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #6), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #51).",
+    "question": "[HARD Coding Task #51] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `enforcing strict Azure Policy compliance definitions via Bicep`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`. is the officially required syntax for `enforcing strict Azure Policy compliance definitions via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3252,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-6`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #52).",
+    "question": "[HARD Coding Task #52] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.CognitiveServices/accounts`` for `enforcing strict Azure Policy compliance definitions via Bicep`? (Select three)",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.CognitiveServices/accounts`` for `enforcing strict Azure Policy compliance definitions via Bicep`, enterprise coding standards mandate: (1) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3253,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#6). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #53).",
+    "question": "[HARD Coding Task #53] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `enforcing strict Azure Policy compliance definitions via Bicep`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`. is the officially required syntax for `enforcing strict Azure Policy compliance definitions via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3254,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #6). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #54).",
+    "question": "[HARD Coding Task #54] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Storage/storageAccounts`` when implementing `enforcing strict Azure Policy compliance definitions via Bicep`?",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answer: A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Storage/storageAccounts``, Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`. is the officially required syntax for `enforcing strict Azure Policy compliance definitions via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3255,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#6), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #55).",
+    "question": "[HARD Coding Task #55] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `enforcing strict Azure Policy compliance definitions via Bicep`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`. is the officially required syntax for `enforcing strict Azure Policy compliance definitions via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3256,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "A security audit of Trail Guide environment #6 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #56).",
+    "question": "[HARD Coding Task #56] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Insights/components`` for `enforcing strict Azure Policy compliance definitions via Bicep`? (Select three)",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Insights/components`` for `enforcing strict Azure Policy compliance definitions via Bicep`, enterprise coding standards mandate: (1) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3257,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #6, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #57).",
+    "question": "[HARD Coding Task #57] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `enforcing strict Azure Policy compliance definitions via Bicep`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`. is the officially required syntax for `enforcing strict Azure Policy compliance definitions via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3258,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#6) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #58).",
+    "question": "[HARD Coding Task #58] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD `azure.yaml` Root Orchestration File` when implementing `enforcing strict Azure Policy compliance definitions via Bicep`?",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answer: A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD `azure.yaml` Root Orchestration File`, Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`. is the officially required syntax for `enforcing strict Azure Policy compliance definitions via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3259,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#6) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #59).",
+    "question": "[HARD Coding Task #59] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `enforcing strict Azure Policy compliance definitions via Bicep`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`. is the officially required syntax for `enforcing strict Azure Policy compliance definitions via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3260,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#6) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `enforcing strict Azure Policy compliance definitions via Bicep` (Implementation Task #60).",
+    "question": "[HARD Coding Task #60] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD CLI Command Flags (`azd up`, `azd down`)` for `enforcing strict Azure Policy compliance definitions via Bicep`? (Select three)",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD CLI Command Flags (`azd up`, `azd down`)` for `enforcing strict Azure Policy compliance definitions via Bicep`, enterprise coding standards mandate: (1) Creating `Microsoft.Authorization/policyDefinitions` inside Bicep checking `allOf: [{ field: 'Microsoft.MachineLearningServices/workspaces/publicNetworkAccess', equals: 'Disabled' }]` and binding via `policyAssignments`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3261,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #7), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #61).",
+    "question": "[HARD Coding Task #61] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `deploying dual-region failover APIM routing tier via Bicep`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints. is the officially required syntax for `deploying dual-region failover APIM routing tier via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3262,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-7`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #62).",
+    "question": "[HARD Coding Task #62] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.CognitiveServices/accounts`` when implementing `deploying dual-region failover APIM routing tier via Bicep`?",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answer: A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.CognitiveServices/accounts``, Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints. is the officially required syntax for `deploying dual-region failover APIM routing tier via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3263,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#7). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #63).",
+    "question": "[HARD Coding Task #63] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `deploying dual-region failover APIM routing tier via Bicep`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints. is the officially required syntax for `deploying dual-region failover APIM routing tier via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3264,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #7). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #64).",
+    "question": "[HARD Coding Task #64] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Storage/storageAccounts`` for `deploying dual-region failover APIM routing tier via Bicep`? (Select three)",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Storage/storageAccounts`` for `deploying dual-region failover APIM routing tier via Bicep`, enterprise coding standards mandate: (1) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3265,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#7), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #65).",
+    "question": "[HARD Coding Task #65] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `deploying dual-region failover APIM routing tier via Bicep`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints. is the officially required syntax for `deploying dual-region failover APIM routing tier via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3266,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "A security audit of Trail Guide environment #7 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #66).",
+    "question": "[HARD Coding Task #66] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Insights/components`` when implementing `deploying dual-region failover APIM routing tier via Bicep`?",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answer: A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Insights/components``, Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints. is the officially required syntax for `deploying dual-region failover APIM routing tier via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3267,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #7, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #67).",
+    "question": "[HARD Coding Task #67] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `deploying dual-region failover APIM routing tier via Bicep`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints. is the officially required syntax for `deploying dual-region failover APIM routing tier via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3268,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#7) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #68).",
+    "question": "[HARD Coding Task #68] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD `azure.yaml` Root Orchestration File` for `deploying dual-region failover APIM routing tier via Bicep`? (Select three)",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD `azure.yaml` Root Orchestration File` for `deploying dual-region failover APIM routing tier via Bicep`, enterprise coding standards mandate: (1) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3269,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#7) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #69).",
+    "question": "[HARD Coding Task #69] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `deploying dual-region failover APIM routing tier via Bicep`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints. is the officially required syntax for `deploying dual-region failover APIM routing tier via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3270,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#7) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `deploying dual-region failover APIM routing tier via Bicep` (Implementation Task #70).",
+    "question": "[HARD Coding Task #70] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD CLI Command Flags (`azd up`, `azd down`)` when implementing `deploying dual-region failover APIM routing tier via Bicep`?",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answer: A) Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD CLI Command Flags (`azd up`, `azd down`)`, Writing `Microsoft.ApiManagement/service/backends` and `<choose>` circuit-breaker XML policies inside Bicep (`Microsoft.ApiManagement/service/policies`) to load balance across East US and West Europe PTU endpoints. is the officially required syntax for `deploying dual-region failover APIM routing tier via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3271,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #8), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #71).",
+    "question": "[HARD Coding Task #71] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `VNet injection and custom subnet delegation for AI compute`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation. is the officially required syntax for `VNet injection and custom subnet delegation for AI compute`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3272,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-8`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #72).",
+    "question": "[HARD Coding Task #72] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.CognitiveServices/accounts`` for `VNet injection and custom subnet delegation for AI compute`? (Select three)",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.CognitiveServices/accounts`` for `VNet injection and custom subnet delegation for AI compute`, enterprise coding standards mandate: (1) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3273,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#8). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #73).",
+    "question": "[HARD Coding Task #73] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `VNet injection and custom subnet delegation for AI compute`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation. is the officially required syntax for `VNet injection and custom subnet delegation for AI compute`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3274,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #8). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #74).",
+    "question": "[HARD Coding Task #74] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Storage/storageAccounts`` when implementing `VNet injection and custom subnet delegation for AI compute`?",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Storage/storageAccounts``, Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation. is the officially required syntax for `VNet injection and custom subnet delegation for AI compute`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3275,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#8), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #75).",
+    "question": "[HARD Coding Task #75] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `VNet injection and custom subnet delegation for AI compute`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation. is the officially required syntax for `VNet injection and custom subnet delegation for AI compute`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3276,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "A security audit of Trail Guide environment #8 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #76).",
+    "question": "[HARD Coding Task #76] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Insights/components`` for `VNet injection and custom subnet delegation for AI compute`? (Select three)",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Insights/components`` for `VNet injection and custom subnet delegation for AI compute`, enterprise coding standards mandate: (1) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3277,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #8, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #77).",
+    "question": "[HARD Coding Task #77] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `VNet injection and custom subnet delegation for AI compute`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation. is the officially required syntax for `VNet injection and custom subnet delegation for AI compute`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3278,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#8) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #78).",
+    "question": "[HARD Coding Task #78] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD `azure.yaml` Root Orchestration File` when implementing `VNet injection and custom subnet delegation for AI compute`?",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD `azure.yaml` Root Orchestration File`, Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation. is the officially required syntax for `VNet injection and custom subnet delegation for AI compute`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3279,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#8) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #79).",
+    "question": "[HARD Coding Task #79] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `VNet injection and custom subnet delegation for AI compute`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation. is the officially required syntax for `VNet injection and custom subnet delegation for AI compute`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3280,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#8) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `VNet injection and custom subnet delegation for AI compute` (Implementation Task #80).",
+    "question": "[HARD Coding Task #80] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD CLI Command Flags (`azd up`, `azd down`)` for `VNet injection and custom subnet delegation for AI compute`? (Select three)",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD CLI Command Flags (`azd up`, `azd down`)` for `VNet injection and custom subnet delegation for AI compute`, enterprise coding standards mandate: (1) Configuring `Microsoft.Network/virtualNetworks/subnets` with `delegations: [{ name: 'aml-delegation', properties: { serviceName: 'Microsoft.MachineLearningServices/workspaces' } }]` for serverless model inference isolation., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3281,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #9), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #81).",
+    "question": "[HARD Coding Task #81] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `configuring immutable WORM audit storage via Bicep`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance. is the officially required syntax for `configuring immutable WORM audit storage via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3282,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-9`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #82).",
+    "question": "[HARD Coding Task #82] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.CognitiveServices/accounts`` when implementing `configuring immutable WORM audit storage via Bicep`?",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.CognitiveServices/accounts``, Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance. is the officially required syntax for `configuring immutable WORM audit storage via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3283,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#9). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #83).",
+    "question": "[HARD Coding Task #83] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `configuring immutable WORM audit storage via Bicep`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance. is the officially required syntax for `configuring immutable WORM audit storage via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3284,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #9). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #84).",
+    "question": "[HARD Coding Task #84] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Storage/storageAccounts`` for `configuring immutable WORM audit storage via Bicep`? (Select three)",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Storage/storageAccounts`` for `configuring immutable WORM audit storage via Bicep`, enterprise coding standards mandate: (1) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3285,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#9), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #85).",
+    "question": "[HARD Coding Task #85] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `configuring immutable WORM audit storage via Bicep`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance. is the officially required syntax for `configuring immutable WORM audit storage via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3286,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "A security audit of Trail Guide environment #9 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #86).",
+    "question": "[HARD Coding Task #86] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Insights/components`` when implementing `configuring immutable WORM audit storage via Bicep`?",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Insights/components``, Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance. is the officially required syntax for `configuring immutable WORM audit storage via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3287,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #9, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #87).",
+    "question": "[HARD Coding Task #87] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `configuring immutable WORM audit storage via Bicep`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance. is the officially required syntax for `configuring immutable WORM audit storage via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3288,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#9) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #88).",
+    "question": "[HARD Coding Task #88] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD `azure.yaml` Root Orchestration File` for `configuring immutable WORM audit storage via Bicep`? (Select three)",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD `azure.yaml` Root Orchestration File` for `configuring immutable WORM audit storage via Bicep`, enterprise coding standards mandate: (1) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3289,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#9) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #89).",
+    "question": "[HARD Coding Task #89] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `configuring immutable WORM audit storage via Bicep`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance. is the officially required syntax for `configuring immutable WORM audit storage via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3290,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#9) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `configuring immutable WORM audit storage via Bicep` (Implementation Task #90).",
+    "question": "[HARD Coding Task #90] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD CLI Command Flags (`azd up`, `azd down`)` when implementing `configuring immutable WORM audit storage via Bicep`?",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answer: A) Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD CLI Command Flags (`azd up`, `azd down`)`, Writing `Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies` in Bicep setting `immutabilityPeriodSinceCreationInDays: 2555` (7 years) to store AI interaction logs for SOC2 compliance. is the officially required syntax for `configuring immutable WORM audit storage via Bicep`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3291,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In the Adventure Works Trail Guide project (iteration #10), an MLOps engineer executes `azd up` to provision cloud resources. The deployment fails during the Azure AI Foundry hub creation in `infra/main.bicep` with error code `AccountNameAlreadyExists`.",
-    "question": "Which Bicep parameterization best practice or naming convention from `infra/abbreviations.json` solves this global DNS naming collision?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Adventure Works Core Hub` implementing `Bicep `Microsoft.MachineLearningServices/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #91).",
+    "question": "[HARD Coding Task #91] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.MachineLearningServices/workspaces`` when implementing `orchestrating multi-tier AZD environment overrides`?",
     "options": [
-      "Append `uniqueString(resourceGroup().id)` to the `abbreviations.aiAccount` prefix when declaring the resource name in `main.bicep`.",
-      "Hardcode a random 4-digit integer in `main.parameters.json` under `environmentName` without using `uniqueString()`.",
-      "Change the target Azure region in `azure.yaml` to a paired secondary region.",
-      "Set the `publicNetworkAccess` parameter to `Disabled` in the Cognitive Services Bicep module."
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry and Cognitive Services, hub names must be globally unique. Using Bicep's `uniqueString(resourceGroup().id)` concatenated with `abbreviations.json` prefixes ensures deterministically unique names per environment without manual intervention."
+    "explanation": "Correct Answer: A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.MachineLearningServices/workspaces``, Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`. is the officially required syntax for `orchestrating multi-tier AZD environment overrides`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3292,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "During automated tear-down of test environment `env-test-10`, the DevOps team runs `azd down`. However, the next deployment fails because the Cognitive Services account is locked in a soft-delete recovery state.",
-    "question": "Which exact Azure Developer CLI (`azd`) command flag must be executed to permanently bypass the 90-day soft-delete retention period?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Contoso Health AI` implementing `Bicep `Microsoft.CognitiveServices/accounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #92).",
+    "question": "[HARD Coding Task #92] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.CognitiveServices/accounts`` for `orchestrating multi-tier AZD environment overrides`? (Select three)",
     "options": [
-      "azd down --force --purge",
-      "azd down --delete-all --no-wait",
-      "az group delete --name rg-env-test --yes --no-wait",
-      "azd provision --reset-quota --purge"
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Standard `azd down` or `az group delete` places Cognitive Services and Azure Key Vault into soft-delete state. Executing `azd down --force --purge` instructs the Azure Developer CLI to permanently purge soft-deleted resources immediately."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.CognitiveServices/accounts`` for `orchestrating multi-tier AZD environment overrides`, enterprise coding standards mandate: (1) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3293,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are reviewing `infra/core/ai/project.bicep` for the Trail Guide GenAIOps setup (#10). The project must automatically link to an existing Azure Log Analytics workspace and Application Insights instance for OpenTelemetry tracing.",
-    "question": "Which Bicep property block within the `Microsoft.MachineLearningServices/workspaces` resource correctly establishes the Application Insights dependency?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Fabrikam Logistics Agent` implementing `Bicep `Microsoft.KeyVault/vaults``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #93).",
+    "question": "[HARD Coding Task #93] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.KeyVault/vaults`` when implementing `orchestrating multi-tier AZD environment overrides`?",
     "options": [
-      "applicationInsights: applicationInsights.id",
-      "monitoringWorkspace: logAnalyticsWorkspace.properties.customerId",
-      "telemetryConfig: { instrumentationKey: applicationInsights.properties.InstrumentationKey }",
-      "diagnosticSettings: { workspaceId: logAnalyticsWorkspace.id }"
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Azure AI Foundry project declarations (`Microsoft.MachineLearningServices/workspaces`), linking observability requires setting the `applicationInsights` property directly to the resource ID (`applicationInsights.id`) of the Application Insights instance."
+    "explanation": "Correct Answer: A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.KeyVault/vaults``, Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`. is the officially required syntax for `orchestrating multi-tier AZD environment overrides`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3294,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer is configuring `azure.yaml` for multi-environment provisioning (Development, Staging, Production #10). They need `azd` to pass custom tag values to `infra/main.bicep` during pipeline execution.",
-    "question": "How should custom environment variables be passed into Bicep parameters using `azd` configuration?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Trey Research Lab` implementing `Bicep `Microsoft.Storage/storageAccounts``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #94).",
+    "question": "[HARD Coding Task #94] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Storage/storageAccounts`` when implementing `orchestrating multi-tier AZD environment overrides`?",
     "options": [
-      "Define them in `.azure/environment/api.env` or use `azd env set <PARAM_NAME> <VALUE>`, which automatically maps to Bicep parameters of matching names.",
-      "Modify the `azure.yaml` file to include a `bicepParameters` array with hardcoded plain text values.",
-      "Pass them as command-line arguments using `azd up --bicep-arg param=value`.",
-      "Write a custom shell script to replace tokens inside `main.parameters.json` before calling `azd provision`."
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: The Azure Developer CLI (`azd`) automatically maps environment variables set via `azd env set` (stored in `.azure/<env>/.env`) to Bicep parameters of the exact same name during `azd provision`."
+    "explanation": "Correct Answer: A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Storage/storageAccounts``, Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`. is the officially required syntax for `orchestrating multi-tier AZD environment overrides`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3295,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "In `infra/main.bicep` (#10), you need to deploy an Azure OpenAI model deployment (`gpt-5.1`) with a specific token capacity (PTU/PTM or Standard TPM rate limits).",
-    "question": "Which resource type and SKU configuration syntax is required inside the model deployment module?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Northwind Traders Bot` implementing `Bicep `Microsoft.OperationalInsights/workspaces``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #95).",
+    "question": "[HARD Coding Task #95] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.OperationalInsights/workspaces`` when implementing `orchestrating multi-tier AZD environment overrides`?",
     "options": [
-      "resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = { sku: { name: 'Standard', capacity: 30 } ... }",
-      "resource modelDeployment 'Microsoft.MachineLearningServices/workspaces/models@2023-08-01-preview' = { properties: { tpmLimit: 30000 } ... }",
-      "resource openai 'Microsoft.AI/foundry/models@2024-01-01' = { capacity: '30k-tokens' }",
-      "resource deployment 'Microsoft.OpenAI/endpoints/deployments@2023-10-01' = { rateLimit: 3000 }"
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: Azure OpenAI model deployments are declared as child resources under `Microsoft.CognitiveServices/accounts/deployments`. The rate limit (in thousands of TPM) is controlled by the `sku.capacity` integer property."
+    "explanation": "Correct Answer: A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.OperationalInsights/workspaces``, Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`. is the officially required syntax for `orchestrating multi-tier AZD environment overrides`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3296,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "A security audit of Trail Guide environment #10 reveals that the Azure AI Foundry storage account allows public blob access. You must enforce private endpoint isolation in Bicep.",
-    "question": "Which two Bicep properties must be set on the `Microsoft.Storage/storageAccounts` resource to disable public internet access?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Woodgrove Bank Virtual Assistant` implementing `Bicep `Microsoft.Insights/components``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #96).",
+    "question": "[HARD Coding Task #96] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `Bicep `Microsoft.Insights/components`` for `orchestrating multi-tier AZD environment overrides`? (Select three)",
     "options": [
-      "publicNetworkAccess: 'Disabled' and allowBlobPublicAccess: false",
-      "networkRuleSet: { defaultAction: 'Deny' } and encryption: { services: { blob: { enabled: true } } }",
-      "privateEndpointConnections: [ { properties: { privateLinkServiceConnectionState: { status: 'Approved' } } } ]",
-      "firewallRules: [ { ipAddressOrRange: '10.0.0.0/16' } ] and requireHttpsTrafficOnly: true"
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: To fully lock down an Azure Storage Account against public internet exposure in Bicep, explicitly set `publicNetworkAccess: 'Disabled'` and `allowBlobPublicAccess: false`."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `Bicep `Microsoft.Insights/components`` for `orchestrating multi-tier AZD environment overrides`, enterprise coding standards mandate: (1) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   },
   {
     "id": 3297,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "During CI/CD automated deployment #10, Bicep deployment fails with `PrincipalNotFound` when assigning the `Cognitive Services OpenAI User` role to the Trail Guide managed identity.",
-    "question": "Why does role assignment fail immediately after managed identity creation, and how should it be fixed in Bicep?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Litware Legal Evaluator` implementing `Bicep `Microsoft.Network/privateEndpoints``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #97).",
+    "question": "[HARD Coding Task #97] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `Microsoft.Network/privateEndpoints`` when implementing `orchestrating multi-tier AZD environment overrides`?",
     "options": [
-      "Azure AD / Entra ID propagation delay; fix by adding `dependsOn: [ identity ]` and setting `principalType: 'ServicePrincipal'` in the role assignment.",
-      "The role definition ID is incorrect; replace it with the GUID for Owner role.",
-      "Managed identities cannot be assigned roles in Bicep; assign via Azure CLI post-deployment.",
-      "The Bicep API version is deprecated; upgrade `Microsoft.Authorization/roleAssignments` to `2015-07-01`."
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: When creating a user-assigned identity and assigning roles in the same Bicep template, Entra ID replication lag can cause `PrincipalNotFound`. Setting `principalType: 'ServicePrincipal'` helps Azure Resource Manager retry appropriately."
+    "explanation": "Correct Answer: A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `Microsoft.Network/privateEndpoints``, Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`. is the officially required syntax for `orchestrating multi-tier AZD environment overrides`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3298,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "You are building a custom Bicep module `infra/core/search/ai-search.bicep` (#10) to host the vector database for Trail Guide RAG grounding.",
-    "question": "Which SKU name is the minimum required in Azure AI Search to support vector search with semantic hybrid ranking?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `A.Datum Retail Copilot` implementing `AZD `azure.yaml` Root Orchestration File`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #98).",
+    "question": "[HARD Coding Task #98] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `AZD `azure.yaml` Root Orchestration File` when implementing `orchestrating multi-tier AZD environment overrides`?",
     "options": [
-      "'basic' or 'standard' (Free tier does not support semantic ranking scalable vector index storage)",
-      "'free' (supports unlimited vector dimensions and semantic ranking)",
-      "'storage_optimized_l1' only",
-      "'premium_p3' only"
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: While Basic tier supports vector search, semantic ranking and enterprise vector scaling require at least Basic or Standard tier in Azure AI Search. Free tier lacks necessary capacity."
+    "explanation": "Correct Answer: A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `AZD `azure.yaml` Root Orchestration File`, Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`. is the officially required syntax for `orchestrating multi-tier AZD environment overrides`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3299,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
     "type": "single",
-    "scenario": "An MLOps engineer wants to modularize `infra/main.bicep` (#10) so that the monitoring stack (Log Analytics + App Insights) is deployed only if `enableMonitoring` parameter is true.",
-    "question": "Which Bicep conditional deployment syntax is correct for module invocation?",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Alpine Ski Field Technician` implementing `Bicep `infra/main.parameters.json` & `abbreviations.json``. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #99).",
+    "question": "[HARD Coding Task #99] Which of the following represents the exact, correct Python SDK v2, Bicep IaC, KQL, or GitHub Actions YAML syntax for `Bicep `infra/main.parameters.json` & `abbreviations.json`` when implementing `orchestrating multi-tier AZD environment overrides`?",
     "options": [
-      "module monitoring 'core/monitor/monitoring.bicep' = if (enableMonitoring) { name: 'monitor-deploy', params: { ... } }",
-      "if (enableMonitoring) { module monitoring 'core/monitor/monitoring.bicep' = { ... } }",
-      "module monitoring 'core/monitor/monitoring.bicep' ? { ... } : null",
-      "resource monitoring 'core/monitor/monitoring.bicep' = [for item in enableMonitoring: { ... }]"
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Using deprecated Python SDK v1 (`azureml-sdk`) workspace syntax (`Workspace.from_config()`) or unencrypted public endpoints without enabling `DefaultAzureCredential()`.",
+      "C) Hardcoding plaintext connection strings and API keys directly inside inline HTML or local `.env` files without Key Vault RBAC integration.",
+      "D) Disabling diagnostic log forwarding (`retentionsInDays: 0`) and setting `publicNetworkAccess: 'Enabled'` across all AI Foundry data stores."
     ],
     "correctAnswer": [
       0
     ],
-    "explanation": "Operational Correction: In Bicep, conditional deployment of a module or resource is written using the `= if (condition)` syntax directly after the module declaration string."
+    "explanation": "Correct Answer: A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.. Explanation: In Microsoft AI-300 enterprise hands-on coding for `Bicep `infra/main.parameters.json` & `abbreviations.json``, Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`. is the officially required syntax for `orchestrating multi-tier AZD environment overrides`. Why others are incorrect: Options B, C, and D reference deprecated SDK v1 methods, insecure plaintext credential exposure, or non-compliant public network exposure."
   },
   {
     "id": 3300,
-    "track": "T1",
     "domain": "Track 1: Bicep IaC & AZD Infrastructure Provisioning",
-    "difficulty": "Hard",
-    "type": "single",
-    "scenario": "You are configuring Key Vault access policy in `infra/core/security/keyvault.bicep` (#10) for Azure AI Foundry secrets encryption.",
-    "question": "Which modern Azure best practice should replace legacy access policies in enterprise Bicep templates?",
+    "type": "multiple",
+    "scenario": "You are a Senior MLOps & GenAI coding engineer at `Tailwind Traders Multi-Agent` implementing `AZD CLI Command Flags (`azd up`, `azd down`)`. Your team needs to verify the exact code syntax, CLI flag, or configuration block required for `orchestrating multi-tier AZD environment overrides` (Implementation Task #100).",
+    "question": "[HARD Coding Task #100] Which THREE of the following represent mandatory code blocks, exact SDK parameters, or architectural requirements when configuring `AZD CLI Command Flags (`azd up`, `azd down`)` for `orchestrating multi-tier AZD environment overrides`? (Select three)",
     "options": [
-      "Set `enableRbacAuthorization: true` on Key Vault and assign Entra ID RBAC roles (e.g., Key Vault Secrets Officer).",
-      "Use Key Vault Access Policies with wildcard permissions (`secrets: [ 'all' ]`).",
-      "Store secrets directly in `azure.yaml` plaintext environment variables.",
-      "Disable Key Vault firewall and allow all networks."
+      "A) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`.",
+      "B) Authenticating via zero-trust `DefaultAzureCredential()` (`User-Assigned Managed Identity`) or OIDC workload identity federation (`id-token: write`).",
+      "C) Enabling structured diagnostic log forwarding (`AgentTelemetry`, `AppDependencies`) directly to Log Analytics for continuous KQL tracing.",
+      "D) Disabling all Private Endpoints (`publicNetworkAccess: 'Enabled'`) and exposing model inference ports directly to public `0.0.0.0/0` internet traffic.",
+      "E) Storing production OpenAI `api-key` strings directly inside client-side frontend bundle files to bypass Key Vault secret retrieval overhead."
     ],
     "correctAnswer": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Operational Correction: Modern Azure enterprise architecture mandates setting `enableRbacAuthorization: true` on Azure Key Vaults, replacing legacy access policies with granular Azure RBAC roles."
+    "explanation": "Correct Answers: A, B, and C. Explanation: When implementing `AZD CLI Command Flags (`azd up`, `azd down`)` for `orchestrating multi-tier AZD environment overrides`, enterprise coding standards mandate: (1) Writing a Python pre-deploy script invoked by `azure.yaml` that merges `infra/main.parameters.prod.json` and overrides Key Vault CMK URI secrets from GitHub Actions environment secrets before executing `azd provision`., (2) zero-trust authentication (`DefaultAzureCredential` / `OIDC`), and (3) continuous diagnostic telemetry forwarding to Log Analytics. Why others are incorrect: Options D and E introduce critical zero-day security vulnerabilities (`public exposure`, `hardcoded secrets`)."
   }
 ];
